@@ -27,6 +27,10 @@ public class Procesos extends Thread{
     Semaphore Botones;
     Semaphore pinCarga;
     Semaphore camara;
+    JLabel Area5;
+    JLabel Area6;
+    JLabel Area7;
+    JLabel Area8;
     long dia;
     
     public Procesos(String nombreP,int tipo,JLabel Area,Semaphore sem, Semaphore pantallas,long dia ){
@@ -63,13 +67,36 @@ public class Procesos extends Thread{
         this.camara = camara;
         this.dia=dia;
      }
+     public Procesos(JLabel p,JLabel b,JLabel pc,JLabel c,JLabel p1,JLabel b2,JLabel pc3,JLabel c4,int tipo,long dia){
+         this.Area = p;
+         this.Area2 = b;
+         this.Area3 = pc;
+         this.Area4 = c;
+         this.Area5 = p1;
+         this.Area6 = b2;
+         this.Area7= pc3;
+         this.Area8 = c4;
+         this.tipo = tipo;
+         this.dia = dia;
+         
+     }
 
      @Override
     public void run(){
+        if (tipo == 0) {
+        while (true) {
+        try{
+            sleep(dia/24);
+            cuenta();
+
+        }catch(InterruptedException e){
+        }
+        }
+        }
     if (tipo == 1) {
         while (true) {
         try{
-            sleep(dia);
+            sleep(dia/2);
         System.out.println(this.Treadname);
            cuenta();
 
@@ -112,6 +139,16 @@ public class Procesos extends Thread{
         }
     }
     synchronized void cuenta() throws InterruptedException{
+        if (tipo==0) {
+            Area5.setText(Integer.toString((Integer.parseInt(Area.getText())*3)+Integer.parseInt(Area5.getText())));
+            Area6.setText(Integer.toString((Integer.parseInt(Area2.getText())*4)+Integer.parseInt(Area6.getText())));
+            Area7.setText(Integer.toString((Integer.parseInt(Area3.getText())*5)+Integer.parseInt(Area7.getText())));
+            Area8.setText(Integer.toString((Integer.parseInt(Area4.getText())*5)+Integer.parseInt(Area8.getText())));
+        try {
+            sleep(10);
+        } catch (Exception e) {
+        }
+        }
         if (tipo==1) {
             sem.acquire();
             pantallas.acquire();
@@ -160,3 +197,4 @@ public class Procesos extends Thread{
     }
     
 }
+

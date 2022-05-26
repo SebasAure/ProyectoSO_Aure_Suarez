@@ -42,7 +42,6 @@ public class archivoCsv {
                         }
                         if (i==1) {
                             dia = Long.parseLong(datos[1]);
-                            System.out.println(dia);
                         }if (i==2) {
                             dias=Integer.parseInt(datos[1]);
                         }if (i==3) {
