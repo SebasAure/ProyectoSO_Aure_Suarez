@@ -106,7 +106,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
         jButton11 = new javax.swing.JButton();
         Fab2B = new javax.swing.JLabel();
         Fab2C = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
+        Fab2E = new javax.swing.JLabel();
         Fab2Pc = new javax.swing.JLabel();
         jButton12 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
@@ -124,7 +124,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
         jLabel45 = new javax.swing.JLabel();
         jButton19 = new javax.swing.JButton();
         jButton20 = new javax.swing.JButton();
-        jLabel47 = new javax.swing.JLabel();
+        Fab2TA = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
@@ -148,9 +148,10 @@ public class VentanaFabrica extends javax.swing.JFrame {
         fab2aC3 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
         Sueldoc = new javax.swing.JLabel();
-        Sueldop = new javax.swing.JLabel();
+        Sueldoe = new javax.swing.JLabel();
         Sueldob = new javax.swing.JLabel();
         Sueldopc = new javax.swing.JLabel();
+        Sueldop = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -314,8 +315,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Fab2C.setText("0");
         Panel.add(Fab2C, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, 20, -1));
 
-        jLabel35.setText("0");
-        Panel.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 410, 20, -1));
+        Fab2E.setText("0");
+        Panel.add(Fab2E, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 410, 20, -1));
 
         Fab2Pc.setText("0");
         Panel.add(Fab2Pc, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, 20, -1));
@@ -406,8 +407,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 400, 50, 30));
 
-        jLabel47.setText("0");
-        Panel.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 410, 20, -1));
+        Fab2TA.setText("0");
+        Panel.add(Fab2TA, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 410, 20, -1));
 
         jLabel48.setText("Xperia 10 IV (Producidos)");
         Panel.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 380, -1, -1));
@@ -483,14 +484,17 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Sueldoc.setText("0");
         Panel.add(Sueldoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 340, 40, 20));
 
-        Sueldop.setText("0");
-        Panel.add(Sueldop, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 250, 40, 20));
+        Sueldoe.setText("0");
+        Panel.add(Sueldoe, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 400, 40, 20));
 
         Sueldob.setText("0");
         Panel.add(Sueldob, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 280, 40, 20));
 
         Sueldopc.setText("0");
         Panel.add(Sueldopc, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 310, 40, 20));
+
+        Sueldop.setText("0");
+        Panel.add(Sueldop, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 250, 40, 20));
 
         getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 470));
 
@@ -569,7 +573,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Productores productores = new Productores();
         productores.agregarProductores(dia,Fab2PA,colaLibrePantalla,sem,almacenPantallas,Fab2BA,colaLibreBotones,sem2,almacenBotones,Fab2PcA,colaLibrePinesC,sem3,almacenPinesC,Fab2CA,colaLibreCamaras,sem4,almacenCamaras);
         empleados = archivo.leerPorDefecto2(empleados,colaLibrePantalla,ColaOcupadoPantalla,colaLibreBotones,colaOcupadoBotones,colaLibrePinesC,colaOcupadoPinesC,colaLibreCamaras,colaOcupadoCamaras,Fab2P,Fab2B,Fab2Pc,Fab2C);
-        Procesos pagos = new Procesos(Fab2P, Fab2B, Fab2C, Fab2C, Sueldop, Sueldob, Sueldopc, Sueldoc,0,dia);
+        Procesos pagos = new Procesos(Fab2P, Fab2B, Fab2Pc, Fab2C, Sueldop, Sueldob, Sueldopc, Sueldoc,0,dia);
         pagos.start();
     }//GEN-LAST:event_jButton21ActionPerformed
 
@@ -674,13 +678,16 @@ public class VentanaFabrica extends javax.swing.JFrame {
     private javax.swing.JLabel Fab2BA;
     private javax.swing.JLabel Fab2C;
     private javax.swing.JLabel Fab2CA;
+    private javax.swing.JLabel Fab2E;
     private javax.swing.JLabel Fab2P;
     private javax.swing.JLabel Fab2PA;
     private javax.swing.JLabel Fab2Pc;
     private javax.swing.JLabel Fab2PcA;
+    private javax.swing.JLabel Fab2TA;
     private javax.swing.JPanel Panel;
     private javax.swing.JLabel Sueldob;
     private javax.swing.JLabel Sueldoc;
+    private javax.swing.JLabel Sueldoe;
     private javax.swing.JLabel Sueldop;
     private javax.swing.JLabel Sueldopc;
     private javax.swing.JLabel fab2aC;
@@ -736,13 +743,11 @@ public class VentanaFabrica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
