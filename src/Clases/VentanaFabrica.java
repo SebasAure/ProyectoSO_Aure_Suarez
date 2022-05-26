@@ -13,7 +13,7 @@ import java.util.concurrent.Semaphore;
  */
 public class VentanaFabrica extends javax.swing.JFrame {
     archivoCsv archivo = new archivoCsv();
-    int dia;
+    long dia=0;
     int dias;
     int empleados = 15;
     String cadena = "";
@@ -42,7 +42,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
     public VentanaFabrica() {
         initComponents();
 //        archivo.escribirCvsPorDefecto(cadena);
-        archivo.leerPorDefecto(dia, dias, fab2aC, fab2aC1, fab2aC2, fab2aC3);
+        dia = archivo.leerPorDefecto(dia, dias, fab2aC, fab2aC1, fab2aC2, fab2aC3);
         almacenPantallas = new Semaphore(Integer.parseInt(fab2aC.getText()));
         almacenBotones = new Semaphore(Integer.parseInt(fab2aC1.getText()));
         almacenPinesC = new Semaphore(Integer.parseInt(fab2aC2.getText()));
@@ -547,7 +547,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
         Productores productores = new Productores();
-        productores.agregarProductores(Fab2PA,colaLibrePantalla,sem,almacenPantallas,Fab2BA,colaLibreBotones,sem2,almacenBotones,Fab2PcA,colaLibrePinesC,sem3,almacenPinesC,Fab2CA,colaLibreCamaras,sem4,almacenCamaras);
+        productores.agregarProductores(dia,Fab2PA,colaLibrePantalla,sem,almacenPantallas,Fab2BA,colaLibreBotones,sem2,almacenBotones,Fab2PcA,colaLibrePinesC,sem3,almacenPinesC,Fab2CA,colaLibreCamaras,sem4,almacenCamaras);
         empleados = archivo.leerPorDefecto2(empleados,colaLibrePantalla,ColaOcupadoPantalla,colaLibreBotones,colaOcupadoBotones,colaLibrePinesC,colaOcupadoPinesC,colaLibreCamaras,colaOcupadoCamaras,Fab2P,Fab2B,Fab2Pc,Fab2C);
     }//GEN-LAST:event_jButton21ActionPerformed
 

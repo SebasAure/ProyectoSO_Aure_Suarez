@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  * @author gabriel
  */
 public class archivoCsv {
-    public void leerPorDefecto(int dia,int dias,JLabel almap,JLabel almab,JLabel almapc,JLabel almac){
+    public long leerPorDefecto(long dia,int dias,JLabel almap,JLabel almab,JLabel almapc,JLabel almac){
          String aux="";   
         String texto="";
         try
@@ -41,12 +41,12 @@ public class archivoCsv {
                             datos[j]=datos[j].replaceFirst(" ","");
                         }
                         if (i==1) {
-                            dia = Integer.parseInt(datos[1]);
+                            dia = Long.parseLong(datos[1]);
+                            System.out.println(dia);
                         }if (i==2) {
                             dias=Integer.parseInt(datos[1]);
                         }if (i==3) {
                             almap.setText(datos[1]);
-                            System.out.println(Integer.parseInt(datos[1]));
                         }if (i==4) {
                             almab.setText(datos[1]);
                         }if (i==5) {
@@ -69,6 +69,7 @@ public class archivoCsv {
                  "\nNo se ha encontrado el archivo",
                        "ADVERTENCIA!!!",JOptionPane.WARNING_MESSAGE);
           } 
+        return dia;
 }
      public int leerPorDefecto2(int empleados,Cola librep,Cola ocup, Cola libreb,Cola ocub,Cola librepc,Cola ocupc,Cola librec,Cola ocuc,JLabel produP,JLabel produB,JLabel produPc,JLabel produC){
          String aux="";   

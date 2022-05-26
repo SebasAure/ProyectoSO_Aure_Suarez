@@ -27,44 +27,49 @@ public class Procesos extends Thread{
     Semaphore Botones;
     Semaphore pinCarga;
     Semaphore camara;
+    long dia;
     
-    public Procesos(String nombreP,int tipo,JLabel Area,Semaphore sem, Semaphore pantallas ){
+    public Procesos(String nombreP,int tipo,JLabel Area,Semaphore sem, Semaphore pantallas,long dia ){
         this.Treadname = nombreP;
         this.Area = Area;
         this.tipo=tipo;
         this.sem = sem;
         this.pantallas = pantallas;
+        this.dia=dia;
         
     }
-    public Procesos(String nombreB,int tipo,Semaphore sem2,Semaphore botones,JLabel Area2){
+    public Procesos(String nombreB,int tipo,Semaphore sem2,Semaphore botones,JLabel Area2,long dia){
         this.Treadname = nombreB;
         this.Area2 = Area2;
         this.tipo=tipo;
         this.sem2 = sem2;
         this.Botones = botones;
+        this.dia=dia;
         
     }
-     public Procesos(String nombrePc,int tipo,Semaphore sem3,JLabel Area3,Semaphore pinCarga){
+     public Procesos(String nombrePc,int tipo,Semaphore sem3,JLabel Area3,Semaphore pinCarga,long dia){
         this.Treadname = nombrePc;
         this.Area3 = Area3;
         this.tipo=tipo;
         this.sem3 = sem3;
         this.pinCarga = pinCarga;
+        this.dia=dia;
      }
-     public Procesos(String nombreC,JLabel Area4,int tipo,Semaphore sem4,Semaphore camara){
+     public Procesos(String nombreC,JLabel Area4,int tipo,Semaphore sem4,Semaphore camara,long dia){
         this.Treadname = nombreC;
         this.Area4 = Area4;
         this.tipo=tipo;
         this.sem4 = sem4;
         this.camara = camara;
+        this.dia=dia;
      }
-     
+
      @Override
     public void run(){
     if (tipo == 1) {
         while (true) {
         try{
-            sleep(500);
+            sleep(dia);
         System.out.println(this.Treadname);
            cuenta();
 
@@ -75,7 +80,7 @@ public class Procesos extends Thread{
         if (tipo == 2) {
         while (true) {
         try{
-            sleep(500);
+            sleep(dia/2);
         System.out.println(this.Treadname);
            cuenta();
 
@@ -86,7 +91,7 @@ public class Procesos extends Thread{
         if (tipo == 3) {
         while (true) {
         try{
-            sleep(3000);
+            sleep(dia*3);
         System.out.println(this.Treadname);
            cuenta();
 
@@ -97,7 +102,7 @@ public class Procesos extends Thread{
         if (tipo == 4) {
         while (true) {
         try{
-            sleep(2000);
+            sleep(dia*2);
         System.out.println(this.Treadname);
            cuenta();
 
