@@ -27,14 +27,24 @@ public class VentanaFabrica extends javax.swing.JFrame {
     Cola colaOcupadoCamaras = new Cola();
     Cola colaEnsambladoresLibres = new Cola();
     Cola colaEnsambladoresOcupados = new Cola();
+    Cola colaLibreEnsambladores = new Cola();
+    Cola colaOcupadoEnsamladores = new Cola();
     Semaphore sem = new Semaphore(1);
     Semaphore sem2 = new Semaphore(1);
     Semaphore sem3 = new Semaphore(1);
     Semaphore sem4 = new Semaphore(1);
+    Semaphore mutex = new Semaphore(1);
+    Semaphore mutex2 = new Semaphore(1);
+    Semaphore mutex3 = new Semaphore(1);
+    Semaphore mutex4 = new Semaphore(1);
     Semaphore almacenPantallas;
     Semaphore almacenBotones;
     Semaphore almacenPinesC;
     Semaphore almacenCamaras;
+    Semaphore p = new Semaphore(1);
+    Semaphore B= new Semaphore(1);
+    Semaphore Pc= new Semaphore(1);
+    Semaphore C= new Semaphore(1);
 
     /**
      * Creates new form VentanaFabrica
@@ -316,7 +326,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.add(Fab2C, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, 20, -1));
 
         Fab2E.setText("0");
-        Panel.add(Fab2E, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 410, 20, -1));
+        Panel.add(Fab2E, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 400, 40, 20));
 
         Fab2Pc.setText("0");
         Panel.add(Fab2Pc, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, 20, -1));
@@ -394,9 +404,14 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.add(Fab2CA, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 340, 30, 20));
 
         jLabel45.setText("Ensambladores");
-        Panel.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 410, -1, -1));
+        Panel.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 400, 70, 20));
 
         jButton19.setText("+");
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton19ActionPerformed(evt);
+            }
+        });
         Panel.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 400, 50, 30));
 
         jButton20.setText("-");
@@ -526,6 +541,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Procesos siguiente = ColaOcupadoPantalla.getPfirst().getproceso();
         ColaOcupadoPantalla.Desencolar();
         colaLibrePantalla.Encolar(siguiente);
+        siguiente.sem.release();
         siguiente.suspend();
         Fab2P.setText(Integer.toString(Integer.parseInt(Fab2P.getText())-1));
         empleados++;
@@ -537,6 +553,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Procesos siguiente = colaOcupadoBotones.getPfirst().getproceso();
         colaOcupadoBotones.Desencolar();
         colaLibreBotones.Encolar(siguiente);
+        siguiente.sem2.release();
         siguiente.suspend();
         Fab2B.setText(Integer.toString(Integer.parseInt(Fab2B.getText())-1));
         empleados++;
@@ -548,6 +565,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Procesos siguiente = colaOcupadoPinesC.getPfirst().getproceso();
         colaOcupadoPinesC.Desencolar();
         colaLibrePinesC.Encolar(siguiente);
+        siguiente.sem3.release();
         siguiente.suspend();
         Fab2Pc.setText(Integer.toString(Integer.parseInt(Fab2Pc.getText())-1));
         empleados++;
@@ -559,6 +577,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Procesos siguiente = colaOcupadoCamaras.getPfirst().getproceso();
         colaOcupadoCamaras.Desencolar();
         colaLibreCamaras.Encolar(siguiente);
+        siguiente.sem4.release();
         siguiente.suspend();
         Fab2C.setText(Integer.toString(Integer.parseInt(Fab2C.getText())-1));
         empleados++;
@@ -571,9 +590,9 @@ public class VentanaFabrica extends javax.swing.JFrame {
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
         Productores productores = new Productores();
-        productores.agregarProductores(dia,Fab2PA,colaLibrePantalla,sem,almacenPantallas,Fab2BA,colaLibreBotones,sem2,almacenBotones,Fab2PcA,colaLibrePinesC,sem3,almacenPinesC,Fab2CA,colaLibreCamaras,sem4,almacenCamaras);
+        productores.agregarProductores(dia,Fab2PA,colaLibrePantalla,sem,almacenPantallas,Fab2BA,colaLibreBotones,sem2,almacenBotones,Fab2PcA,colaLibrePinesC,sem3,almacenPinesC,Fab2CA,colaLibreCamaras,sem4,almacenCamaras,colaEnsambladoresLibres,Fab2E,Fab2TA,mutex,mutex2,mutex3,mutex4,p,B,Pc,C);
         empleados = archivo.leerPorDefecto2(empleados,colaLibrePantalla,ColaOcupadoPantalla,colaLibreBotones,colaOcupadoBotones,colaLibrePinesC,colaOcupadoPinesC,colaLibreCamaras,colaOcupadoCamaras,Fab2P,Fab2B,Fab2Pc,Fab2C);
-        Procesos pagos = new Procesos(Fab2P, Fab2B, Fab2Pc, Fab2C, Sueldop, Sueldob, Sueldopc, Sueldoc,0,dia);
+        Procesos pagos = new Procesos(Fab2P, Fab2B, Fab2Pc, Fab2C, Sueldop, Sueldob, Sueldopc, Sueldoc,Fab2E,Sueldoe,0,dia);
         pagos.start();
     }//GEN-LAST:event_jButton21ActionPerformed
 
@@ -637,6 +656,21 @@ public class VentanaFabrica extends javax.swing.JFrame {
         empleados--;
         }
     }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        if (empleados!=0) {
+        Procesos siguiente = colaEnsambladoresLibres.getPfirst().getproceso();
+        colaEnsambladoresLibres.Desencolar();
+        colaEnsambladoresOcupados.Encolar(siguiente);
+         if (siguiente.getState() != Thread.State.NEW) {
+                siguiente.resume();
+            }else{
+        siguiente.start();
+         }
+        Fab2E.setText(Integer.toString(Integer.parseInt(Fab2E.getText())+1));
+        empleados--;
+        }
+    }//GEN-LAST:event_jButton19ActionPerformed
 
     /**
      * @param args the command line arguments
