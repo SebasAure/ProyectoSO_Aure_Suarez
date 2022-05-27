@@ -45,6 +45,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
     Semaphore B= new Semaphore(1);
     Semaphore Pc= new Semaphore(1);
     Semaphore C= new Semaphore(1);
+    Semaphore modCountdown = new Semaphore(1);
 
     /**
      * Creates new form VentanaFabrica
@@ -144,9 +145,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
         jLabel52 = new javax.swing.JLabel();
         jLabel53 = new javax.swing.JLabel();
         jLabel55 = new javax.swing.JLabel();
-        jLabel56 = new javax.swing.JLabel();
+        accion = new javax.swing.JLabel();
         jLabel57 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jButton21 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         fab2aC = new javax.swing.JLabel();
@@ -162,6 +162,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Sueldob = new javax.swing.JLabel();
         Sueldopc = new javax.swing.JLabel();
         Sueldop = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        Countdown = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -452,14 +454,11 @@ public class VentanaFabrica extends javax.swing.JFrame {
         jLabel55.setText("null");
         Panel.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 160, -1, -1));
 
-        jLabel56.setText("null");
-        Panel.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, -1, -1));
+        accion.setText("null");
+        Panel.add(accion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, -1, -1));
 
         jLabel57.setText("HORA");
         Panel.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, -1, -1));
-
-        jLabel1.setText("jLabel1");
-        Panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, -20, 210, 180));
 
         jButton21.setText("Iniciar Fabricas");
         jButton21.addActionListener(new java.awt.event.ActionListener() {
@@ -510,6 +509,12 @@ public class VentanaFabrica extends javax.swing.JFrame {
 
         Sueldop.setText("0");
         Panel.add(Sueldop, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 250, 40, 20));
+
+        jLabel35.setText("Dias:");
+        Panel.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 90, -1, -1));
+
+        Countdown.setText("0");
+        Panel.add(Countdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 90, 50, -1));
 
         getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 470));
 
@@ -589,11 +594,16 @@ public class VentanaFabrica extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+        Countdown.setText("30");
         Productores productores = new Productores();
         productores.agregarProductores(dia,Fab2PA,colaLibrePantalla,sem,almacenPantallas,Fab2BA,colaLibreBotones,sem2,almacenBotones,Fab2PcA,colaLibrePinesC,sem3,almacenPinesC,Fab2CA,colaLibreCamaras,sem4,almacenCamaras,colaEnsambladoresLibres,Fab2E,Fab2TA,mutex,mutex2,mutex3,mutex4,p,B,Pc,C);
         empleados = archivo.leerPorDefecto2(empleados,colaLibrePantalla,ColaOcupadoPantalla,colaLibreBotones,colaOcupadoBotones,colaLibrePinesC,colaOcupadoPinesC,colaLibreCamaras,colaOcupadoCamaras,Fab2P,Fab2B,Fab2Pc,Fab2C);
         Procesos pagos = new Procesos(Fab2P, Fab2B, Fab2Pc, Fab2C, Sueldop, Sueldob, Sueldopc, Sueldoc,Fab2E,Sueldoe,0,dia);
         pagos.start();
+        ProcesosJG jefe = new ProcesosJG(1,dia,modCountdown, Countdown, accion);
+        jefe.start();
+        ProcesosJG dias = new ProcesosJG(dia, Countdown, 2);
+        dias.start();
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
@@ -708,6 +718,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Countdown;
     private javax.swing.JLabel Fab2B;
     private javax.swing.JLabel Fab2BA;
     private javax.swing.JLabel Fab2C;
@@ -724,6 +735,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
     private javax.swing.JLabel Sueldoe;
     private javax.swing.JLabel Sueldop;
     private javax.swing.JLabel Sueldopc;
+    private javax.swing.JLabel accion;
     private javax.swing.JLabel fab2aC;
     private javax.swing.JLabel fab2aC1;
     private javax.swing.JLabel fab2aC2;
@@ -749,7 +761,6 @@ public class VentanaFabrica extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -777,6 +788,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel39;
@@ -791,7 +803,6 @@ public class VentanaFabrica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
-    private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
