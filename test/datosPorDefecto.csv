@@ -1,0 +1,12 @@
+Dato,Valor
+Durancion-Dia(mili-segundos),2400
+Dias-entre-despachos,30
+almacen-pantalla,40,999
+almacen-botones,45,999
+almacen-pin-carga,15,999
+almacen-camara,20,999
+productores-pantalla,1
+productores-botones,2
+prodcutores-pin-carga,4
+productores-camara,6
+ensambladores,2
