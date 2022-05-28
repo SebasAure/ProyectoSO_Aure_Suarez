@@ -620,8 +620,6 @@ public class VentanaFabrica extends javax.swing.JFrame {
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
         Countdown.setText("30");
-        Productores productores = new Productores();
-        productores.agregarProductores(dia,Fab2PA,colaLibrePantalla,sem,almacenPantallas,Fab2BA,colaLibreBotones,sem2,almacenBotones,Fab2PcA,colaLibrePinesC,sem3,almacenPinesC,Fab2CA,colaLibreCamaras,sem4,almacenCamaras,colaEnsambladoresLibres,Fab2E,Fab2TA,mutex,mutex2,mutex3,mutex4,p,B,Pc,C);
         empleados = archivo.leerPorDefecto2(dia,empleados,colaLibrePantalla,ColaOcupadoPantalla,colaLibreBotones,colaOcupadoBotones,colaLibrePinesC,colaOcupadoPinesC,colaLibreCamaras,colaOcupadoCamaras,Fab2P,Fab2B,Fab2Pc,Fab2C,colaEnsambladoresLibres,colaEnsambladoresOcupados,Fab2E,Fab2PA,Fab2BA,Fab2PcA,Fab2CA,Fab2TA,sem,sem2,sem3,sem4,almacenPantallas,almacenBotones,almacenPinesC,almacenCamaras,p,B,Pc,C,mutex4,mutex3,mutex2,mutex);
         Procesos pagos = new Procesos(Fab2P, Fab2B, Fab2Pc, Fab2C, Sueldop, Sueldob, Sueldopc, Sueldoc,Fab2E,Sueldoe,0,dia);
         pagos.start();
