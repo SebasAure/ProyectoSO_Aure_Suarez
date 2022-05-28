@@ -6,6 +6,7 @@
 package Clases;
 
 import java.util.concurrent.Semaphore;
+import javax.swing.JLabel;
 
 /**
  *
@@ -27,8 +28,6 @@ public class VentanaFabrica extends javax.swing.JFrame {
     Cola colaOcupadoCamaras = new Cola();
     Cola colaEnsambladoresLibres = new Cola();
     Cola colaEnsambladoresOcupados = new Cola();
-    Cola colaLibreEnsambladores = new Cola();
-    Cola colaOcupadoEnsamladores = new Cola();
     Semaphore sem = new Semaphore(1);
     Semaphore sem2 = new Semaphore(1);
     Semaphore sem3 = new Semaphore(1);
@@ -46,6 +45,45 @@ public class VentanaFabrica extends javax.swing.JFrame {
     Semaphore Pc= new Semaphore(1);
     Semaphore C= new Semaphore(1);
     Semaphore modCountdown = new Semaphore(1);
+    public void agregar(int tipo,Cola libre,Cola ocupada,JLabel trabajador){
+        if (empleados!=0) {
+            if (tipo==1) {
+                Procesos hiloP = new Procesos(tipo, Fab2PA, sem, almacenPantallas, dia, p);
+                ocupada.Encolar(hiloP);
+                hiloP.start();
+            }if (tipo==2) {
+                Procesos hiloB = new Procesos(tipo, sem2, almacenBotones, Fab2BA, dia, B);
+                ocupada.Encolar(hiloB);
+                hiloB.start();
+            }if (tipo==3) {
+                Procesos hiloPc = new Procesos(tipo, sem3, Fab2PcA, almacenPinesC, dia, Pc);
+                ocupada.Encolar(hiloPc);
+                hiloPc.start();
+            }if (tipo==4) {
+                Procesos hiloC = new Procesos(Fab2CA, tipo, sem4, almacenCamaras, dia, C);
+                ocupada.Encolar(hiloC);
+                hiloC.start();
+            }if (tipo==5) {
+                Procesos hiloE = new Procesos(mutex4, mutex3, mutex2, mutex, dia, tipo, sem, sem2, sem3, sem4, Fab2PA, Fab2BA, Fab2PcA, Fab2CA, Fab2E, Fab2TA, almacenPantallas, almacenBotones, almacenPinesC, almacenCamaras);
+                ocupada.Encolar(hiloE);
+                hiloE.start();
+            }
+        trabajador.setText(Integer.toString(Integer.parseInt(trabajador.getText())+1));
+        empleados--;
+        }
+    }
+    public void quitar(Cola ocupado,Cola libre,JLabel trabajadores,Semaphore mutexq,Semaphore semq){
+        if ( !ocupado.esta_vacia()) {
+        Procesos siguiente = ocupado.getPfirst().getproceso();
+        ocupado.Desencolar();
+        libre.Encolar(siguiente);
+        mutexq.release();
+        semq.release();
+        siguiente.suspend();
+        trabajadores.setText(Integer.toString(Integer.parseInt(trabajadores.getText())-1));
+        empleados++;
+        }
+    }
 
     /**
      * Creates new form VentanaFabrica
@@ -551,62 +589,40 @@ public class VentanaFabrica extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        if ( !ColaOcupadoPantalla.esta_vacia()) {
-        Procesos siguiente = ColaOcupadoPantalla.getPfirst().getproceso();
-        ColaOcupadoPantalla.Desencolar();
-        colaLibrePantalla.Encolar(siguiente);
-        siguiente.sem.release();
-        siguiente.suspend();
-        Fab2P.setText(Integer.toString(Integer.parseInt(Fab2P.getText())-1));
-        empleados++;
-        }
+        quitar(ColaOcupadoPantalla, colaLibrePantalla, Fab2P, sem, p);
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        if ( !colaOcupadoBotones.esta_vacia()) {
-        Procesos siguiente = colaOcupadoBotones.getPfirst().getproceso();
-        colaOcupadoBotones.Desencolar();
-        colaLibreBotones.Encolar(siguiente);
-        siguiente.sem2.release();
-        siguiente.suspend();
-        Fab2B.setText(Integer.toString(Integer.parseInt(Fab2B.getText())-1));
-        empleados++;
-        }
+        quitar(colaOcupadoBotones, colaOcupadoBotones, Fab2B, B, sem2);
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        if ( !colaOcupadoPinesC.esta_vacia()) {
-        Procesos siguiente = colaOcupadoPinesC.getPfirst().getproceso();
-        colaOcupadoPinesC.Desencolar();
-        colaLibrePinesC.Encolar(siguiente);
-        siguiente.sem3.release();
-        siguiente.suspend();
-        Fab2Pc.setText(Integer.toString(Integer.parseInt(Fab2Pc.getText())-1));
-        empleados++;
-        }
+        quitar(colaOcupadoPinesC, colaLibrePinesC, Fab2Pc, Pc, sem3);
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        if ( !colaOcupadoCamaras.esta_vacia()) {
-        Procesos siguiente = colaOcupadoCamaras.getPfirst().getproceso();
-        colaOcupadoCamaras.Desencolar();
-        colaLibreCamaras.Encolar(siguiente);
-        siguiente.sem4.release();
-        siguiente.suspend();
-        Fab2C.setText(Integer.toString(Integer.parseInt(Fab2C.getText())-1));
-        empleados++;
-        }
+        quitar(colaOcupadoCamaras, colaLibreCamaras, Fab2C, C, sem4);
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        // TODO add your handling code here:
+         if ( !colaEnsambladoresOcupados.esta_vacia()) {
+        Procesos siguiente = colaEnsambladoresOcupados.getPfirst().getproceso();
+        colaEnsambladoresOcupados.Desencolar();
+        siguiente.suspend();
+        siguiente.sem.release();
+        siguiente.sem2.release();
+        siguiente.sem3.release();;
+        siguiente.sem4.release();
+        Fab2E.setText(Integer.toString(Integer.parseInt(Fab2E.getText())-1));
+        empleados++;
+        }
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
         Countdown.setText("30");
         Productores productores = new Productores();
         productores.agregarProductores(dia,Fab2PA,colaLibrePantalla,sem,almacenPantallas,Fab2BA,colaLibreBotones,sem2,almacenBotones,Fab2PcA,colaLibrePinesC,sem3,almacenPinesC,Fab2CA,colaLibreCamaras,sem4,almacenCamaras,colaEnsambladoresLibres,Fab2E,Fab2TA,mutex,mutex2,mutex3,mutex4,p,B,Pc,C);
-        empleados = archivo.leerPorDefecto2(empleados,colaLibrePantalla,ColaOcupadoPantalla,colaLibreBotones,colaOcupadoBotones,colaLibrePinesC,colaOcupadoPinesC,colaLibreCamaras,colaOcupadoCamaras,Fab2P,Fab2B,Fab2Pc,Fab2C);
+        empleados = archivo.leerPorDefecto2(dia,empleados,colaLibrePantalla,ColaOcupadoPantalla,colaLibreBotones,colaOcupadoBotones,colaLibrePinesC,colaOcupadoPinesC,colaLibreCamaras,colaOcupadoCamaras,Fab2P,Fab2B,Fab2Pc,Fab2C,colaEnsambladoresLibres,colaEnsambladoresOcupados,Fab2E,Fab2PA,Fab2BA,Fab2PcA,Fab2CA,Fab2TA,sem,sem2,sem3,sem4,almacenPantallas,almacenBotones,almacenPinesC,almacenCamaras,p,B,Pc,C,mutex4,mutex3,mutex2,mutex);
         Procesos pagos = new Procesos(Fab2P, Fab2B, Fab2Pc, Fab2C, Sueldop, Sueldob, Sueldopc, Sueldoc,Fab2E,Sueldoe,0,dia);
         pagos.start();
         ProcesosJG jefe = new ProcesosJG(1,dia,modCountdown, Countdown, accion);
@@ -618,79 +634,23 @@ public class VentanaFabrica extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        if (empleados!=0) {
-        Procesos siguiente = colaLibrePantalla.getPfirst().getproceso();
-        colaLibrePantalla.Desencolar();
-        ColaOcupadoPantalla.Encolar(siguiente);
-         if (siguiente.getState() != Thread.State.NEW) {
-                siguiente.resume();
-            }else{
-        siguiente.start();
-         }
-        Fab2P.setText(Integer.toString(Integer.parseInt(Fab2P.getText())+1));
-        empleados--;
-        }
+        agregar(1,colaLibrePantalla, ColaOcupadoPantalla, Fab2P);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-         if (empleados>0) {
-            Procesos siguiente = colaLibreBotones.pfirst.getproceso();
-            colaLibreBotones.Desencolar();
-            colaOcupadoBotones.Encolar(siguiente);
-            if (siguiente.getState() != Thread.State.NEW) {
-                siguiente.resume();
-                }else{
-            siguiente.start();
-             }
-        Fab2B.setText(Integer.toString(Integer.parseInt(Fab2B.getText())+1));
-        empleados--;
-            
-        }
+         agregar(2,colaLibreBotones, colaOcupadoBotones, Fab2B);
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-         if (empleados!=0) {
-        Procesos siguiente = colaLibrePinesC.getPfirst().getproceso();
-        colaLibrePinesC.Desencolar();
-        colaOcupadoPinesC.Encolar(siguiente);
-         if (siguiente.getState() != Thread.State.NEW) {
-                siguiente.resume();
-            }else{
-        siguiente.start();
-         }
-        Fab2Pc.setText(Integer.toString(Integer.parseInt(Fab2Pc.getText())+1));
-        empleados--;
-        }
+        agregar(3,colaLibrePinesC, colaOcupadoPinesC, Fab2Pc);
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        if (empleados!=0) {
-        Procesos siguiente = colaLibreCamaras.getPfirst().getproceso();
-        colaLibreCamaras.Desencolar();
-        colaOcupadoCamaras.Encolar(siguiente);
-         if (siguiente.getState() != Thread.State.NEW) {
-                siguiente.resume();
-            }else{
-        siguiente.start();
-         }
-        Fab2C.setText(Integer.toString(Integer.parseInt(Fab2C.getText())+1));
-        empleados--;
-        }
+        agregar(4,colaLibreCamaras, colaOcupadoCamaras, Fab2C);
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        if (empleados!=0) {
-        Procesos siguiente = colaEnsambladoresLibres.getPfirst().getproceso();
-        colaEnsambladoresLibres.Desencolar();
-        colaEnsambladoresOcupados.Encolar(siguiente);
-         if (siguiente.getState() != Thread.State.NEW) {
-                siguiente.resume();
-            }else{
-        siguiente.start();
-         }
-        Fab2E.setText(Integer.toString(Integer.parseInt(Fab2E.getText())+1));
-        empleados--;
-        }
+        agregar(5,colaEnsambladoresLibres, colaEnsambladoresOcupados, Fab2E);
     }//GEN-LAST:event_jButton19ActionPerformed
 
     /**

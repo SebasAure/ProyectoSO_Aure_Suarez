@@ -47,8 +47,7 @@ public class Procesos extends Thread{
     Semaphore colitaE3;
     Semaphore colitaE4;
     
-    public Procesos(String nombreP,int tipo,JLabel Area,Semaphore sem, Semaphore pantallas,long dia,Semaphore p ){
-        this.Treadname = nombreP;
+    public Procesos(int tipo,JLabel Area,Semaphore sem, Semaphore pantallas,long dia,Semaphore p ){
         this.Area = Area;
         this.tipo=tipo;
         this.sem = sem;
@@ -57,8 +56,7 @@ public class Procesos extends Thread{
         this.p=p;
         
     }
-    public Procesos(String nombreB,int tipo,Semaphore sem2,Semaphore botones,JLabel Area2,long dia,Semaphore B){
-        this.Treadname = nombreB;
+    public Procesos(int tipo,Semaphore sem2,Semaphore botones,JLabel Area2,long dia,Semaphore B){
         this.Area2 = Area2;
         this.tipo=tipo;
         this.sem2 = sem2;
@@ -67,8 +65,7 @@ public class Procesos extends Thread{
         this.B=B;
         
     }
-     public Procesos(String nombrePc,int tipo,Semaphore sem3,JLabel Area3,Semaphore pinCarga,long dia,Semaphore Pc){
-        this.Treadname = nombrePc;
+     public Procesos(int tipo,Semaphore sem3,JLabel Area3,Semaphore pinCarga,long dia,Semaphore Pc){
         this.Area3 = Area3;
         this.tipo=tipo;
         this.sem3 = sem3;
@@ -76,8 +73,7 @@ public class Procesos extends Thread{
         this.dia=dia;
         this.Pc=Pc;
      }
-     public Procesos(String nombreC,JLabel Area4,int tipo,Semaphore sem4,Semaphore camara,long dia,Semaphore C){
-        this.Treadname = nombreC;
+     public Procesos(JLabel Area4,int tipo,Semaphore sem4,Semaphore camara,long dia,Semaphore C){
         this.Area4 = Area4;
         this.tipo=tipo;
         this.sem4 = sem4;
@@ -127,7 +123,7 @@ public class Procesos extends Thread{
         if (tipo == 0) {
         while (true) {
         try{
-            sleep(dia/24);
+            sleep(dia);
             cuenta();
 
         }catch(InterruptedException e){
@@ -140,7 +136,6 @@ public class Procesos extends Thread{
             if (procesado != true) {
             sleep(dia/2);
             procesado = true;
-            System.out.println(this.Treadname);
            cuenta();
             }else{
                 cuenta();
@@ -156,7 +151,6 @@ public class Procesos extends Thread{
             if (procesado != true) {
             sleep(dia/2);
             procesado = true;
-            System.out.println(this.Treadname);
            cuenta();
             }else{
                 cuenta();
@@ -172,7 +166,6 @@ public class Procesos extends Thread{
             if (procesado!=true) {
             sleep(dia*3);
             procesado=true;
-            System.out.println(this.Treadname);
            cuenta();
             }else{
                 cuenta();
@@ -188,7 +181,6 @@ public class Procesos extends Thread{
             if (procesado!=true) {
             sleep(dia*2);
             procesado=true;
-        System.out.println(this.Treadname);
            cuenta();
             }else{
                 cuenta();
@@ -204,7 +196,6 @@ public class Procesos extends Thread{
             if (procesado!=true) {
             sleep(dia*2);
             procesado = true;
-            System.out.println("A");
            cuenta();
             }else{
                 cuenta();
@@ -229,6 +220,7 @@ public class Procesos extends Thread{
         }
         if (tipo==1) {
             p.acquire();
+            System.out.println(pantallas.availablePermits());
              if (pantallas.availablePermits() !=0) { 
             sem.acquire();
             pantallas.acquire();
@@ -306,22 +298,22 @@ public class Procesos extends Thread{
         if (tipo==5) {
             try {
                 colitaE.acquire();
-                while (pantallas.availablePermits() > 38) {                     
+                System.out.println(pantallas.availablePermits());
+                while (pantallas.availablePermits() > 39) {                     
                 }
+                System.out.println("a");
                 sem.acquire();
-                pantallas.release(2);
-                Area.setText(Integer.toString(Integer.parseInt(Area.getText())-2));
-                sleep(10);
+                pantallas.release(1);
+                Area.setText(Integer.toString(Integer.parseInt(Area.getText())-1));
                 sem.release();
                 colitaE.release();
                 System.out.println(this.Treadname+"agarro pantallas");
                 colitaE2.acquire();
-                while (Botones.availablePermits()>42) {                        
+                while (Botones.availablePermits()>41) {                        
                 }
                 sem2.acquire();
-                Botones.release(3);
-                Area2.setText(Integer.toString(Integer.parseInt(Area2.getText())-3));
-                sleep(10);
+                Botones.release(4);
+                Area2.setText(Integer.toString(Integer.parseInt(Area2.getText())-4));
                 sem2.release();
                 colitaE2.release();
                 System.out.println(this.Treadname+"agarro botones");
@@ -331,17 +323,15 @@ public class Procesos extends Thread{
                 sem3.acquire();
                 pinCarga.release();
                 Area3.setText(Integer.toString(Integer.parseInt(Area3.getText())-1));
-                sleep(10);
                 sem3.release();
                 colitaE3.release();
                 System.out.println(this.Treadname+"agarro pin");
                 colitaE4.acquire();
-                while (camara.availablePermits()>19) {                        
+                while (camara.availablePermits()>17) {                        
                 }
                 sem4.acquire();
-                camara.release();
-                Area4.setText(Integer.toString(Integer.parseInt(Area4.getText())-1));
-                sleep(10);
+                camara.release(3);
+                Area4.setText(Integer.toString(Integer.parseInt(Area4.getText())-3));
                 sem4.release();
                 colitaE4.release();
                 System.out.println(this.Treadname+"agarro camara");
