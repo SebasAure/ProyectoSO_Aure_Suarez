@@ -27,6 +27,8 @@ public class ProcesosJG extends Thread{
     int actual;
     int tipo;
     JLabel tlf;
+    JLabel accjefe;
+    JLabel $jefe;
     
     public ProcesosJG(int tipo,long dia,Semaphore mod,JLabel countdown,JLabel accion){
         this.modCountdown = mod;
@@ -38,7 +40,7 @@ public class ProcesosJG extends Thread{
         this.tipo=tipo;
         
     }
-    public ProcesosJG(long dia,int tipo,Semaphore mod,JLabel accion,JLabel countdown,JLabel tlf){
+    public ProcesosJG(long dia,int tipo,Semaphore mod,JLabel accion,JLabel countdown,JLabel tlf,JLabel accionjefe,JLabel saldojefe){
         this.modCountdown = mod;
         this.countdown = countdown;
         this.accion=accion;
@@ -47,6 +49,8 @@ public class ProcesosJG extends Thread{
         this.actual=Integer.parseInt(countdown.getText())+1;
         this.tipo=tipo;
         this.tlf=tlf;
+        this.accjefe = accionjefe;
+        this.$jefe = saldojefe;
         
     }
     public ProcesosJG(long dia,JLabel count,int tipo){
@@ -58,12 +62,18 @@ public class ProcesosJG extends Thread{
          if (tipo==1) {
         try {
             while (true) {   
+//                System.out.println(modCountdown.tryAcquire());
+
                 if (Integer.parseInt(countdown.getText())!=actual) {       
                 modCountdown.acquire();
                 accion.setText(modC);
                 sleep(dia/4);
-                actual--;
                 modCountdown.release();
+                    if (Integer.parseInt(countdown.getText())==0) {
+                        this.suspend();
+                    }
+//                System.out.println(modCountdown.tryAcquire());
+                actual--;
                 }
                 accion.setText(CR);
                 sleep(dia/72);
@@ -76,7 +86,7 @@ public class ProcesosJG extends Thread{
         }
      }
          if (tipo==2) {
-             while (true) {                 
+             while (Integer.parseInt(countdown.getText())!=0) {                 
                  try {
                      sleep(dia);
                      countdown.setText((Integer.toString((Integer.parseInt(countdown.getText()))-1)));
@@ -89,21 +99,31 @@ public class ProcesosJG extends Thread{
          }
          if (tipo==3) {
              while (true) {                 
-//                    if (Integer.parseInt(countdown.getText())!=actual) { 
-//                        if (modCountdown.tryAcquire()==false) {
-//                            accion.setText("Esperando para leer el cartel");
-//                        }
-//                        try {
-//                            modCountdown.acquire();
-//                            if (Integer.parseInt(countdown.getText())==0) {
-//                                tlf.setText("0");
-//                                modCountdown.release();
-//                            }    
-//                            modCountdown.release();
-//                        } catch (InterruptedException ex) {
-//                            Logger.getLogger(ProcesosJG.class.getName()).log(Level.SEVERE, null, ex);
-//                        }
-//                    }
+                 try {
+                     //                    if (Integer.parseInt(countdown.getText())!=actual) {
+                     sleep(10);
+                 } catch (InterruptedException ex) {
+                     Logger.getLogger(ProcesosJG.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+                        if (modCountdown.availablePermits()==0) {
+                            while (modCountdown.availablePermits()==0) {   
+                                accion.setText("Esperando para leer el cartel");
+                            }
+                        }
+                        try {
+                            modCountdown.acquire();
+                            if (Integer.parseInt(countdown.getText())==0) {
+                                sleep(dia);
+                                tlf.setText("0");
+                                System.out.println("dia despachoo");
+                                this.suspend();
+                                modCountdown.release();
+                            }    
+                            modCountdown.release();
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(ProcesosJG.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    
                      try {
                         accion.setText("Dando vueltas por la fabrica");
                         long max=dia/16;
@@ -111,7 +131,10 @@ public class ProcesosJG extends Thread{
                         int tiempo = (int)(Math.random()*(max-min+1)+min);
                         sleep(tiempo);
                         accion.setText("Revisando al jefe");
-                         sleep(100);
+                         if (accjefe.getText()==CR) {
+                             $jefe.setText(Integer.toString(Integer.parseInt($jefe.getText())-2));
+                         }
+                         sleep(dia/288);
                      } catch (InterruptedException ex) {
                          Logger.getLogger(ProcesosJG.class.getName()).log(Level.SEVERE, null, ex);
                      }

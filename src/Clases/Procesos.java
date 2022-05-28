@@ -46,42 +46,48 @@ public class Procesos extends Thread{
     Semaphore colitaE2;
     Semaphore colitaE3;
     Semaphore colitaE4;
+    JLabel area11;
+    JLabel area12;
+    JLabel area13;
     
-    public Procesos(int tipo,JLabel Area,Semaphore sem, Semaphore pantallas,long dia,Semaphore p ){
+    public Procesos(int tipo,JLabel Area,Semaphore sem, Semaphore pantallas,long dia,Semaphore p,JLabel tiempo ){
         this.Area = Area;
         this.tipo=tipo;
         this.sem = sem;
         this.pantallas = pantallas;
         this.dia=dia;
         this.p=p;
+        this.area13=tiempo;
         
     }
-    public Procesos(int tipo,Semaphore sem2,Semaphore botones,JLabel Area2,long dia,Semaphore B){
+    public Procesos(int tipo,Semaphore sem2,Semaphore botones,JLabel Area2,long dia,Semaphore B,JLabel tiempo ){
         this.Area2 = Area2;
         this.tipo=tipo;
         this.sem2 = sem2;
         this.Botones = botones;
         this.dia=dia;
         this.B=B;
-        
+        this.area13=tiempo;
     }
-     public Procesos(int tipo,Semaphore sem3,JLabel Area3,Semaphore pinCarga,long dia,Semaphore Pc){
+     public Procesos(int tipo,Semaphore sem3,JLabel Area3,Semaphore pinCarga,long dia,Semaphore Pc,JLabel tiempo ){
         this.Area3 = Area3;
         this.tipo=tipo;
         this.sem3 = sem3;
         this.pinCarga = pinCarga;
         this.dia=dia;
         this.Pc=Pc;
+        this.area13=tiempo;
      }
-     public Procesos(JLabel Area4,int tipo,Semaphore sem4,Semaphore camara,long dia,Semaphore C){
+     public Procesos(JLabel Area4,int tipo,Semaphore sem4,Semaphore camara,long dia,Semaphore C,JLabel tiempo ){
         this.Area4 = Area4;
         this.tipo=tipo;
         this.sem4 = sem4;
         this.camara = camara;
         this.dia=dia;
         this.C=C;
+        this.area13=tiempo;
      }
-     public Procesos(JLabel p,JLabel b,JLabel pc,JLabel c,JLabel p1,JLabel b2,JLabel pc3,JLabel c4,JLabel E5,JLabel t6,int tipo,long dia){
+     public Procesos(JLabel p,JLabel b,JLabel pc,JLabel c,JLabel p1,JLabel b2,JLabel pc3,JLabel c4,JLabel E5,JLabel t6,int tipo,long dia,JLabel J7,JLabel G8,JLabel tiempo ){
          this.Area = p;
          this.Area2 = b;
          this.Area3 = pc;
@@ -94,8 +100,11 @@ public class Procesos extends Thread{
          this.Area10 = t6;
          this.tipo = tipo;
          this.dia = dia;
+         this.area11 = J7;
+         this.area12=G8;
+         this.area13=tiempo;
      }
-     public Procesos(Semaphore mutex4,Semaphore mutex3,Semaphore mutex2,Semaphore mutex,long dia,int tipo,Semaphore sem,Semaphore sem2,Semaphore sem3,Semaphore sem4,JLabel pantallas,JLabel botones,JLabel pinesc,JLabel camaras,JLabel AreaE,JLabel AreaT,Semaphore pantalla,Semaphore boton,Semaphore pinc,Semaphore camara){
+     public Procesos(Semaphore mutex4,Semaphore mutex3,Semaphore mutex2,Semaphore mutex,long dia,int tipo,Semaphore sem,Semaphore sem2,Semaphore sem3,Semaphore sem4,JLabel pantallas,JLabel botones,JLabel pinesc,JLabel camaras,JLabel AreaE,JLabel AreaT,Semaphore pantalla,Semaphore boton,Semaphore pinc,Semaphore camara,JLabel tiempo ){
          this.dia = dia;
          this.tipo =tipo;
          this.sem = sem;
@@ -116,12 +125,13 @@ public class Procesos extends Thread{
          this.colitaE2 = mutex2;
          this.colitaE3 = mutex3;
          this.colitaE4 = mutex4;
+         this.area13=tiempo;
                  
      }
      @Override
     public void run(){
         if (tipo == 0) {
-        while (true) {
+        while (Integer.parseInt(area13.getText())!=0) {
         try{
             sleep(dia);
             cuenta();
@@ -131,7 +141,7 @@ public class Procesos extends Thread{
         }
         }
     if (tipo == 1) {
-        while (true) {
+        while (Integer.parseInt(area13.getText())!=0) {
         try{
             if (procesado != true) {
             sleep(dia/2);
@@ -146,7 +156,7 @@ public class Procesos extends Thread{
         }
         }
         if (tipo == 2) {
-        while (true) {
+        while (Integer.parseInt(area13.getText())!=0) {
         try{
             if (procesado != true) {
             sleep(dia/2);
@@ -161,7 +171,7 @@ public class Procesos extends Thread{
         }
         }
         if (tipo == 3) {
-        while (true) {
+        while (Integer.parseInt(area13.getText())!=0) {
         try{
             if (procesado!=true) {
             sleep(dia*3);
@@ -176,7 +186,7 @@ public class Procesos extends Thread{
         }
         }
         if (tipo == 4) {
-        while (true) {
+        while (Integer.parseInt(area13.getText())!=0) {
         try{
             if (procesado!=true) {
             sleep(dia*2);
@@ -191,7 +201,7 @@ public class Procesos extends Thread{
         }
         }
          if (tipo == 5) {
-        while (true) {
+        while (Integer.parseInt(area13.getText())!=0) {
         try{
             if (procesado!=true) {
             sleep(dia*2);
@@ -213,6 +223,8 @@ public class Procesos extends Thread{
             Area7.setText(Integer.toString((Integer.parseInt(Area3.getText())*5)+Integer.parseInt(Area7.getText())));
             Area8.setText(Integer.toString((Integer.parseInt(Area4.getText())*5)+Integer.parseInt(Area8.getText())));
             Area10.setText(Integer.toString((Integer.parseInt(Area9.getText())*6)+Integer.parseInt(Area10.getText())));
+            area11.setText(Integer.toString(Integer.parseInt(area11.getText())+7));
+            area12.setText(Integer.toString(Integer.parseInt(area12.getText())+180));
         try {
             sleep(10);
         } catch (Exception e) {
@@ -220,12 +232,11 @@ public class Procesos extends Thread{
         }
         if (tipo==1) {
             p.acquire();
-            System.out.println(pantallas.availablePermits());
              if (pantallas.availablePermits() !=0) { 
             sem.acquire();
             pantallas.acquire();
             Area.setText(Integer.toString(Integer.parseInt(Area.getText())+1));
-            System.out.println(Area.getText());
+//            System.out.println(Area.getText());
             sem.release();
             procesado = false;
             p.release();
@@ -243,7 +254,7 @@ public class Procesos extends Thread{
             sem2.acquire();
             Botones.acquire();
             Area2.setText(Integer.toString(Integer.parseInt(Area2.getText())+1));
-            System.out.println(Area2.getText());
+//            System.out.println(Area2.getText());
             sem2.release();
              procesado = false;
             B.release();
@@ -261,7 +272,7 @@ public class Procesos extends Thread{
             sem3.acquire();
             pinCarga.acquire();
             Area3.setText(Integer.toString(Integer.parseInt(Area3.getText())+1));
-            System.out.println(Area3.getText());
+//            System.out.println(Area3.getText());
             sem3.release();
              procesado = false;
             Pc.release();
@@ -281,7 +292,7 @@ public class Procesos extends Thread{
             sem4.acquire();
             camara.acquire();
             Area4.setText(Integer.toString(Integer.parseInt(Area4.getText())+1));
-            System.out.println(Area4.getText());
+//            System.out.println(Area4.getText());
             sem4.release();
              procesado = false;
              C.release();
@@ -298,16 +309,14 @@ public class Procesos extends Thread{
         if (tipo==5) {
             try {
                 colitaE.acquire();
-                System.out.println(pantallas.availablePermits());
                 while (pantallas.availablePermits() > 39) {                     
                 }
-                System.out.println("a");
                 sem.acquire();
                 pantallas.release(1);
                 Area.setText(Integer.toString(Integer.parseInt(Area.getText())-1));
                 sem.release();
                 colitaE.release();
-                System.out.println(this.Treadname+"agarro pantallas");
+//                System.out.println(this.Treadname+"agarro pantallas");
                 colitaE2.acquire();
                 while (Botones.availablePermits()>41) {                        
                 }
@@ -316,7 +325,7 @@ public class Procesos extends Thread{
                 Area2.setText(Integer.toString(Integer.parseInt(Area2.getText())-4));
                 sem2.release();
                 colitaE2.release();
-                System.out.println(this.Treadname+"agarro botones");
+//                System.out.println(this.Treadname+"agarro botones");
                 colitaE3.acquire();
                 while (pinCarga.availablePermits()>14) {                        
                 }
@@ -325,7 +334,7 @@ public class Procesos extends Thread{
                 Area3.setText(Integer.toString(Integer.parseInt(Area3.getText())-1));
                 sem3.release();
                 colitaE3.release();
-                System.out.println(this.Treadname+"agarro pin");
+//                System.out.println(this.Treadname+"agarro pin");
                 colitaE4.acquire();
                 while (camara.availablePermits()>17) {                        
                 }
@@ -334,7 +343,7 @@ public class Procesos extends Thread{
                 Area4.setText(Integer.toString(Integer.parseInt(Area4.getText())-3));
                 sem4.release();
                 colitaE4.release();
-                System.out.println(this.Treadname+"agarro camara");
+//                System.out.println(this.Treadname+"agarro camara");
                 Area6.setText(Integer.toString(Integer.parseInt(Area6.getText())+1));
                 procesado=false;
                 
