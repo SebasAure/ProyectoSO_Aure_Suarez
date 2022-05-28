@@ -48,23 +48,23 @@ public class VentanaFabrica extends javax.swing.JFrame {
     public void agregar(int tipo,Cola libre,Cola ocupada,JLabel trabajador){
         if (empleados!=0) {
             if (tipo==1) {
-                Procesos hiloP = new Procesos(tipo, Fab2PA, sem, almacenPantallas, dia, p);
+                Procesos hiloP = new Procesos(tipo, Fab2PA, sem, almacenPantallas, dia, p,Countdown);
                 ocupada.Encolar(hiloP);
                 hiloP.start();
             }if (tipo==2) {
-                Procesos hiloB = new Procesos(tipo, sem2, almacenBotones, Fab2BA, dia, B);
+                Procesos hiloB = new Procesos(tipo, sem2, almacenBotones, Fab2BA, dia, B,Countdown);
                 ocupada.Encolar(hiloB);
                 hiloB.start();
             }if (tipo==3) {
-                Procesos hiloPc = new Procesos(tipo, sem3, Fab2PcA, almacenPinesC, dia, Pc);
+                Procesos hiloPc = new Procesos(tipo, sem3, Fab2PcA, almacenPinesC, dia, Pc,Countdown);
                 ocupada.Encolar(hiloPc);
                 hiloPc.start();
             }if (tipo==4) {
-                Procesos hiloC = new Procesos(Fab2CA, tipo, sem4, almacenCamaras, dia, C);
+                Procesos hiloC = new Procesos(Fab2CA, tipo, sem4, almacenCamaras, dia, C,Countdown);
                 ocupada.Encolar(hiloC);
                 hiloC.start();
             }if (tipo==5) {
-                Procesos hiloE = new Procesos(mutex4, mutex3, mutex2, mutex, dia, tipo, sem, sem2, sem3, sem4, Fab2PA, Fab2BA, Fab2PcA, Fab2CA, Fab2E, Fab2TA, almacenPantallas, almacenBotones, almacenPinesC, almacenCamaras);
+                Procesos hiloE = new Procesos(mutex4, mutex3, mutex2, mutex, dia, tipo, sem, sem2, sem3, sem4, Fab2PA, Fab2BA, Fab2PcA, Fab2CA, Fab2E, Fab2TA, almacenPantallas, almacenBotones, almacenPinesC, almacenCamaras,Countdown);
                 ocupada.Encolar(hiloE);
                 hiloE.start();
             }
@@ -620,12 +620,12 @@ public class VentanaFabrica extends javax.swing.JFrame {
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
         Countdown.setText("30");
-        empleados = archivo.leerPorDefecto2(dia,empleados,colaLibrePantalla,ColaOcupadoPantalla,colaLibreBotones,colaOcupadoBotones,colaLibrePinesC,colaOcupadoPinesC,colaLibreCamaras,colaOcupadoCamaras,Fab2P,Fab2B,Fab2Pc,Fab2C,colaEnsambladoresLibres,colaEnsambladoresOcupados,Fab2E,Fab2PA,Fab2BA,Fab2PcA,Fab2CA,Fab2TA,sem,sem2,sem3,sem4,almacenPantallas,almacenBotones,almacenPinesC,almacenCamaras,p,B,Pc,C,mutex4,mutex3,mutex2,mutex);
-        Procesos pagos = new Procesos(Fab2P, Fab2B, Fab2Pc, Fab2C, Sueldop, Sueldob, Sueldopc, Sueldoc,Fab2E,Sueldoe,0,dia);
+        empleados = archivo.leerPorDefecto2(dia,empleados,colaLibrePantalla,ColaOcupadoPantalla,colaLibreBotones,colaOcupadoBotones,colaLibrePinesC,colaOcupadoPinesC,colaLibreCamaras,colaOcupadoCamaras,Fab2P,Fab2B,Fab2Pc,Fab2C,colaEnsambladoresLibres,colaEnsambladoresOcupados,Fab2E,Fab2PA,Fab2BA,Fab2PcA,Fab2CA,Fab2TA,sem,sem2,sem3,sem4,almacenPantallas,almacenBotones,almacenPinesC,almacenCamaras,p,B,Pc,C,mutex4,mutex3,mutex2,mutex,Countdown);
+        Procesos pagos = new Procesos(Fab2P, Fab2B, Fab2Pc, Fab2C, Sueldop, Sueldob, Sueldopc, Sueldoc,Fab2E,Sueldoe,0,dia,Sueldop2,Sueldop1,Countdown);
         pagos.start();
         ProcesosJG jefe = new ProcesosJG(1,dia,modCountdown, Countdown, accion);
         jefe.start();
-        ProcesosJG gerente = new ProcesosJG(dia, 3, modCountdown, acciong, Countdown,Fab2TA);
+        ProcesosJG gerente = new ProcesosJG(dia, 3, modCountdown, acciong, Countdown,Fab2TA,accion,Sueldop2);
         gerente.start();
         ProcesosJG dias = new ProcesosJG(dia, Countdown, 2);
         dias.start();
