@@ -120,38 +120,38 @@ public class VentanaFabrica extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         Fab2E = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        eliminarPPF1 = new javax.swing.JButton();
         Sueldoe = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        agregarPPF1 = new javax.swing.JButton();
+        eliminarPBF1 = new javax.swing.JButton();
+        agregarPBF1 = new javax.swing.JButton();
+        eliminarPPCF1 = new javax.swing.JButton();
+        agregarPPCF1 = new javax.swing.JButton();
+        eliminarPCF1 = new javax.swing.JButton();
+        agregarPCF1 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        agregarEF1 = new javax.swing.JButton();
+        eliminarEF1 = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-        jButton11 = new javax.swing.JButton();
+        eliminarPPF2 = new javax.swing.JButton();
         Fab2B = new javax.swing.JLabel();
         Fab2C = new javax.swing.JLabel();
         Fab2Pc = new javax.swing.JLabel();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
+        agregarPPF2 = new javax.swing.JButton();
+        eliminarPBF2 = new javax.swing.JButton();
+        agregarPBF2 = new javax.swing.JButton();
+        eliminarPPCF2 = new javax.swing.JButton();
+        agregarPPCF2 = new javax.swing.JButton();
+        eliminarPCF2 = new javax.swing.JButton();
+        agregarPCF2 = new javax.swing.JButton();
         Fab2P = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
-        jButton19 = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();
+        agregarEF2 = new javax.swing.JButton();
+        eliminarEF2 = new javax.swing.JButton();
         Fab2TA = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
@@ -162,7 +162,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
         acciong = new javax.swing.JLabel();
         accion = new javax.swing.JLabel();
         jLabel57 = new javax.swing.JLabel();
-        jButton21 = new javax.swing.JButton();
+        iniciarFabricas = new javax.swing.JButton();
         jLabel35 = new javax.swing.JLabel();
         Countdown = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
@@ -241,57 +241,57 @@ public class VentanaFabrica extends javax.swing.JFrame {
         jLabel9.setText("Unidades ");
         Panel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
 
-        jButton1.setText("-");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        eliminarPPF1.setText("-");
+        eliminarPPF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                eliminarPPF1ActionPerformed(evt);
             }
         });
-        Panel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 40, 30));
+        Panel.add(eliminarPPF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 40, 30));
 
         Sueldoe.setText("0");
         Panel.add(Sueldoe, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 430, 30, -1));
 
-        jButton2.setText("+");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        agregarPPF1.setText("+");
+        agregarPPF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                agregarPPF1ActionPerformed(evt);
             }
         });
-        Panel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 40, 30));
+        Panel.add(agregarPPF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 40, 30));
 
-        jButton3.setText("-");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        eliminarPBF1.setText("-");
+        eliminarPBF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                eliminarPBF1ActionPerformed(evt);
             }
         });
-        Panel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, 40, 30));
+        Panel.add(eliminarPBF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, 40, 30));
 
-        jButton4.setText("+");
-        Panel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 40, 30));
+        agregarPBF1.setText("+");
+        Panel.add(agregarPBF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 40, 30));
 
-        jButton5.setText("-");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        eliminarPPCF1.setText("-");
+        eliminarPPCF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                eliminarPPCF1ActionPerformed(evt);
             }
         });
-        Panel.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 40, 30));
+        Panel.add(eliminarPPCF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 40, 30));
 
-        jButton6.setText("+");
-        Panel.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 40, 30));
+        agregarPPCF1.setText("+");
+        Panel.add(agregarPPCF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 40, 30));
 
-        jButton7.setText("-");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        eliminarPCF1.setText("-");
+        eliminarPCF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                eliminarPCF1ActionPerformed(evt);
             }
         });
-        Panel.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, 40, 30));
+        Panel.add(eliminarPCF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, 40, 30));
 
-        jButton8.setText("+");
-        Panel.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 40, 30));
+        agregarPCF1.setText("+");
+        Panel.add(agregarPCF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 40, 30));
 
         jLabel19.setText("45");
         Panel.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 20, -1));
@@ -299,16 +299,16 @@ public class VentanaFabrica extends javax.swing.JFrame {
         jLabel10.setText("Ensambladores");
         Panel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 400, -1, -1));
 
-        jButton9.setText("+");
-        Panel.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 420, 40, 30));
+        agregarEF1.setText("+");
+        Panel.add(agregarEF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 420, 40, 30));
 
-        jButton10.setText("-");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        eliminarEF1.setText("-");
+        eliminarEF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                eliminarEF1ActionPerformed(evt);
             }
         });
-        Panel.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 420, 40, 30));
+        Panel.add(eliminarEF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 420, 40, 30));
 
         jLabel25.setText("0");
         Panel.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 170, 20, -1));
@@ -322,13 +322,13 @@ public class VentanaFabrica extends javax.swing.JFrame {
         jLabel32.setText("Sueldo");
         Panel.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 40, -1));
 
-        jButton11.setText("-");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        eliminarPPF2.setText("-");
+        eliminarPPF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                eliminarPPF2ActionPerformed(evt);
             }
         });
-        Panel.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 40, 30));
+        Panel.add(eliminarPPF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 40, 30));
 
         Fab2B.setText("0");
         Panel.add(Fab2B, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 20, 20));
@@ -339,81 +339,81 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Fab2Pc.setText("0");
         Panel.add(Fab2Pc, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 20, -1));
 
-        jButton12.setText("+");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        agregarPPF2.setText("+");
+        agregarPPF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                agregarPPF2ActionPerformed(evt);
             }
         });
-        Panel.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 40, 30));
+        Panel.add(agregarPPF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 40, 30));
 
-        jButton13.setText("-");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
+        eliminarPBF2.setText("-");
+        eliminarPBF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
+                eliminarPBF2ActionPerformed(evt);
             }
         });
-        Panel.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 280, 40, 30));
+        Panel.add(eliminarPBF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 280, 40, 30));
 
-        jButton14.setText("+");
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
+        agregarPBF2.setText("+");
+        agregarPBF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
+                agregarPBF2ActionPerformed(evt);
             }
         });
-        Panel.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 40, 30));
+        Panel.add(agregarPBF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 40, 30));
 
-        jButton15.setText("-");
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
+        eliminarPPCF2.setText("-");
+        eliminarPPCF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
+                eliminarPPCF2ActionPerformed(evt);
             }
         });
-        Panel.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, 40, 30));
+        Panel.add(eliminarPPCF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, 40, 30));
 
-        jButton16.setText("+");
-        jButton16.addActionListener(new java.awt.event.ActionListener() {
+        agregarPPCF2.setText("+");
+        agregarPPCF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton16ActionPerformed(evt);
+                agregarPPCF2ActionPerformed(evt);
             }
         });
-        Panel.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 40, 30));
+        Panel.add(agregarPPCF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 40, 30));
 
-        jButton17.setText("-");
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
+        eliminarPCF2.setText("-");
+        eliminarPCF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton17ActionPerformed(evt);
+                eliminarPCF2ActionPerformed(evt);
             }
         });
-        Panel.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, 40, 30));
+        Panel.add(eliminarPCF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, 40, 30));
 
-        jButton18.setText("+");
-        jButton18.addActionListener(new java.awt.event.ActionListener() {
+        agregarPCF2.setText("+");
+        agregarPCF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton18ActionPerformed(evt);
+                agregarPCF2ActionPerformed(evt);
             }
         });
-        Panel.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, 40, 30));
+        Panel.add(agregarPCF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, 40, 30));
 
         Fab2P.setText("0");
         Panel.add(Fab2P, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 20, -1));
         Panel.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 310, 20, -1));
 
-        jButton19.setText("+");
-        jButton19.addActionListener(new java.awt.event.ActionListener() {
+        agregarEF2.setText("+");
+        agregarEF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton19ActionPerformed(evt);
+                agregarEF2ActionPerformed(evt);
             }
         });
-        Panel.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, 40, 30));
+        Panel.add(agregarEF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, 40, 30));
 
-        jButton20.setText("-");
-        jButton20.addActionListener(new java.awt.event.ActionListener() {
+        eliminarEF2.setText("-");
+        eliminarEF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton20ActionPerformed(evt);
+                eliminarEF2ActionPerformed(evt);
             }
         });
-        Panel.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 420, 40, 30));
+        Panel.add(eliminarEF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 420, 40, 30));
 
         Fab2TA.setText("0");
         Panel.add(Fab2TA, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 290, 40, 20));
@@ -445,13 +445,13 @@ public class VentanaFabrica extends javax.swing.JFrame {
         jLabel57.setText("HORA");
         Panel.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, -1, -1));
 
-        jButton21.setText("Iniciar Fabricas");
-        jButton21.addActionListener(new java.awt.event.ActionListener() {
+        iniciarFabricas.setText("Iniciar Fabricas");
+        iniciarFabricas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton21ActionPerformed(evt);
+                iniciarFabricasActionPerformed(evt);
             }
         });
-        Panel.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, -1, -1));
+        Panel.add(iniciarFabricas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, -1, -1));
 
         jLabel35.setText("Dias:");
         Panel.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, -1, -1));
@@ -617,43 +617,43 @@ public class VentanaFabrica extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void eliminarPPF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPPF1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_eliminarPPF1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void eliminarPBF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPBF1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_eliminarPBF1ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void eliminarPPCF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPPCF1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_eliminarPPCF1ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void eliminarPCF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPCF1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_eliminarPCF1ActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void eliminarEF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEF1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_eliminarEF1ActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+    private void eliminarPPF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPPF2ActionPerformed
         quitar(ColaOcupadoPantalla, colaLibrePantalla, Fab2P, sem, p);
-    }//GEN-LAST:event_jButton11ActionPerformed
+    }//GEN-LAST:event_eliminarPPF2ActionPerformed
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+    private void eliminarPBF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPBF2ActionPerformed
         quitar(colaOcupadoBotones, colaOcupadoBotones, Fab2B, B, sem2);
-    }//GEN-LAST:event_jButton13ActionPerformed
+    }//GEN-LAST:event_eliminarPBF2ActionPerformed
 
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+    private void eliminarPPCF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPPCF2ActionPerformed
         quitar(colaOcupadoPinesC, colaLibrePinesC, Fab2Pc, Pc, sem3);
-    }//GEN-LAST:event_jButton15ActionPerformed
+    }//GEN-LAST:event_eliminarPPCF2ActionPerformed
 
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+    private void eliminarPCF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPCF2ActionPerformed
         quitar(colaOcupadoCamaras, colaLibreCamaras, Fab2C, C, sem4);
-    }//GEN-LAST:event_jButton17ActionPerformed
+    }//GEN-LAST:event_eliminarPCF2ActionPerformed
 
-    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+    private void eliminarEF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEF2ActionPerformed
          if ( !colaEnsambladoresOcupados.esta_vacia()) {
         Procesos siguiente = colaEnsambladoresOcupados.getPfirst().getproceso();
         colaEnsambladoresOcupados.Desencolar();
@@ -665,9 +665,9 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Fab2E.setText(Integer.toString(Integer.parseInt(Fab2E.getText())-1));
         empleados++;
         }
-    }//GEN-LAST:event_jButton20ActionPerformed
+    }//GEN-LAST:event_eliminarEF2ActionPerformed
 
-    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+    private void iniciarFabricasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarFabricasActionPerformed
         Countdown.setText("30");
         empleados = archivo.leerPorDefecto2(dia,empleados,colaLibrePantalla,ColaOcupadoPantalla,colaLibreBotones,colaOcupadoBotones,colaLibrePinesC,colaOcupadoPinesC,colaLibreCamaras,colaOcupadoCamaras,Fab2P,Fab2B,Fab2Pc,Fab2C,colaEnsambladoresLibres,colaEnsambladoresOcupados,Fab2E,Fab2PA,Fab2BA,Fab2PcA,Fab2CA,Fab2TA,sem,sem2,sem3,sem4,almacenPantallas,almacenBotones,almacenPinesC,almacenCamaras,p,B,Pc,C,mutex4,mutex3,mutex2,mutex,Countdown);
         Procesos pagos = new Procesos(Fab2P, Fab2B, Fab2Pc, Fab2C, Sueldop, Sueldob, Sueldopc, Sueldoc,Fab2E,Sueldoe,0,dia,Sueldop2,Sueldop1,Countdown);
@@ -678,31 +678,31 @@ public class VentanaFabrica extends javax.swing.JFrame {
         gerente.start();
         ProcesosJG dias = new ProcesosJG(dia, Countdown, 2);
         dias.start();
-    }//GEN-LAST:event_jButton21ActionPerformed
+    }//GEN-LAST:event_iniciarFabricasActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+    private void agregarPPF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarPPF2ActionPerformed
         agregar(1,colaLibrePantalla, ColaOcupadoPantalla, Fab2P);
-    }//GEN-LAST:event_jButton12ActionPerformed
+    }//GEN-LAST:event_agregarPPF2ActionPerformed
 
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+    private void agregarPBF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarPBF2ActionPerformed
          agregar(2,colaLibreBotones, colaOcupadoBotones, Fab2B);
-    }//GEN-LAST:event_jButton14ActionPerformed
+    }//GEN-LAST:event_agregarPBF2ActionPerformed
 
-    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+    private void agregarPPCF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarPPCF2ActionPerformed
         agregar(3,colaLibrePinesC, colaOcupadoPinesC, Fab2Pc);
-    }//GEN-LAST:event_jButton16ActionPerformed
+    }//GEN-LAST:event_agregarPPCF2ActionPerformed
 
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+    private void agregarPCF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarPCF2ActionPerformed
         agregar(4,colaLibreCamaras, colaOcupadoCamaras, Fab2C);
-    }//GEN-LAST:event_jButton18ActionPerformed
+    }//GEN-LAST:event_agregarPCF2ActionPerformed
 
-    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+    private void agregarEF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarEF2ActionPerformed
         agregar(5,colaEnsambladoresLibres, colaEnsambladoresOcupados, Fab2E);
-    }//GEN-LAST:event_jButton19ActionPerformed
+    }//GEN-LAST:event_agregarEF2ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void agregarPPF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarPPF1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_agregarPPF1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -761,31 +761,31 @@ public class VentanaFabrica extends javax.swing.JFrame {
     private javax.swing.JLabel Sueldopc;
     private javax.swing.JLabel accion;
     private javax.swing.JLabel acciong;
+    private javax.swing.JButton agregarEF1;
+    private javax.swing.JButton agregarEF2;
+    private javax.swing.JButton agregarPBF1;
+    private javax.swing.JButton agregarPBF2;
+    private javax.swing.JButton agregarPCF1;
+    private javax.swing.JButton agregarPCF2;
+    private javax.swing.JButton agregarPPCF1;
+    private javax.swing.JButton agregarPPCF2;
+    private javax.swing.JButton agregarPPF1;
+    private javax.swing.JButton agregarPPF2;
+    private javax.swing.JButton eliminarEF1;
+    private javax.swing.JButton eliminarEF2;
+    private javax.swing.JButton eliminarPBF1;
+    private javax.swing.JButton eliminarPBF2;
+    private javax.swing.JButton eliminarPCF1;
+    private javax.swing.JButton eliminarPCF2;
+    private javax.swing.JButton eliminarPPCF1;
+    private javax.swing.JButton eliminarPPCF2;
+    private javax.swing.JButton eliminarPPF1;
+    private javax.swing.JButton eliminarPPF2;
     private javax.swing.JLabel fab2aC;
     private javax.swing.JLabel fab2aC1;
     private javax.swing.JLabel fab2aC2;
     private javax.swing.JLabel fab2aC3;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton21;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton iniciarFabricas;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
