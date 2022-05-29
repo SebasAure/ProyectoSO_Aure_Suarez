@@ -22,12 +22,12 @@ public class Procesos extends Thread{
     JLabel Area2;
     JLabel Area3;
     JLabel Area4;
-    Semaphore sem;
+    Semaphore sem1;
     Semaphore sem2;
     Semaphore sem3;
     Semaphore sem4;
     Semaphore pantallas;
-    Semaphore Botones;
+    Semaphore botones;
     Semaphore pinCarga;
     Semaphore camara;
     JLabel Area5;
@@ -50,25 +50,28 @@ public class Procesos extends Thread{
     JLabel area12;
     JLabel area13;
     
+    // Produccion Pantallas
     public Procesos(int tipo,JLabel Area,Semaphore sem, Semaphore pantallas,long dia,Semaphore p,JLabel tiempo ){
         this.Area = Area;
         this.tipo=tipo;
-        this.sem = sem;
+        this.sem1 = sem;
         this.pantallas = pantallas;
         this.dia=dia;
         this.p=p;
         this.area13=tiempo;
         
     }
+    // // Produccion Botones
     public Procesos(int tipo,Semaphore sem2,Semaphore botones,JLabel Area2,long dia,Semaphore B,JLabel tiempo ){
         this.Area2 = Area2;
         this.tipo=tipo;
         this.sem2 = sem2;
-        this.Botones = botones;
+        this.botones = botones;
         this.dia=dia;
         this.B=B;
         this.area13=tiempo;
     }
+    // Produccion Pines de Carga
      public Procesos(int tipo,Semaphore sem3,JLabel Area3,Semaphore pinCarga,long dia,Semaphore Pc,JLabel tiempo ){
         this.Area3 = Area3;
         this.tipo=tipo;
@@ -78,6 +81,7 @@ public class Procesos extends Thread{
         this.Pc=Pc;
         this.area13=tiempo;
      }
+     // Produccion Camaras
      public Procesos(JLabel Area4,int tipo,Semaphore sem4,Semaphore camara,long dia,Semaphore C,JLabel tiempo ){
         this.Area4 = Area4;
         this.tipo=tipo;
@@ -87,6 +91,7 @@ public class Procesos extends Thread{
         this.C=C;
         this.area13=tiempo;
      }
+     
      public Procesos(JLabel p,JLabel b,JLabel pc,JLabel c,JLabel p1,JLabel b2,JLabel pc3,JLabel c4,JLabel E5,JLabel t6,int tipo,long dia,JLabel J7,JLabel G8,JLabel tiempo ){
          this.Area = p;
          this.Area2 = b;
@@ -107,7 +112,7 @@ public class Procesos extends Thread{
      public Procesos(Semaphore mutex4,Semaphore mutex3,Semaphore mutex2,Semaphore mutex,long dia,int tipo,Semaphore sem,Semaphore sem2,Semaphore sem3,Semaphore sem4,JLabel pantallas,JLabel botones,JLabel pinesc,JLabel camaras,JLabel AreaE,JLabel AreaT,Semaphore pantalla,Semaphore boton,Semaphore pinc,Semaphore camara,JLabel tiempo ){
          this.dia = dia;
          this.tipo =tipo;
-         this.sem = sem;
+         this.sem1 = sem;
          this.sem2 = sem2;
          this.sem3 = sem3;
          this.sem4 = sem4;
@@ -118,7 +123,7 @@ public class Procesos extends Thread{
          this.Area5=AreaE;
          this.Area6=AreaT;
          this.pantallas=pantalla;
-         this.Botones=boton;
+         this.botones=boton;
          this.pinCarga = pinc;
          this.camara=camara;
          this.colitaE = mutex;
@@ -233,11 +238,11 @@ public class Procesos extends Thread{
         if (tipo==1) {
             p.acquire();
              if (pantallas.availablePermits() !=0) { 
-            sem.acquire();
+            sem1.acquire();
             pantallas.acquire();
             Area.setText(Integer.toString(Integer.parseInt(Area.getText())+1));
 //            System.out.println(Area.getText());
-            sem.release();
+            sem1.release();
             procesado = false;
             p.release();
              }else{
@@ -250,9 +255,9 @@ public class Procesos extends Thread{
         }
         }if (tipo==2) {
             B.acquire();
-            if (Botones.availablePermits() !=0) {                     
+            if (botones.availablePermits() !=0) {                     
             sem2.acquire();
-            Botones.acquire();
+            botones.acquire();
             Area2.setText(Integer.toString(Integer.parseInt(Area2.getText())+1));
 //            System.out.println(Area2.getText());
             sem2.release();
@@ -311,17 +316,17 @@ public class Procesos extends Thread{
                 colitaE.acquire();
                 while (pantallas.availablePermits() > 39) {                     
                 }
-                sem.acquire();
+                sem1.acquire();
                 pantallas.release(1);
                 Area.setText(Integer.toString(Integer.parseInt(Area.getText())-1));
-                sem.release();
+                sem1.release();
                 colitaE.release();
 //                System.out.println(this.Treadname+"agarro pantallas");
                 colitaE2.acquire();
-                while (Botones.availablePermits()>41) {                        
+                while (botones.availablePermits()>41) {                        
                 }
                 sem2.acquire();
-                Botones.release(4);
+                botones.release(4);
                 Area2.setText(Integer.toString(Integer.parseInt(Area2.getText())-4));
                 sem2.release();
                 colitaE2.release();

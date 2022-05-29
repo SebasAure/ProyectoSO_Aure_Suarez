@@ -16,63 +16,121 @@ public class VentanaFabrica extends javax.swing.JFrame {
     archivoCsv archivo = new archivoCsv();
     long dia=0;
     int dias;
-    int empleados = 15;
+    
     String cadena = "";
-    Cola colaLibrePantalla = new Cola();
-    Cola ColaOcupadoPantalla = new Cola();
-    Cola colaLibreBotones = new Cola();
-    Cola colaOcupadoBotones = new Cola();
-    Cola colaLibrePinesC = new Cola();
-    Cola colaOcupadoPinesC = new Cola();
-    Cola colaLibreCamaras = new Cola();
-    Cola colaOcupadoCamaras = new Cola();
-    Cola colaEnsambladoresLibres = new Cola();
-    Cola colaEnsambladoresOcupados = new Cola();
-    Semaphore sem = new Semaphore(1);
-    Semaphore sem2 = new Semaphore(1);
-    Semaphore sem3 = new Semaphore(1);
-    Semaphore sem4 = new Semaphore(1);
-    Semaphore mutex = new Semaphore(1);
-    Semaphore mutex2 = new Semaphore(1);
-    Semaphore mutex3 = new Semaphore(1);
-    Semaphore mutex4 = new Semaphore(1);
-    Semaphore almacenPantallas;
-    Semaphore almacenBotones;
-    Semaphore almacenPinesC;
-    Semaphore almacenCamaras;
-    Semaphore p = new Semaphore(1);
-    Semaphore B= new Semaphore(1);
-    Semaphore Pc= new Semaphore(1);
-    Semaphore C= new Semaphore(1);
+    //Fabrica 1
+    int empleadosFab1 = 15;
+    Cola colaLibrePantallaFab1 = new Cola();
+    Cola ColaOcupadoPantallaFab1 = new Cola();
+    Cola colaLibreBotonesFab1 = new Cola();
+    Cola colaOcupadoBotonesFab1 = new Cola();
+    Cola colaLibrePinesCFab1 = new Cola();
+    Cola colaOcupadoPinesCFab1 = new Cola();
+    Cola colaLibreCamarasFab1 = new Cola();
+    Cola colaOcupadoCamarasFab1 = new Cola();
+    Cola colaEnsambladoresLibresFab1 = new Cola();
+    Cola colaEnsambladoresOcupadosFab1 = new Cola();
+    Semaphore sem1Fab1 = new Semaphore(1);
+    Semaphore sem2Fab1 = new Semaphore(1);
+    Semaphore sem3Fab1 = new Semaphore(1);
+    Semaphore sem4Fab1 = new Semaphore(1);
+    Semaphore mutex1Fab1 = new Semaphore(1);
+    Semaphore mutex2Fab1 = new Semaphore(1);
+    Semaphore mutex3Fab1 = new Semaphore(1);
+    Semaphore mutex4Fab1 = new Semaphore(1);
+    Semaphore almacenPantallasFab1;
+    Semaphore almacenBotonesFab1;
+    Semaphore almacenPinesCFab1;
+    Semaphore almacenCamarasFab1;
+    Semaphore pFab1 = new Semaphore(1);
+    Semaphore BFab1= new Semaphore(1);
+    Semaphore PcFab1= new Semaphore(1);
+    Semaphore CFab1= new Semaphore(1);
+    
+    //Fabrica 2
+    int empleadosFab2 = 15;
+    Cola colaLibrePantallaFab2 = new Cola();
+    Cola ColaOcupadoPantallaFab2 = new Cola();
+    Cola colaLibreBotonesFab2 = new Cola();
+    Cola colaOcupadoBotonesFab2 = new Cola();
+    Cola colaLibrePinesCFab2 = new Cola();
+    Cola colaOcupadoPinesCFab2 = new Cola();
+    Cola colaLibreCamarasFab2 = new Cola();
+    Cola colaOcupadoCamarasFab2 = new Cola();
+    Cola colaEnsambladoresLibresFab2 = new Cola();
+    Cola colaEnsambladoresOcupadosFab2 = new Cola();
+    Semaphore sem1Fab2 = new Semaphore(1);
+    Semaphore sem2Fab2 = new Semaphore(1);
+    Semaphore sem3Fab2 = new Semaphore(1);
+    Semaphore sem4Fab2 = new Semaphore(1);
+    Semaphore mutex1Fab2 = new Semaphore(1);
+    Semaphore mutex2Fab2 = new Semaphore(1);
+    Semaphore mutex3Fab2 = new Semaphore(1);
+    Semaphore mutex4Fab2 = new Semaphore(1);
+    Semaphore almacenPantallasFab2;
+    Semaphore almacenBotonesFab2;
+    Semaphore almacenPinesCFab2;
+    Semaphore almacenCamarasFab2;
+    Semaphore pFab2 = new Semaphore(1);
+    Semaphore BFab2= new Semaphore(1);
+    Semaphore PcFab2= new Semaphore(1);
+    Semaphore CFab2= new Semaphore(1);
     Semaphore modCountdown = new Semaphore(1);
-    public void agregar(int tipo,Cola libre,Cola ocupada,JLabel trabajador){
-        if (empleados!=0) {
+    public void agregarFab1(int tipo,Cola libre,Cola ocupada,JLabel trabajador){
+        if (empleadosFab1!=0) {
             if (tipo==1) {
-                Procesos hiloP = new Procesos(tipo, Fab2PA, sem, almacenPantallas, dia, p,Countdown);
+                Procesos hiloP = new Procesos(tipo, cantidadPFab1, sem1Fab1, almacenPantallasFab1, dia, pFab1,Countdown);
                 ocupada.Encolar(hiloP);
                 hiloP.start();
             }if (tipo==2) {
-                Procesos hiloB = new Procesos(tipo, sem2, almacenBotones, Fab2BA, dia, B,Countdown);
+                Procesos hiloB = new Procesos(tipo, sem2Fab1, almacenBotonesFab1, cantidadBFab1, dia, BFab1,Countdown);
                 ocupada.Encolar(hiloB);
                 hiloB.start();
             }if (tipo==3) {
-                Procesos hiloPc = new Procesos(tipo, sem3, Fab2PcA, almacenPinesC, dia, Pc,Countdown);
+                Procesos hiloPc = new Procesos(tipo, sem3Fab1, cantidadPCFab1, almacenPinesCFab1, dia, PcFab1,Countdown);
                 ocupada.Encolar(hiloPc);
                 hiloPc.start();
             }if (tipo==4) {
-                Procesos hiloC = new Procesos(Fab2CA, tipo, sem4, almacenCamaras, dia, C,Countdown);
+                Procesos hiloC = new Procesos(cantidadCFab1, tipo, sem4Fab1, almacenCamarasFab1, dia, CFab1,Countdown);
                 ocupada.Encolar(hiloC);
                 hiloC.start();
             }if (tipo==5) {
-                Procesos hiloE = new Procesos(mutex4, mutex3, mutex2, mutex, dia, tipo, sem, sem2, sem3, sem4, Fab2PA, Fab2BA, Fab2PcA, Fab2CA, Fab2E, Fab2TA, almacenPantallas, almacenBotones, almacenPinesC, almacenCamaras,Countdown);
+                Procesos hiloE = new Procesos(mutex4Fab1, mutex3Fab1, mutex2Fab1, mutex1Fab1, dia, tipo, sem1Fab1, sem2Fab1, sem3Fab1, sem4Fab1, cantidadPFab1, cantidadBFab1, cantidadPCFab1, cantidadCFab1, ensambladoresFab1, telefonosProducidosFab1, almacenPantallasFab1, almacenBotonesFab1, almacenPinesCFab1, almacenCamarasFab1,Countdown);
                 ocupada.Encolar(hiloE);
                 hiloE.start();
             }
         trabajador.setText(Integer.toString(Integer.parseInt(trabajador.getText())+1));
-        empleados--;
+        empleadosFab1--;
         }
     }
-    public void quitar(Cola ocupado,Cola libre,JLabel trabajadores,Semaphore mutexq,Semaphore semq){
+    public void agregarFab2(int tipo,Cola libre,Cola ocupada,JLabel trabajador){
+        if (empleadosFab2!=0) {
+            if (tipo==1) {
+                Procesos hiloP = new Procesos(tipo, cantidadPFab2, sem1Fab2, almacenPantallasFab2, dia, pFab2,Countdown);
+                ocupada.Encolar(hiloP);
+                hiloP.start();
+            }if (tipo==2) {
+                Procesos hiloB = new Procesos(tipo, sem2Fab2, almacenBotonesFab2, cantidadBFab2, dia, BFab2,Countdown);
+                ocupada.Encolar(hiloB);
+                hiloB.start();
+            }if (tipo==3) {
+                Procesos hiloPc = new Procesos(tipo, sem3Fab2, cantidadPCFab2, almacenPinesCFab2, dia, PcFab2,Countdown);
+                ocupada.Encolar(hiloPc);
+                hiloPc.start();
+            }if (tipo==4) {
+                Procesos hiloC = new Procesos(cantidadCFab2, tipo, sem4Fab2, almacenCamarasFab2, dia, CFab2,Countdown);
+                ocupada.Encolar(hiloC);
+                hiloC.start();
+            }if (tipo==5) {
+                Procesos hiloE = new Procesos(mutex4Fab2, mutex3Fab2, mutex2Fab2, mutex1Fab2, dia, tipo, sem1Fab2, sem2Fab2, sem3Fab2, sem4Fab2, cantidadPFab2, cantidadBFab2, cantidadPCFab2, cantidadCFab2, ensambladoresFab2, telefonosProducidosFab2, almacenPantallasFab2, almacenBotonesFab2, almacenPinesCFab2, almacenCamarasFab2,Countdown);
+                ocupada.Encolar(hiloE);
+                hiloE.start();
+            }
+        trabajador.setText(Integer.toString(Integer.parseInt(trabajador.getText())+1));
+        empleadosFab2--;
+        }
+    }
+    public void quitarFab1(Cola ocupado,Cola libre,JLabel trabajadores,Semaphore mutexq,Semaphore semq){
         if ( !ocupado.esta_vacia()) {
         Procesos siguiente = ocupado.getPfirst().getproceso();
         ocupado.Desencolar();
@@ -81,7 +139,19 @@ public class VentanaFabrica extends javax.swing.JFrame {
         semq.release();
         siguiente.suspend();
         trabajadores.setText(Integer.toString(Integer.parseInt(trabajadores.getText())-1));
-        empleados++;
+        empleadosFab1++;
+        }
+    }
+    public void quitarFab2(Cola ocupado,Cola libre,JLabel trabajadores,Semaphore mutexq,Semaphore semq){
+        if ( !ocupado.esta_vacia()) {
+        Procesos siguiente = ocupado.getPfirst().getproceso();
+        ocupado.Desencolar();
+        libre.Encolar(siguiente);
+        mutexq.release();
+        semq.release();
+        siguiente.suspend();
+        trabajadores.setText(Integer.toString(Integer.parseInt(trabajadores.getText())-1));
+        empleadosFab2++;
         }
     }
 
@@ -91,11 +161,18 @@ public class VentanaFabrica extends javax.swing.JFrame {
     public VentanaFabrica() {
         initComponents();
 //        archivo.escribirCvsPorDefecto(cadena);
-        dia = archivo.leerPorDefecto(dia, dias, fab2aC, fab2aC1, fab2aC2, fab2aC3);
-        almacenPantallas = new Semaphore(Integer.parseInt(fab2aC.getText()));
-        almacenBotones = new Semaphore(Integer.parseInt(fab2aC1.getText()));
-        almacenPinesC = new Semaphore(Integer.parseInt(fab2aC2.getText()));
-        almacenCamaras = new Semaphore(Integer.parseInt(fab2aC3.getText()));
+        dia = archivo.leerPorDefecto(dia, dias, maxPFab2, maxBFab2, maxPCFab2, maxCFab2);
+        // Fabrica 1
+        almacenPantallasFab1 = new Semaphore(Integer.parseInt(maxPFab2.getText()));
+        almacenBotonesFab1 = new Semaphore(Integer.parseInt(maxBFab2.getText()));
+        almacenPinesCFab1 = new Semaphore(Integer.parseInt(maxPCFab2.getText()));
+        almacenCamarasFab1 = new Semaphore(Integer.parseInt(maxCFab2.getText()));
+        
+        // Fabrica 2
+        almacenPantallasFab2 = new Semaphore(Integer.parseInt(maxPFab2.getText()));
+        almacenBotonesFab2 = new Semaphore(Integer.parseInt(maxBFab2.getText()));
+        almacenPinesCFab2 = new Semaphore(Integer.parseInt(maxPCFab2.getText()));
+        almacenCamarasFab2 = new Semaphore(Integer.parseInt(maxCFab2.getText()));
         Countdown.setText(Integer.toString(dias));
         
         
@@ -117,11 +194,11 @@ public class VentanaFabrica extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        Fab2E = new javax.swing.JLabel();
+        productoresPCFab1 = new javax.swing.JLabel();
+        ensambladoresFab2 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         eliminarPPF1 = new javax.swing.JButton();
-        Sueldoe = new javax.swing.JLabel();
+        sueldoEFab2 = new javax.swing.JLabel();
         agregarPPF1 = new javax.swing.JButton();
         eliminarPBF1 = new javax.swing.JButton();
         agregarPBF1 = new javax.swing.JButton();
@@ -129,18 +206,18 @@ public class VentanaFabrica extends javax.swing.JFrame {
         agregarPPCF1 = new javax.swing.JButton();
         eliminarPCF1 = new javax.swing.JButton();
         agregarPCF1 = new javax.swing.JButton();
-        jLabel19 = new javax.swing.JLabel();
+        maxBFab1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         agregarEF1 = new javax.swing.JButton();
         eliminarEF1 = new javax.swing.JButton();
-        jLabel25 = new javax.swing.JLabel();
+        telefonosProducidosFab1 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         eliminarPPF2 = new javax.swing.JButton();
-        Fab2B = new javax.swing.JLabel();
-        Fab2C = new javax.swing.JLabel();
-        Fab2Pc = new javax.swing.JLabel();
+        productoresBFab2 = new javax.swing.JLabel();
+        productoresCFab2 = new javax.swing.JLabel();
+        productoresPCFab2 = new javax.swing.JLabel();
         agregarPPF2 = new javax.swing.JButton();
         eliminarPBF2 = new javax.swing.JButton();
         agregarPBF2 = new javax.swing.JButton();
@@ -148,72 +225,72 @@ public class VentanaFabrica extends javax.swing.JFrame {
         agregarPPCF2 = new javax.swing.JButton();
         eliminarPCF2 = new javax.swing.JButton();
         agregarPCF2 = new javax.swing.JButton();
-        Fab2P = new javax.swing.JLabel();
+        productoresPFab2 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
         agregarEF2 = new javax.swing.JButton();
         eliminarEF2 = new javax.swing.JButton();
-        Fab2TA = new javax.swing.JLabel();
+        telefonosProducidosFab2 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel54 = new javax.swing.JLabel();
-        acciong = new javax.swing.JLabel();
-        accion = new javax.swing.JLabel();
+        estadoGerenteFab1 = new javax.swing.JLabel();
+        sueldoGFab1 = new javax.swing.JLabel();
+        estadoGerenteFab2 = new javax.swing.JLabel();
+        estadoJefeFab2 = new javax.swing.JLabel();
         jLabel57 = new javax.swing.JLabel();
         iniciarFabricas = new javax.swing.JButton();
         jLabel35 = new javax.swing.JLabel();
         Countdown = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jLabel58 = new javax.swing.JLabel();
-        jLabel59 = new javax.swing.JLabel();
+        productoresBFab1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
+        productoresPFab1 = new javax.swing.JLabel();
+        cantidadBFab1 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
+        ensambladoresFab1 = new javax.swing.JLabel();
+        cantidadPFab1 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
+        maxPCFab1 = new javax.swing.JLabel();
+        cantidadPCFab1 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
+        maxCFab1 = new javax.swing.JLabel();
+        cantidadCFab1 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
-        jLabel55 = new javax.swing.JLabel();
-        Sueldop2 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
-        jLabel47 = new javax.swing.JLabel();
-        jLabel52 = new javax.swing.JLabel();
+        estadoJefeFab1 = new javax.swing.JLabel();
+        sueldoJFab2 = new javax.swing.JLabel();
+        maxPFab1 = new javax.swing.JLabel();
+        sueldoPFab1 = new javax.swing.JLabel();
+        sueldoBFab1 = new javax.swing.JLabel();
+        sueldoPCFab1 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        fab2aC1 = new javax.swing.JLabel();
+        maxBFab2 = new javax.swing.JLabel();
         jLabel60 = new javax.swing.JLabel();
-        Sueldop1 = new javax.swing.JLabel();
-        Fab2BA = new javax.swing.JLabel();
+        sueldoGFab2 = new javax.swing.JLabel();
+        cantidadBFab2 = new javax.swing.JLabel();
         jLabel63 = new javax.swing.JLabel();
-        Sueldoc = new javax.swing.JLabel();
-        Fab2PA = new javax.swing.JLabel();
+        sueldoCFab2 = new javax.swing.JLabel();
+        cantidadPFab2 = new javax.swing.JLabel();
         jLabel66 = new javax.swing.JLabel();
-        fab2aC2 = new javax.swing.JLabel();
-        Fab2PcA = new javax.swing.JLabel();
+        maxPCFab2 = new javax.swing.JLabel();
+        cantidadPCFab2 = new javax.swing.JLabel();
         jLabel69 = new javax.swing.JLabel();
-        fab2aC3 = new javax.swing.JLabel();
-        Fab2CA = new javax.swing.JLabel();
+        maxCFab2 = new javax.swing.JLabel();
+        cantidadCFab2 = new javax.swing.JLabel();
         jLabel72 = new javax.swing.JLabel();
-        jLabel73 = new javax.swing.JLabel();
-        fab2aC = new javax.swing.JLabel();
-        Sueldop = new javax.swing.JLabel();
-        Sueldob = new javax.swing.JLabel();
-        Sueldopc = new javax.swing.JLabel();
+        sueldoJFab1 = new javax.swing.JLabel();
+        maxPFab2 = new javax.swing.JLabel();
+        sueldoPFab2 = new javax.swing.JLabel();
+        sueldoBFab2 = new javax.swing.JLabel();
+        sueldoPCFab2 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
+        productoresCFab1 = new javax.swing.JLabel();
+        sueldoCFab1 = new javax.swing.JLabel();
+        sueldoEFab1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
 
@@ -232,11 +309,11 @@ public class VentanaFabrica extends javax.swing.JFrame {
         jLabel4.setText("Fabrica 1 ");
         Panel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, -1, -1));
 
-        jLabel5.setText("0");
-        Panel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 10, -1));
+        productoresPCFab1.setText("0");
+        Panel.add(productoresPCFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 10, -1));
 
-        Fab2E.setText("0");
-        Panel.add(Fab2E, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 430, -1, -1));
+        ensambladoresFab2.setText("0");
+        Panel.add(ensambladoresFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 430, -1, -1));
 
         jLabel9.setText("Unidades ");
         Panel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
@@ -249,8 +326,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(eliminarPPF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 40, 30));
 
-        Sueldoe.setText("0");
-        Panel.add(Sueldoe, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 430, 30, -1));
+        sueldoEFab2.setText("0");
+        Panel.add(sueldoEFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 430, 30, -1));
 
         agregarPPF1.setText("+");
         agregarPPF1.addActionListener(new java.awt.event.ActionListener() {
@@ -269,6 +346,11 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.add(eliminarPBF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, 40, 30));
 
         agregarPBF1.setText("+");
+        agregarPBF1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarPBF1ActionPerformed(evt);
+            }
+        });
         Panel.add(agregarPBF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 40, 30));
 
         eliminarPPCF1.setText("-");
@@ -280,6 +362,11 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.add(eliminarPPCF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 40, 30));
 
         agregarPPCF1.setText("+");
+        agregarPPCF1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarPPCF1ActionPerformed(evt);
+            }
+        });
         Panel.add(agregarPPCF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 40, 30));
 
         eliminarPCF1.setText("-");
@@ -291,15 +378,25 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.add(eliminarPCF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, 40, 30));
 
         agregarPCF1.setText("+");
+        agregarPCF1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarPCF1ActionPerformed(evt);
+            }
+        });
         Panel.add(agregarPCF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 40, 30));
 
-        jLabel19.setText("45");
-        Panel.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 20, -1));
+        maxBFab1.setText("45");
+        Panel.add(maxBFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 20, -1));
 
         jLabel10.setText("Ensambladores");
         Panel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 400, -1, -1));
 
         agregarEF1.setText("+");
+        agregarEF1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarEF1ActionPerformed(evt);
+            }
+        });
         Panel.add(agregarEF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 420, 40, 30));
 
         eliminarEF1.setText("-");
@@ -310,8 +407,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(eliminarEF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 420, 40, 30));
 
-        jLabel25.setText("0");
-        Panel.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 170, 20, -1));
+        telefonosProducidosFab1.setText("0");
+        Panel.add(telefonosProducidosFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 170, 20, -1));
 
         jLabel26.setText("Xperia 1 IV (Producidos)");
         Panel.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 150, 140, -1));
@@ -330,14 +427,14 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(eliminarPPF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 40, 30));
 
-        Fab2B.setText("0");
-        Panel.add(Fab2B, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 20, 20));
+        productoresBFab2.setText("0");
+        Panel.add(productoresBFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 20, 20));
 
-        Fab2C.setText("0");
-        Panel.add(Fab2C, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, 20, -1));
+        productoresCFab2.setText("0");
+        Panel.add(productoresCFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, 20, -1));
 
-        Fab2Pc.setText("0");
-        Panel.add(Fab2Pc, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 20, -1));
+        productoresPCFab2.setText("0");
+        Panel.add(productoresPCFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 20, -1));
 
         agregarPPF2.setText("+");
         agregarPPF2.addActionListener(new java.awt.event.ActionListener() {
@@ -395,8 +492,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(agregarPCF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, 40, 30));
 
-        Fab2P.setText("0");
-        Panel.add(Fab2P, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 20, -1));
+        productoresPFab2.setText("0");
+        Panel.add(productoresPFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 20, -1));
         Panel.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 310, 20, -1));
 
         agregarEF2.setText("+");
@@ -415,8 +512,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(eliminarEF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 420, 40, 30));
 
-        Fab2TA.setText("0");
-        Panel.add(Fab2TA, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 290, 40, 20));
+        telefonosProducidosFab2.setText("0");
+        Panel.add(telefonosProducidosFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 290, 40, 20));
 
         jLabel48.setText("Xperia 10 IV (Producidos)");
         Panel.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 270, -1, -1));
@@ -430,17 +527,17 @@ public class VentanaFabrica extends javax.swing.JFrame {
         jLabel51.setText("Fabrica 2");
         Panel.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, -1, -1));
 
-        jLabel28.setText("null");
-        Panel.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
+        estadoGerenteFab1.setText("null");
+        Panel.add(estadoGerenteFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
 
-        jLabel54.setText("0");
-        Panel.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, -1, -1));
+        sueldoGFab1.setText("0");
+        Panel.add(sueldoGFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, -1, -1));
 
-        acciong.setText("null");
-        Panel.add(acciong, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, -1, -1));
+        estadoGerenteFab2.setText("null");
+        Panel.add(estadoGerenteFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, -1, -1));
 
-        accion.setText("null");
-        Panel.add(accion, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, -1, -1));
+        estadoJefeFab2.setText("null");
+        Panel.add(estadoJefeFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, -1, -1));
 
         jLabel57.setText("HORA");
         Panel.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, -1, -1));
@@ -465,8 +562,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
         jLabel58.setText("Botones");
         Panel.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
 
-        jLabel59.setText("0");
-        Panel.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, -1, -1));
+        productoresBFab1.setText("0");
+        Panel.add(productoresBFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, -1, -1));
 
         jLabel8.setText("Pin(es) de carga");
         Panel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 100, -1));
@@ -480,131 +577,131 @@ public class VentanaFabrica extends javax.swing.JFrame {
         jLabel15.setText("Camara(s)");
         Panel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, -1));
 
-        jLabel20.setText("0");
-        Panel.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 20, -1));
+        productoresPFab1.setText("0");
+        Panel.add(productoresPFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 20, -1));
 
-        jLabel21.setText("0");
-        Panel.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 20, -1));
+        cantidadBFab1.setText("0");
+        Panel.add(cantidadBFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 20, -1));
 
         jLabel22.setText("/");
         Panel.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 20, -1));
 
-        jLabel23.setText("0");
-        Panel.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 20, -1));
+        ensambladoresFab1.setText("0");
+        Panel.add(ensambladoresFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 20, -1));
 
-        jLabel27.setText("0");
-        Panel.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 20, -1));
+        cantidadPFab1.setText("0");
+        Panel.add(cantidadPFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 20, -1));
 
         jLabel29.setText("/");
         Panel.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 20, -1));
 
-        jLabel30.setText("15");
-        Panel.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 20, -1));
+        maxPCFab1.setText("15");
+        Panel.add(maxPCFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 20, -1));
 
-        jLabel31.setText("0");
-        Panel.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 20, -1));
+        cantidadPCFab1.setText("0");
+        Panel.add(cantidadPCFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 20, -1));
 
         jLabel40.setText("/");
         Panel.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 20, -1));
 
-        jLabel41.setText("20");
-        Panel.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 20, -1));
+        maxCFab1.setText("20");
+        Panel.add(maxCFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 20, -1));
 
-        jLabel42.setText("0");
-        Panel.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 20, -1));
+        cantidadCFab1.setText("0");
+        Panel.add(cantidadCFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 20, -1));
 
         jLabel43.setText("/");
         Panel.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, 20, -1));
 
-        jLabel55.setText("null");
-        Panel.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
+        estadoJefeFab1.setText("null");
+        Panel.add(estadoJefeFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
 
-        Sueldop2.setText("0");
-        Panel.add(Sueldop2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 140, 20, -1));
+        sueldoJFab2.setText("0");
+        Panel.add(sueldoJFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 140, 20, -1));
 
-        jLabel44.setText("40");
-        Panel.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 20, -1));
+        maxPFab1.setText("40");
+        Panel.add(maxPFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 20, -1));
 
-        jLabel46.setText("0");
-        Panel.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 20, -1));
+        sueldoPFab1.setText("0");
+        Panel.add(sueldoPFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 20, -1));
 
-        jLabel47.setText("0");
-        Panel.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 20, -1));
+        sueldoBFab1.setText("0");
+        Panel.add(sueldoBFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 20, -1));
 
-        jLabel52.setText("0");
-        Panel.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, 20, -1));
+        sueldoPCFab1.setText("0");
+        Panel.add(sueldoPCFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, 20, -1));
 
         jLabel12.setText("Unidades ");
         Panel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, -1, -1));
 
-        fab2aC1.setText("45");
-        Panel.add(fab2aC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 20, -1));
+        maxBFab2.setText("45");
+        Panel.add(maxBFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 20, -1));
 
         jLabel60.setText("Sueldo");
         Panel.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 40, -1));
 
-        Sueldop1.setText("0");
-        Panel.add(Sueldop1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 170, 20, -1));
+        sueldoGFab2.setText("0");
+        Panel.add(sueldoGFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 170, 20, -1));
 
-        Fab2BA.setText("0");
-        Panel.add(Fab2BA, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 20, -1));
+        cantidadBFab2.setText("0");
+        Panel.add(cantidadBFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 20, -1));
 
         jLabel63.setText("/");
         Panel.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, 20, -1));
 
-        Sueldoc.setText("0");
-        Panel.add(Sueldoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 370, 30, -1));
+        sueldoCFab2.setText("0");
+        Panel.add(sueldoCFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 370, 30, -1));
 
-        Fab2PA.setText("0");
-        Panel.add(Fab2PA, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, 20, -1));
+        cantidadPFab2.setText("0");
+        Panel.add(cantidadPFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, 20, -1));
 
         jLabel66.setText("/");
         Panel.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, 20, -1));
 
-        fab2aC2.setText("15");
-        Panel.add(fab2aC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 20, -1));
+        maxPCFab2.setText("15");
+        Panel.add(maxPCFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 20, -1));
 
-        Fab2PcA.setText("0");
-        Panel.add(Fab2PcA, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, 20, -1));
+        cantidadPCFab2.setText("0");
+        Panel.add(cantidadPCFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, 20, -1));
 
         jLabel69.setText("/");
         Panel.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 330, 20, -1));
 
-        fab2aC3.setText("20");
-        Panel.add(fab2aC3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 370, 20, -1));
+        maxCFab2.setText("20");
+        Panel.add(maxCFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 370, 20, -1));
 
-        Fab2CA.setText("0");
-        Panel.add(Fab2CA, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 20, -1));
+        cantidadCFab2.setText("0");
+        Panel.add(cantidadCFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 20, -1));
 
         jLabel72.setText("/");
         Panel.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, 20, -1));
 
-        jLabel73.setText("0");
-        Panel.add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, -1, -1));
+        sueldoJFab1.setText("0");
+        Panel.add(sueldoJFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, -1, -1));
 
-        fab2aC.setText("40");
-        Panel.add(fab2aC, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, 20, -1));
+        maxPFab2.setText("40");
+        Panel.add(maxPFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, 20, -1));
 
-        Sueldop.setText("0");
-        Panel.add(Sueldop, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 250, 30, -1));
+        sueldoPFab2.setText("0");
+        Panel.add(sueldoPFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 250, 30, -1));
 
-        Sueldob.setText("0");
-        Panel.add(Sueldob, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, 30, -1));
+        sueldoBFab2.setText("0");
+        Panel.add(sueldoBFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, 30, -1));
 
-        Sueldopc.setText("0");
-        Panel.add(Sueldopc, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, 30, -1));
+        sueldoPCFab2.setText("0");
+        Panel.add(sueldoPCFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, 30, -1));
 
         jLabel16.setText("Ensambladores");
         Panel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, -1, -1));
 
-        jLabel7.setText("0");
-        Panel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, -1, -1));
+        productoresCFab1.setText("0");
+        Panel.add(productoresCFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, -1, -1));
 
-        jLabel33.setText("0");
-        Panel.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, 20, -1));
+        sueldoCFab1.setText("0");
+        Panel.add(sueldoCFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, 20, -1));
 
-        jLabel17.setText("0");
-        Panel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, 20, -1));
+        sueldoEFab1.setText("0");
+        Panel.add(sueldoEFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, 20, -1));
 
         jLabel6.setText("Fabrica 2");
         Panel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 250, -1, -1));
@@ -618,91 +715,119 @@ public class VentanaFabrica extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void eliminarPPF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPPF1ActionPerformed
-        // TODO add your handling code here:
+        quitarFab1(ColaOcupadoPantallaFab1, colaLibrePantallaFab1, productoresPFab1, sem1Fab1, pFab1);
     }//GEN-LAST:event_eliminarPPF1ActionPerformed
 
     private void eliminarPBF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPBF1ActionPerformed
-        // TODO add your handling code here:
+        quitarFab1(colaOcupadoBotonesFab1, colaOcupadoBotonesFab1, productoresBFab1, BFab1, sem2Fab1);
     }//GEN-LAST:event_eliminarPBF1ActionPerformed
 
     private void eliminarPPCF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPPCF1ActionPerformed
-        // TODO add your handling code here:
+        quitarFab1(colaOcupadoPinesCFab1, colaLibrePinesCFab1, productoresPCFab1, PcFab1, sem3Fab1);
     }//GEN-LAST:event_eliminarPPCF1ActionPerformed
 
     private void eliminarPCF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPCF1ActionPerformed
-        // TODO add your handling code here:
+        quitarFab1(colaOcupadoCamarasFab1, colaLibreCamarasFab1, productoresCFab1, CFab1, sem4Fab1);
     }//GEN-LAST:event_eliminarPCF1ActionPerformed
 
     private void eliminarEF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEF1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_eliminarEF1ActionPerformed
-
-    private void eliminarPPF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPPF2ActionPerformed
-        quitar(ColaOcupadoPantalla, colaLibrePantalla, Fab2P, sem, p);
-    }//GEN-LAST:event_eliminarPPF2ActionPerformed
-
-    private void eliminarPBF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPBF2ActionPerformed
-        quitar(colaOcupadoBotones, colaOcupadoBotones, Fab2B, B, sem2);
-    }//GEN-LAST:event_eliminarPBF2ActionPerformed
-
-    private void eliminarPPCF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPPCF2ActionPerformed
-        quitar(colaOcupadoPinesC, colaLibrePinesC, Fab2Pc, Pc, sem3);
-    }//GEN-LAST:event_eliminarPPCF2ActionPerformed
-
-    private void eliminarPCF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPCF2ActionPerformed
-        quitar(colaOcupadoCamaras, colaLibreCamaras, Fab2C, C, sem4);
-    }//GEN-LAST:event_eliminarPCF2ActionPerformed
-
-    private void eliminarEF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEF2ActionPerformed
-         if ( !colaEnsambladoresOcupados.esta_vacia()) {
-        Procesos siguiente = colaEnsambladoresOcupados.getPfirst().getproceso();
-        colaEnsambladoresOcupados.Desencolar();
+        if ( !colaEnsambladoresOcupadosFab1.esta_vacia()) {
+        Procesos siguiente = colaEnsambladoresOcupadosFab1.getPfirst().getproceso();
+        colaEnsambladoresOcupadosFab1.Desencolar();
         siguiente.suspend();
-        siguiente.sem.release();
+        siguiente.sem1.release();
         siguiente.sem2.release();
         siguiente.sem3.release();;
         siguiente.sem4.release();
-        Fab2E.setText(Integer.toString(Integer.parseInt(Fab2E.getText())-1));
-        empleados++;
+        ensambladoresFab1.setText(Integer.toString(Integer.parseInt(ensambladoresFab1.getText())-1));
+        empleadosFab1++;
+        }
+    }//GEN-LAST:event_eliminarEF1ActionPerformed
+
+    private void eliminarPPF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPPF2ActionPerformed
+        quitarFab2(ColaOcupadoPantallaFab2, colaLibrePantallaFab2, productoresPFab2, sem1Fab2, pFab2);
+    }//GEN-LAST:event_eliminarPPF2ActionPerformed
+
+    private void eliminarPBF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPBF2ActionPerformed
+        quitarFab2(colaOcupadoBotonesFab2, colaOcupadoBotonesFab2, productoresBFab2, BFab2, sem2Fab2);
+    }//GEN-LAST:event_eliminarPBF2ActionPerformed
+
+    private void eliminarPPCF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPPCF2ActionPerformed
+        quitarFab2(colaOcupadoPinesCFab2, colaLibrePinesCFab2, productoresPCFab2, PcFab2, sem3Fab2);
+    }//GEN-LAST:event_eliminarPPCF2ActionPerformed
+
+    private void eliminarPCF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPCF2ActionPerformed
+        quitarFab2(colaOcupadoCamarasFab2, colaLibreCamarasFab2, productoresCFab2, CFab2, sem4Fab2);
+    }//GEN-LAST:event_eliminarPCF2ActionPerformed
+
+    private void eliminarEF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEF2ActionPerformed
+        if ( !colaEnsambladoresOcupadosFab2.esta_vacia()) {
+        Procesos siguiente = colaEnsambladoresOcupadosFab2.getPfirst().getproceso();
+        colaEnsambladoresOcupadosFab2.Desencolar();
+        siguiente.suspend();
+        siguiente.sem1.release();
+        siguiente.sem2.release();
+        siguiente.sem3.release();;
+        siguiente.sem4.release();
+        ensambladoresFab2.setText(Integer.toString(Integer.parseInt(ensambladoresFab2.getText())-1));
+        empleadosFab2++;
         }
     }//GEN-LAST:event_eliminarEF2ActionPerformed
 
     private void iniciarFabricasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarFabricasActionPerformed
         Countdown.setText("30");
-        empleados = archivo.leerPorDefecto2(dia,empleados,colaLibrePantalla,ColaOcupadoPantalla,colaLibreBotones,colaOcupadoBotones,colaLibrePinesC,colaOcupadoPinesC,colaLibreCamaras,colaOcupadoCamaras,Fab2P,Fab2B,Fab2Pc,Fab2C,colaEnsambladoresLibres,colaEnsambladoresOcupados,Fab2E,Fab2PA,Fab2BA,Fab2PcA,Fab2CA,Fab2TA,sem,sem2,sem3,sem4,almacenPantallas,almacenBotones,almacenPinesC,almacenCamaras,p,B,Pc,C,mutex4,mutex3,mutex2,mutex,Countdown);
-        Procesos pagos = new Procesos(Fab2P, Fab2B, Fab2Pc, Fab2C, Sueldop, Sueldob, Sueldopc, Sueldoc,Fab2E,Sueldoe,0,dia,Sueldop2,Sueldop1,Countdown);
+        empleadosFab1 = archivo.leerPorDefecto2(dia,empleadosFab1,colaLibrePantallaFab2,ColaOcupadoPantallaFab2,colaLibreBotonesFab2,colaOcupadoBotonesFab2,colaLibrePinesCFab2,colaOcupadoPinesCFab2,colaLibreCamarasFab2,colaOcupadoCamarasFab2,productoresPFab2,productoresBFab2,productoresPCFab2,productoresCFab2,colaEnsambladoresLibresFab2,colaEnsambladoresOcupadosFab2,ensambladoresFab2,cantidadPFab2,cantidadBFab2,cantidadPCFab2,cantidadCFab2,telefonosProducidosFab2,sem1Fab2,sem2Fab2,sem3Fab2,sem4Fab2,almacenPantallasFab2,almacenBotonesFab2,almacenPinesCFab2,almacenCamarasFab2,pFab2,BFab2,PcFab2,CFab2,mutex4Fab2,mutex3Fab2,mutex2Fab2,mutex1Fab2,Countdown);
+        empleadosFab2 = archivo.leerPorDefecto2(dia,empleadosFab2,colaLibrePantallaFab2,ColaOcupadoPantallaFab2,colaLibreBotonesFab2,colaOcupadoBotonesFab2,colaLibrePinesCFab2,colaOcupadoPinesCFab2,colaLibreCamarasFab2,colaOcupadoCamarasFab2,productoresPFab2,productoresBFab2,productoresPCFab2,productoresCFab2,colaEnsambladoresLibresFab2,colaEnsambladoresOcupadosFab2,ensambladoresFab2,cantidadPFab2,cantidadBFab2,cantidadPCFab2,cantidadCFab2,telefonosProducidosFab2,sem1Fab2,sem2Fab2,sem3Fab2,sem4Fab2,almacenPantallasFab2,almacenBotonesFab2,almacenPinesCFab2,almacenCamarasFab2,pFab2,BFab2,PcFab2,CFab2,mutex4Fab2,mutex3Fab2,mutex2Fab2,mutex1Fab2,Countdown);
+        Procesos pagos = new Procesos(productoresPFab2, productoresBFab2, productoresPCFab2, productoresCFab2, sueldoPFab2, sueldoBFab2, sueldoPCFab2, sueldoCFab2,ensambladoresFab2,sueldoEFab2,0,dia,sueldoJFab2,sueldoGFab2,Countdown);
         pagos.start();
-        ProcesosJG jefe = new ProcesosJG(1,dia,modCountdown, Countdown, accion);
+        ProcesosJG jefe = new ProcesosJG(1,dia,modCountdown, Countdown, estadoJefeFab2);
         jefe.start();
-        ProcesosJG gerente = new ProcesosJG(dia, 3, modCountdown, acciong, Countdown,Fab2TA,accion,Sueldop2);
+        ProcesosJG gerente = new ProcesosJG(dia, 3, modCountdown, estadoGerenteFab2, Countdown,telefonosProducidosFab2,estadoJefeFab2,sueldoJFab2);
         gerente.start();
         ProcesosJG dias = new ProcesosJG(dia, Countdown, 2);
         dias.start();
     }//GEN-LAST:event_iniciarFabricasActionPerformed
 
     private void agregarPPF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarPPF2ActionPerformed
-        agregar(1,colaLibrePantalla, ColaOcupadoPantalla, Fab2P);
+        agregarFab2(1,colaLibrePantallaFab2, ColaOcupadoPantallaFab2, productoresPFab2);
     }//GEN-LAST:event_agregarPPF2ActionPerformed
 
     private void agregarPBF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarPBF2ActionPerformed
-         agregar(2,colaLibreBotones, colaOcupadoBotones, Fab2B);
+        agregarFab2(2,colaLibreBotonesFab2, colaOcupadoBotonesFab2, productoresBFab2);
+         
     }//GEN-LAST:event_agregarPBF2ActionPerformed
 
     private void agregarPPCF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarPPCF2ActionPerformed
-        agregar(3,colaLibrePinesC, colaOcupadoPinesC, Fab2Pc);
+        agregarFab2(3,colaLibrePinesCFab2, colaOcupadoPinesCFab2, productoresPCFab2);
     }//GEN-LAST:event_agregarPPCF2ActionPerformed
 
     private void agregarPCF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarPCF2ActionPerformed
-        agregar(4,colaLibreCamaras, colaOcupadoCamaras, Fab2C);
+        agregarFab2(4,colaLibreCamarasFab2, colaOcupadoCamarasFab2, productoresCFab2);
     }//GEN-LAST:event_agregarPCF2ActionPerformed
 
     private void agregarEF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarEF2ActionPerformed
-        agregar(5,colaEnsambladoresLibres, colaEnsambladoresOcupados, Fab2E);
+        agregarFab2(5,colaEnsambladoresLibresFab2, colaEnsambladoresOcupadosFab2, ensambladoresFab2);
     }//GEN-LAST:event_agregarEF2ActionPerformed
 
     private void agregarPPF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarPPF1ActionPerformed
-        // TODO add your handling code here:
+        agregarFab1(1, colaLibrePantallaFab1, ColaOcupadoPantallaFab1, productoresPFab1);
     }//GEN-LAST:event_agregarPPF1ActionPerformed
+
+    private void agregarPBF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarPBF1ActionPerformed
+        agregarFab1(2,colaLibreBotonesFab1, colaOcupadoBotonesFab1, productoresBFab1);
+    }//GEN-LAST:event_agregarPBF1ActionPerformed
+
+    private void agregarPPCF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarPPCF1ActionPerformed
+        agregarFab1(3,colaLibrePinesCFab1, colaOcupadoPinesCFab1, productoresPCFab1);
+    }//GEN-LAST:event_agregarPPCF1ActionPerformed
+
+    private void agregarPCF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarPCF1ActionPerformed
+        agregarFab1(4,colaLibreCamarasFab1, colaOcupadoCamarasFab1, productoresCFab1);
+    }//GEN-LAST:event_agregarPCF1ActionPerformed
+
+    private void agregarEF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarEF1ActionPerformed
+        agregarFab1(5,colaEnsambladoresLibresFab1, colaEnsambladoresOcupadosFab1, ensambladoresFab1);
+    }//GEN-LAST:event_agregarEF1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -741,26 +866,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Countdown;
-    private javax.swing.JLabel Fab2B;
-    private javax.swing.JLabel Fab2BA;
-    private javax.swing.JLabel Fab2C;
-    private javax.swing.JLabel Fab2CA;
-    private javax.swing.JLabel Fab2E;
-    private javax.swing.JLabel Fab2P;
-    private javax.swing.JLabel Fab2PA;
-    private javax.swing.JLabel Fab2Pc;
-    private javax.swing.JLabel Fab2PcA;
-    private javax.swing.JLabel Fab2TA;
     private javax.swing.JPanel Panel;
-    private javax.swing.JLabel Sueldob;
-    private javax.swing.JLabel Sueldoc;
-    private javax.swing.JLabel Sueldoe;
-    private javax.swing.JLabel Sueldop;
-    private javax.swing.JLabel Sueldop1;
-    private javax.swing.JLabel Sueldop2;
-    private javax.swing.JLabel Sueldopc;
-    private javax.swing.JLabel accion;
-    private javax.swing.JLabel acciong;
     private javax.swing.JButton agregarEF1;
     private javax.swing.JButton agregarEF2;
     private javax.swing.JButton agregarPBF1;
@@ -771,6 +877,14 @@ public class VentanaFabrica extends javax.swing.JFrame {
     private javax.swing.JButton agregarPPCF2;
     private javax.swing.JButton agregarPPF1;
     private javax.swing.JButton agregarPPF2;
+    private javax.swing.JLabel cantidadBFab1;
+    private javax.swing.JLabel cantidadBFab2;
+    private javax.swing.JLabel cantidadCFab1;
+    private javax.swing.JLabel cantidadCFab2;
+    private javax.swing.JLabel cantidadPCFab1;
+    private javax.swing.JLabel cantidadPCFab2;
+    private javax.swing.JLabel cantidadPFab1;
+    private javax.swing.JLabel cantidadPFab2;
     private javax.swing.JButton eliminarEF1;
     private javax.swing.JButton eliminarEF2;
     private javax.swing.JButton eliminarPBF1;
@@ -781,10 +895,12 @@ public class VentanaFabrica extends javax.swing.JFrame {
     private javax.swing.JButton eliminarPPCF2;
     private javax.swing.JButton eliminarPPF1;
     private javax.swing.JButton eliminarPPF2;
-    private javax.swing.JLabel fab2aC;
-    private javax.swing.JLabel fab2aC1;
-    private javax.swing.JLabel fab2aC2;
-    private javax.swing.JLabel fab2aC3;
+    private javax.swing.JLabel ensambladoresFab1;
+    private javax.swing.JLabel ensambladoresFab2;
+    private javax.swing.JLabel estadoGerenteFab1;
+    private javax.swing.JLabel estadoGerenteFab2;
+    private javax.swing.JLabel estadoJefeFab1;
+    private javax.swing.JLabel estadoJefeFab2;
     private javax.swing.JButton iniciarFabricas;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -793,55 +909,64 @@ public class VentanaFabrica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel54;
-    private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel69;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel72;
-    private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel maxBFab1;
+    private javax.swing.JLabel maxBFab2;
+    private javax.swing.JLabel maxCFab1;
+    private javax.swing.JLabel maxCFab2;
+    private javax.swing.JLabel maxPCFab1;
+    private javax.swing.JLabel maxPCFab2;
+    private javax.swing.JLabel maxPFab1;
+    private javax.swing.JLabel maxPFab2;
+    private javax.swing.JLabel productoresBFab1;
+    private javax.swing.JLabel productoresBFab2;
+    private javax.swing.JLabel productoresCFab1;
+    private javax.swing.JLabel productoresCFab2;
+    private javax.swing.JLabel productoresPCFab1;
+    private javax.swing.JLabel productoresPCFab2;
+    private javax.swing.JLabel productoresPFab1;
+    private javax.swing.JLabel productoresPFab2;
+    private javax.swing.JLabel sueldoBFab1;
+    private javax.swing.JLabel sueldoBFab2;
+    private javax.swing.JLabel sueldoCFab1;
+    private javax.swing.JLabel sueldoCFab2;
+    private javax.swing.JLabel sueldoEFab1;
+    private javax.swing.JLabel sueldoEFab2;
+    private javax.swing.JLabel sueldoGFab1;
+    private javax.swing.JLabel sueldoGFab2;
+    private javax.swing.JLabel sueldoJFab1;
+    private javax.swing.JLabel sueldoJFab2;
+    private javax.swing.JLabel sueldoPCFab1;
+    private javax.swing.JLabel sueldoPCFab2;
+    private javax.swing.JLabel sueldoPFab1;
+    private javax.swing.JLabel sueldoPFab2;
+    private javax.swing.JLabel telefonosProducidosFab1;
+    private javax.swing.JLabel telefonosProducidosFab2;
     // End of variables declaration//GEN-END:variables
 }

@@ -71,7 +71,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
+        <Component class="javax.swing.JLabel" name="productoresPCFab1">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -81,7 +81,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="Fab2E">
+        <Component class="javax.swing.JLabel" name="ensambladoresFab2">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -114,7 +114,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="Sueldoe">
+        <Component class="javax.swing.JLabel" name="sueldoEFab2">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -154,6 +154,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="+"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="agregarPBF1ActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="230" y="280" width="40" height="30"/>
@@ -177,6 +180,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="+"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="agregarPPCF1ActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="230" y="320" width="40" height="30"/>
@@ -200,13 +206,16 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="+"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="agregarPCF1ActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="230" y="360" width="40" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel19">
+        <Component class="javax.swing.JLabel" name="maxBFab1">
           <Properties>
             <Property name="text" type="java.lang.String" value="45"/>
           </Properties>
@@ -230,6 +239,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="+"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="agregarEF1ActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="230" y="420" width="40" height="30"/>
@@ -249,7 +261,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel25">
+        <Component class="javax.swing.JLabel" name="telefonosProducidosFab1">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -302,7 +314,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="Fab2B">
+        <Component class="javax.swing.JLabel" name="productoresBFab2">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -312,7 +324,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="Fab2C">
+        <Component class="javax.swing.JLabel" name="productoresCFab2">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -322,7 +334,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="Fab2Pc">
+        <Component class="javax.swing.JLabel" name="productoresPCFab2">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -423,7 +435,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="Fab2P">
+        <Component class="javax.swing.JLabel" name="productoresPFab2">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -466,7 +478,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="Fab2TA">
+        <Component class="javax.swing.JLabel" name="telefonosProducidosFab2">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -516,7 +528,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel28">
+        <Component class="javax.swing.JLabel" name="estadoGerenteFab1">
           <Properties>
             <Property name="text" type="java.lang.String" value="null"/>
           </Properties>
@@ -526,7 +538,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel54">
+        <Component class="javax.swing.JLabel" name="sueldoGFab1">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -536,7 +548,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="acciong">
+        <Component class="javax.swing.JLabel" name="estadoGerenteFab2">
           <Properties>
             <Property name="text" type="java.lang.String" value="null"/>
           </Properties>
@@ -546,7 +558,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="accion">
+        <Component class="javax.swing.JLabel" name="estadoJefeFab2">
           <Properties>
             <Property name="text" type="java.lang.String" value="null"/>
           </Properties>
@@ -619,7 +631,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel59">
+        <Component class="javax.swing.JLabel" name="productoresBFab1">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -669,7 +681,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel20">
+        <Component class="javax.swing.JLabel" name="productoresPFab1">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -679,7 +691,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel21">
+        <Component class="javax.swing.JLabel" name="cantidadBFab1">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -699,7 +711,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel23">
+        <Component class="javax.swing.JLabel" name="ensambladoresFab1">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -709,7 +721,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel27">
+        <Component class="javax.swing.JLabel" name="cantidadPFab1">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -729,7 +741,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel30">
+        <Component class="javax.swing.JLabel" name="maxPCFab1">
           <Properties>
             <Property name="text" type="java.lang.String" value="15"/>
           </Properties>
@@ -739,7 +751,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel31">
+        <Component class="javax.swing.JLabel" name="cantidadPCFab1">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -759,7 +771,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel41">
+        <Component class="javax.swing.JLabel" name="maxCFab1">
           <Properties>
             <Property name="text" type="java.lang.String" value="20"/>
           </Properties>
@@ -769,7 +781,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel42">
+        <Component class="javax.swing.JLabel" name="cantidadCFab1">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -789,7 +801,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel55">
+        <Component class="javax.swing.JLabel" name="estadoJefeFab1">
           <Properties>
             <Property name="text" type="java.lang.String" value="null"/>
           </Properties>
@@ -799,7 +811,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="Sueldop2">
+        <Component class="javax.swing.JLabel" name="sueldoJFab2">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -809,7 +821,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel44">
+        <Component class="javax.swing.JLabel" name="maxPFab1">
           <Properties>
             <Property name="text" type="java.lang.String" value="40"/>
           </Properties>
@@ -819,7 +831,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel46">
+        <Component class="javax.swing.JLabel" name="sueldoPFab1">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -829,7 +841,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel47">
+        <Component class="javax.swing.JLabel" name="sueldoBFab1">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -839,7 +851,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel52">
+        <Component class="javax.swing.JLabel" name="sueldoPCFab1">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -859,7 +871,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="fab2aC1">
+        <Component class="javax.swing.JLabel" name="maxBFab2">
           <Properties>
             <Property name="text" type="java.lang.String" value="45"/>
           </Properties>
@@ -879,7 +891,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="Sueldop1">
+        <Component class="javax.swing.JLabel" name="sueldoGFab2">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -889,7 +901,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="Fab2BA">
+        <Component class="javax.swing.JLabel" name="cantidadBFab2">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -909,7 +921,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="Sueldoc">
+        <Component class="javax.swing.JLabel" name="sueldoCFab2">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -919,7 +931,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="Fab2PA">
+        <Component class="javax.swing.JLabel" name="cantidadPFab2">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -939,7 +951,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="fab2aC2">
+        <Component class="javax.swing.JLabel" name="maxPCFab2">
           <Properties>
             <Property name="text" type="java.lang.String" value="15"/>
           </Properties>
@@ -949,7 +961,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="Fab2PcA">
+        <Component class="javax.swing.JLabel" name="cantidadPCFab2">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -969,7 +981,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="fab2aC3">
+        <Component class="javax.swing.JLabel" name="maxCFab2">
           <Properties>
             <Property name="text" type="java.lang.String" value="20"/>
           </Properties>
@@ -979,7 +991,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="Fab2CA">
+        <Component class="javax.swing.JLabel" name="cantidadCFab2">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -999,7 +1011,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel73">
+        <Component class="javax.swing.JLabel" name="sueldoJFab1">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -1009,7 +1021,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="fab2aC">
+        <Component class="javax.swing.JLabel" name="maxPFab2">
           <Properties>
             <Property name="text" type="java.lang.String" value="40"/>
           </Properties>
@@ -1019,7 +1031,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="Sueldop">
+        <Component class="javax.swing.JLabel" name="sueldoPFab2">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -1029,7 +1041,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="Sueldob">
+        <Component class="javax.swing.JLabel" name="sueldoBFab2">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -1039,7 +1051,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="Sueldopc">
+        <Component class="javax.swing.JLabel" name="sueldoPCFab2">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -1059,7 +1071,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel7">
+        <Component class="javax.swing.JLabel" name="productoresCFab1">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -1069,7 +1081,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel33">
+        <Component class="javax.swing.JLabel" name="sueldoCFab1">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
@@ -1079,7 +1091,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel17">
+        <Component class="javax.swing.JLabel" name="sueldoEFab1">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
