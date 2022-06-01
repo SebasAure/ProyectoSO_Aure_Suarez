@@ -749,7 +749,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
     }//GEN-LAST:event_eliminarPPF2ActionPerformed
 
     private void eliminarPBF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPBF2ActionPerformed
-        quitarFab2(colaOcupadoBotonesFab2, colaOcupadoBotonesFab2, productoresBFab2, BFab2, sem2Fab2);
+        quitarFab2(colaOcupadoBotonesFab2, colaLibreBotonesFab2, productoresBFab2, BFab2, sem2Fab2);
     }//GEN-LAST:event_eliminarPBF2ActionPerformed
 
     private void eliminarPPCF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPPCF2ActionPerformed
@@ -776,7 +776,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
 
     private void iniciarFabricasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarFabricasActionPerformed
         Countdown.setText("30");
-        empleadosFab1 = archivo.leerPorDefecto2(dia,empleadosFab1,colaLibrePantallaFab2,ColaOcupadoPantallaFab2,colaLibreBotonesFab2,colaOcupadoBotonesFab2,colaLibrePinesCFab2,colaOcupadoPinesCFab2,colaLibreCamarasFab2,colaOcupadoCamarasFab2,productoresPFab2,productoresBFab2,productoresPCFab2,productoresCFab2,colaEnsambladoresLibresFab2,colaEnsambladoresOcupadosFab2,ensambladoresFab2,cantidadPFab2,cantidadBFab2,cantidadPCFab2,cantidadCFab2,telefonosProducidosFab2,sem1Fab2,sem2Fab2,sem3Fab2,sem4Fab2,almacenPantallasFab2,almacenBotonesFab2,almacenPinesCFab2,almacenCamarasFab2,pFab2,BFab2,PcFab2,CFab2,mutex4Fab2,mutex3Fab2,mutex2Fab2,mutex1Fab2,Countdown);
+//        empleadosFab1 = archivo.leerPorDefecto2(dia,empleadosFab1,colaLibrePantallaFab2,ColaOcupadoPantallaFab2,colaLibreBotonesFab2,colaOcupadoBotonesFab2,colaLibrePinesCFab2,colaOcupadoPinesCFab2,colaLibreCamarasFab2,colaOcupadoCamarasFab2,productoresPFab2,productoresBFab2,productoresPCFab2,productoresCFab2,colaEnsambladoresLibresFab2,colaEnsambladoresOcupadosFab2,ensambladoresFab2,cantidadPFab2,cantidadBFab2,cantidadPCFab2,cantidadCFab2,telefonosProducidosFab2,sem1Fab2,sem2Fab2,sem3Fab2,sem4Fab2,almacenPantallasFab2,almacenBotonesFab2,almacenPinesCFab2,almacenCamarasFab2,pFab2,BFab2,PcFab2,CFab2,mutex4Fab2,mutex3Fab2,mutex2Fab2,mutex1Fab2,Countdown);
         empleadosFab2 = archivo.leerPorDefecto2(dia,empleadosFab2,colaLibrePantallaFab2,ColaOcupadoPantallaFab2,colaLibreBotonesFab2,colaOcupadoBotonesFab2,colaLibrePinesCFab2,colaOcupadoPinesCFab2,colaLibreCamarasFab2,colaOcupadoCamarasFab2,productoresPFab2,productoresBFab2,productoresPCFab2,productoresCFab2,colaEnsambladoresLibresFab2,colaEnsambladoresOcupadosFab2,ensambladoresFab2,cantidadPFab2,cantidadBFab2,cantidadPCFab2,cantidadCFab2,telefonosProducidosFab2,sem1Fab2,sem2Fab2,sem3Fab2,sem4Fab2,almacenPantallasFab2,almacenBotonesFab2,almacenPinesCFab2,almacenCamarasFab2,pFab2,BFab2,PcFab2,CFab2,mutex4Fab2,mutex3Fab2,mutex2Fab2,mutex1Fab2,Countdown);
         Procesos pagos = new Procesos(productoresPFab2, productoresBFab2, productoresPCFab2, productoresCFab2, sueldoPFab2, sueldoBFab2, sueldoPCFab2, sueldoCFab2,ensambladoresFab2,sueldoEFab2,0,dia,sueldoJFab2,sueldoGFab2,Countdown);
         pagos.start();
