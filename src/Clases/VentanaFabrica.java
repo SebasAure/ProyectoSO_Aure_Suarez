@@ -18,7 +18,6 @@ public class VentanaFabrica extends javax.swing.JFrame {
     archivoCsv archivo = new archivoCsv();
     long dia=0;
     int dias;
-    
     String cadena = "";
     //Fabrica 1
     int empleadosFab1 = 19;
@@ -78,6 +77,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
     Semaphore PcFab2= new Semaphore(1);
     Semaphore CFab2= new Semaphore(1);
     Semaphore modCountdown = new Semaphore(1);
+    Thread Total;
+
     public void agregarFab1(int tipo,Cola libre,Cola ocupada,JLabel trabajador){
         if (empleadosFab1!=0) {
             if (tipo==1) {
@@ -164,7 +165,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
     public VentanaFabrica() {
         initComponents();
 //        archivo.escribirCvsPorDefecto(cadena);
-        dia = archivo.leerPorDefecto(dia, dias, maxPFab2, maxBFab2, maxPCFab2, maxCFab2);
+        dia = archivo.leerPorDefecto(dia, Countdown, maxPFab2, maxBFab2, maxPCFab2, maxCFab2);
         // Fabrica 1
         almacenPantallasFab1 = new Semaphore(Integer.parseInt(maxPFab2.getText()));
         almacenBotonesFab1 = new Semaphore(Integer.parseInt(maxBFab2.getText()));
@@ -301,7 +302,22 @@ public class VentanaFabrica extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         irSimulacionButton = new javax.swing.JButton();
         dashboardButton = new javax.swing.JButton();
+        dashboardButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        netofab2 = new javax.swing.JLabel();
+        gastosfab2 = new javax.swing.JLabel();
+        gananciasfab2 = new javax.swing.JLabel();
+        Reiniciar = new javax.swing.JButton();
+        jToggleButton1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -310,31 +326,24 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Componente");
         Panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
 
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Pantalla(s)");
         Panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, -1, -1));
 
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Fabrica 1 ");
         Panel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, -1, -1));
 
-        productoresPCFab1.setForeground(new java.awt.Color(0, 0, 0));
         productoresPCFab1.setText("0");
         Panel.add(productoresPCFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, 10, -1));
 
-        ensambladoresFab2.setForeground(new java.awt.Color(0, 0, 0));
         ensambladoresFab2.setText("0");
         Panel.add(ensambladoresFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 470, -1, -1));
 
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Unidades ");
         Panel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, -1, -1));
 
-        eliminarPPF1.setForeground(new java.awt.Color(0, 0, 0));
         eliminarPPF1.setText("-");
         eliminarPPF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -343,11 +352,9 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(eliminarPPF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, 40, 30));
 
-        sueldoEFab2.setForeground(new java.awt.Color(0, 0, 0));
         sueldoEFab2.setText("0");
         Panel.add(sueldoEFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 470, 30, -1));
 
-        agregarPPF1.setForeground(new java.awt.Color(0, 0, 0));
         agregarPPF1.setText("+");
         agregarPPF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -356,7 +363,6 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(agregarPPF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 40, 30));
 
-        eliminarPBF1.setForeground(new java.awt.Color(0, 0, 0));
         eliminarPBF1.setText("-");
         eliminarPBF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -365,7 +371,6 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(eliminarPBF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 320, 40, 30));
 
-        agregarPBF1.setForeground(new java.awt.Color(0, 0, 0));
         agregarPBF1.setText("+");
         agregarPBF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -374,7 +379,6 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(agregarPBF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, 40, 30));
 
-        eliminarPPCF1.setForeground(new java.awt.Color(0, 0, 0));
         eliminarPPCF1.setText("-");
         eliminarPPCF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -383,7 +387,6 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(eliminarPPCF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, 40, 30));
 
-        agregarPPCF1.setForeground(new java.awt.Color(0, 0, 0));
         agregarPPCF1.setText("+");
         agregarPPCF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -392,7 +395,6 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(agregarPPCF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 360, 40, 30));
 
-        eliminarPCF1.setForeground(new java.awt.Color(0, 0, 0));
         eliminarPCF1.setText("-");
         eliminarPCF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -401,7 +403,6 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(eliminarPCF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, 40, 30));
 
-        agregarPCF1.setForeground(new java.awt.Color(0, 0, 0));
         agregarPCF1.setText("+");
         agregarPCF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -410,15 +411,12 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(agregarPCF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 400, 40, 30));
 
-        maxBFab1.setForeground(new java.awt.Color(0, 0, 0));
         maxBFab1.setText("45");
         Panel.add(maxBFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, 20, -1));
 
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Ensambladores");
         Panel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 440, -1, -1));
 
-        agregarEF1.setForeground(new java.awt.Color(0, 0, 0));
         agregarEF1.setText("+");
         agregarEF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -427,7 +425,6 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(agregarEF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 460, 40, 30));
 
-        eliminarEF1.setForeground(new java.awt.Color(0, 0, 0));
         eliminarEF1.setText("-");
         eliminarEF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -436,23 +433,18 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(eliminarEF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 460, 40, 30));
 
-        telefonosProducidosFab1.setForeground(new java.awt.Color(0, 0, 0));
         telefonosProducidosFab1.setText("0");
-        Panel.add(telefonosProducidosFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 210, 20, -1));
+        Panel.add(telefonosProducidosFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 160, 20, -1));
 
-        jLabel26.setForeground(new java.awt.Color(0, 0, 0));
         jLabel26.setText("Xperia 1 IV (Producidos)");
-        Panel.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 190, 140, -1));
+        Panel.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 140, 140, -1));
 
-        jLabel24.setForeground(new java.awt.Color(0, 0, 0));
         jLabel24.setText("Productores");
         Panel.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, -1, -1));
 
-        jLabel32.setForeground(new java.awt.Color(0, 0, 0));
         jLabel32.setText("Sueldo");
         Panel.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 40, -1));
 
-        eliminarPPF2.setForeground(new java.awt.Color(0, 0, 0));
         eliminarPPF2.setText("-");
         eliminarPPF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -461,19 +453,15 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(eliminarPPF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 280, 40, 30));
 
-        productoresBFab2.setForeground(new java.awt.Color(0, 0, 0));
         productoresBFab2.setText("0");
         Panel.add(productoresBFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 330, 20, 20));
 
-        productoresCFab2.setForeground(new java.awt.Color(0, 0, 0));
         productoresCFab2.setText("0");
         Panel.add(productoresCFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 410, 20, -1));
 
-        productoresPCFab2.setForeground(new java.awt.Color(0, 0, 0));
         productoresPCFab2.setText("0");
         Panel.add(productoresPCFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 370, 20, -1));
 
-        agregarPPF2.setForeground(new java.awt.Color(0, 0, 0));
         agregarPPF2.setText("+");
         agregarPPF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -482,7 +470,6 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(agregarPPF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 280, 40, 30));
 
-        eliminarPBF2.setForeground(new java.awt.Color(0, 0, 0));
         eliminarPBF2.setText("-");
         eliminarPBF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -491,7 +478,6 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(eliminarPBF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 320, 40, 30));
 
-        agregarPBF2.setForeground(new java.awt.Color(0, 0, 0));
         agregarPBF2.setText("+");
         agregarPBF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -500,7 +486,6 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(agregarPBF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 320, 40, 30));
 
-        eliminarPPCF2.setForeground(new java.awt.Color(0, 0, 0));
         eliminarPPCF2.setText("-");
         eliminarPPCF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -509,7 +494,6 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(eliminarPPCF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 360, 40, 30));
 
-        agregarPPCF2.setForeground(new java.awt.Color(0, 0, 0));
         agregarPPCF2.setText("+");
         agregarPPCF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -518,7 +502,6 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(agregarPPCF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 360, 40, 30));
 
-        eliminarPCF2.setForeground(new java.awt.Color(0, 0, 0));
         eliminarPCF2.setText("-");
         eliminarPCF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -527,7 +510,6 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(eliminarPCF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 400, 40, 30));
 
-        agregarPCF2.setForeground(new java.awt.Color(0, 0, 0));
         agregarPCF2.setText("+");
         agregarPCF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -536,12 +518,10 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(agregarPCF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 400, 40, 30));
 
-        productoresPFab2.setForeground(new java.awt.Color(0, 0, 0));
         productoresPFab2.setText("0");
         Panel.add(productoresPFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 290, 20, -1));
         Panel.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 310, 20, -1));
 
-        agregarEF2.setForeground(new java.awt.Color(0, 0, 0));
         agregarEF2.setText("+");
         agregarEF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -550,7 +530,6 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(agregarEF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 460, 40, 30));
 
-        eliminarEF2.setForeground(new java.awt.Color(0, 0, 0));
         eliminarEF2.setText("-");
         eliminarEF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -559,266 +538,202 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         Panel.add(eliminarEF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 460, 40, 30));
 
-        telefonosProducidosFab2.setForeground(new java.awt.Color(0, 0, 0));
         telefonosProducidosFab2.setText("0");
-        Panel.add(telefonosProducidosFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 330, 40, 20));
+        Panel.add(telefonosProducidosFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 320, 40, 20));
 
-        jLabel48.setForeground(new java.awt.Color(0, 0, 0));
         jLabel48.setText("Xperia 10 IV (Producidos)");
-        Panel.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 310, -1, -1));
+        Panel.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 300, -1, -1));
 
-        jLabel49.setForeground(new java.awt.Color(0, 0, 0));
         jLabel49.setText("Gerente esta...");
         Panel.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
 
-        jLabel50.setForeground(new java.awt.Color(0, 0, 0));
         jLabel50.setText("Jefe esta... ");
         Panel.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, -1, -1));
 
-        jLabel51.setForeground(new java.awt.Color(0, 0, 0));
         jLabel51.setText("Fabrica 2");
-        Panel.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, -1, -1));
+        Panel.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, -1, -1));
 
-        estadoGerenteFab1.setForeground(new java.awt.Color(0, 0, 0));
         estadoGerenteFab1.setText("null");
         Panel.add(estadoGerenteFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, -1, -1));
 
-        sueldoGFab1.setForeground(new java.awt.Color(0, 0, 0));
         sueldoGFab1.setText("0");
-        Panel.add(sueldoGFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 210, -1, -1));
+        Panel.add(sueldoGFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 203, 40, 20));
 
-        estadoGerenteFab2.setForeground(new java.awt.Color(0, 0, 0));
         estadoGerenteFab2.setText("null");
-        Panel.add(estadoGerenteFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, -1, -1));
+        Panel.add(estadoGerenteFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 203, 160, 20));
 
-        estadoJefeFab2.setForeground(new java.awt.Color(0, 0, 0));
         estadoJefeFab2.setText("null");
-        Panel.add(estadoJefeFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, -1, -1));
+        Panel.add(estadoJefeFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 173, 160, 20));
 
-        jLabel57.setForeground(new java.awt.Color(0, 0, 0));
         jLabel57.setText("HORA");
         Panel.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, -1, -1));
 
-        iniciarFabricas.setForeground(new java.awt.Color(0, 0, 0));
         iniciarFabricas.setText("Iniciar Fabricas");
         iniciarFabricas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 iniciarFabricasActionPerformed(evt);
             }
         });
-        Panel.add(iniciarFabricas, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
+        Panel.add(iniciarFabricas, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
 
-        jLabel35.setForeground(new java.awt.Color(0, 0, 0));
         jLabel35.setText("Dias:");
         Panel.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, -1, -1));
 
-        Countdown.setForeground(new java.awt.Color(0, 0, 0));
         Countdown.setText("0");
         Panel.add(Countdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, 50, -1));
 
-        jLabel38.setForeground(new java.awt.Color(0, 0, 0));
         jLabel38.setText("Productores");
         Panel.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, -1, -1));
 
-        jLabel58.setForeground(new java.awt.Color(0, 0, 0));
         jLabel58.setText("Botones");
         Panel.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, -1, -1));
 
-        productoresBFab1.setForeground(new java.awt.Color(0, 0, 0));
         productoresBFab1.setText("0");
         Panel.add(productoresBFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, -1, -1));
 
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Pin(es) de carga");
         Panel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 100, -1));
 
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Pin(es) de carga");
         Panel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 100, -1));
 
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Pin(es) de carga");
         Panel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 100, -1));
 
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Camara(s)");
         Panel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, -1, -1));
 
-        productoresPFab1.setForeground(new java.awt.Color(0, 0, 0));
         productoresPFab1.setText("0");
         Panel.add(productoresPFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 20, -1));
 
-        cantidadBFab1.setForeground(new java.awt.Color(0, 0, 0));
         cantidadBFab1.setText("0");
         Panel.add(cantidadBFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 20, -1));
 
-        jLabel22.setForeground(new java.awt.Color(0, 0, 0));
         jLabel22.setText("/");
         Panel.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 20, -1));
 
-        ensambladoresFab1.setForeground(new java.awt.Color(0, 0, 0));
         ensambladoresFab1.setText("0");
         Panel.add(ensambladoresFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 470, 20, -1));
 
-        cantidadPFab1.setForeground(new java.awt.Color(0, 0, 0));
         cantidadPFab1.setText("0");
         Panel.add(cantidadPFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 20, -1));
 
-        jLabel29.setForeground(new java.awt.Color(0, 0, 0));
         jLabel29.setText("/");
         Panel.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 20, -1));
 
-        maxPCFab1.setForeground(new java.awt.Color(0, 0, 0));
         maxPCFab1.setText("15");
         Panel.add(maxPCFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, 20, -1));
 
-        cantidadPCFab1.setForeground(new java.awt.Color(0, 0, 0));
         cantidadPCFab1.setText("0");
         Panel.add(cantidadPCFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 20, -1));
 
-        jLabel40.setForeground(new java.awt.Color(0, 0, 0));
         jLabel40.setText("/");
         Panel.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 20, -1));
 
-        maxCFab1.setForeground(new java.awt.Color(0, 0, 0));
         maxCFab1.setText("20");
         Panel.add(maxCFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, 20, -1));
 
-        cantidadCFab1.setForeground(new java.awt.Color(0, 0, 0));
         cantidadCFab1.setText("0");
         Panel.add(cantidadCFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, 20, -1));
 
-        jLabel43.setForeground(new java.awt.Color(0, 0, 0));
         jLabel43.setText("/");
         Panel.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, 20, -1));
 
-        estadoJefeFab1.setForeground(new java.awt.Color(0, 0, 0));
         estadoJefeFab1.setText("null");
         Panel.add(estadoJefeFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, -1, -1));
 
-        sueldoJFab2.setForeground(new java.awt.Color(0, 0, 0));
         sueldoJFab2.setText("0");
-        Panel.add(sueldoJFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 180, 20, -1));
+        Panel.add(sueldoJFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 170, 50, 20));
 
-        maxPFab1.setForeground(new java.awt.Color(0, 0, 0));
         maxPFab1.setText("40");
         Panel.add(maxPFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 20, -1));
 
-        sueldoPFab1.setForeground(new java.awt.Color(0, 0, 0));
         sueldoPFab1.setText("0");
         Panel.add(sueldoPFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, 20, -1));
 
-        sueldoBFab1.setForeground(new java.awt.Color(0, 0, 0));
         sueldoBFab1.setText("0");
         Panel.add(sueldoBFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, 20, -1));
 
-        sueldoPCFab1.setForeground(new java.awt.Color(0, 0, 0));
         sueldoPCFab1.setText("0");
         Panel.add(sueldoPCFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 370, 20, -1));
 
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Unidades ");
         Panel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, -1));
 
-        maxBFab2.setForeground(new java.awt.Color(0, 0, 0));
         maxBFab2.setText("45");
         Panel.add(maxBFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 330, 20, -1));
 
-        jLabel60.setForeground(new java.awt.Color(0, 0, 0));
         jLabel60.setText("Sueldo");
-        Panel.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 140, 40, -1));
+        Panel.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 140, 40, -1));
 
-        sueldoGFab2.setForeground(new java.awt.Color(0, 0, 0));
         sueldoGFab2.setText("0");
-        Panel.add(sueldoGFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 210, 20, -1));
+        Panel.add(sueldoGFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 200, 50, 20));
 
-        cantidadBFab2.setForeground(new java.awt.Color(0, 0, 0));
         cantidadBFab2.setText("0");
         Panel.add(cantidadBFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 330, 20, -1));
 
-        jLabel63.setForeground(new java.awt.Color(0, 0, 0));
         jLabel63.setText("/");
         Panel.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 330, 20, -1));
 
-        sueldoCFab2.setForeground(new java.awt.Color(0, 0, 0));
         sueldoCFab2.setText("0");
         Panel.add(sueldoCFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 410, 30, -1));
 
-        cantidadPFab2.setForeground(new java.awt.Color(0, 0, 0));
         cantidadPFab2.setText("0");
         Panel.add(cantidadPFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 20, -1));
 
-        jLabel66.setForeground(new java.awt.Color(0, 0, 0));
         jLabel66.setText("/");
         Panel.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 290, 20, -1));
 
-        maxPCFab2.setForeground(new java.awt.Color(0, 0, 0));
         maxPCFab2.setText("15");
         Panel.add(maxPCFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 370, 20, -1));
 
-        cantidadPCFab2.setForeground(new java.awt.Color(0, 0, 0));
         cantidadPCFab2.setText("0");
         Panel.add(cantidadPCFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, 20, -1));
 
-        jLabel69.setForeground(new java.awt.Color(0, 0, 0));
         jLabel69.setText("/");
         Panel.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 370, 20, -1));
 
-        maxCFab2.setForeground(new java.awt.Color(0, 0, 0));
         maxCFab2.setText("20");
         Panel.add(maxCFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 410, 20, -1));
 
-        cantidadCFab2.setForeground(new java.awt.Color(0, 0, 0));
         cantidadCFab2.setText("0");
         Panel.add(cantidadCFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 410, 20, -1));
 
-        jLabel72.setForeground(new java.awt.Color(0, 0, 0));
         jLabel72.setText("/");
         Panel.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 410, 20, -1));
 
-        sueldoJFab1.setForeground(new java.awt.Color(0, 0, 0));
         sueldoJFab1.setText("0");
-        Panel.add(sueldoJFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, -1, -1));
+        Panel.add(sueldoJFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 173, 40, 20));
 
-        maxPFab2.setForeground(new java.awt.Color(0, 0, 0));
         maxPFab2.setText("40");
         Panel.add(maxPFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 20, -1));
 
-        sueldoPFab2.setForeground(new java.awt.Color(0, 0, 0));
         sueldoPFab2.setText("0");
         Panel.add(sueldoPFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 290, 30, -1));
 
-        sueldoBFab2.setForeground(new java.awt.Color(0, 0, 0));
         sueldoBFab2.setText("0");
         Panel.add(sueldoBFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 330, 30, -1));
 
-        sueldoPCFab2.setForeground(new java.awt.Color(0, 0, 0));
         sueldoPCFab2.setText("0");
         Panel.add(sueldoPCFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 370, 30, -1));
 
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Ensambladores");
         Panel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 440, -1, -1));
 
-        productoresCFab1.setForeground(new java.awt.Color(0, 0, 0));
         productoresCFab1.setText("0");
         Panel.add(productoresCFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, -1, -1));
 
-        sueldoCFab1.setForeground(new java.awt.Color(0, 0, 0));
         sueldoCFab1.setText("0");
         Panel.add(sueldoCFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 410, 20, -1));
 
-        sueldoEFab1.setForeground(new java.awt.Color(0, 0, 0));
         sueldoEFab1.setText("0");
         Panel.add(sueldoEFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 470, 20, -1));
 
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Fabrica 2");
-        Panel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 290, -1, -1));
+        Panel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 280, -1, -1));
 
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Fabrica 1");
-        Panel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 160, -1, -1));
+        Panel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 110, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -861,10 +776,70 @@ public class VentanaFabrica extends javax.swing.JFrame {
         });
         jPanel3.add(dashboardButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 90, 130, 40));
 
+        dashboardButton1.setBackground(new java.awt.Color(0, 0, 0));
+        dashboardButton1.setForeground(new java.awt.Color(204, 204, 204));
+        dashboardButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Clases/baseline_class_black_24dp.png"))); // NOI18N
+        dashboardButton1.setText("Parametros");
+        dashboardButton1.setBorder(null);
+        dashboardButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        dashboardButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dashboardButton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(dashboardButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 140, 130, 40));
+
         Panel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 110, 500));
 
         jLabel1.setText("SIMULACION");
         Panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, -1, -1));
+
+        jLabel5.setText("Neto");
+        Panel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 240, 50, 20));
+
+        jLabel7.setText("Gastos");
+        Panel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 180, 50, 20));
+
+        jLabel18.setText("Ganacias");
+        Panel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 210, 50, 20));
+
+        jLabel19.setText("0");
+        Panel.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 240, 50, 20));
+
+        jLabel20.setText("0");
+        Panel.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 180, 50, 20));
+
+        jLabel21.setText("0");
+        Panel.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 210, 50, 20));
+
+        jLabel23.setText("Neto");
+        Panel.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 410, 50, 20));
+
+        jLabel25.setText("Gastos");
+        Panel.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 350, 50, 20));
+
+        jLabel27.setText("Ganacias");
+        Panel.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 380, 50, 20));
+
+        netofab2.setText("0");
+        Panel.add(netofab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 410, 50, 20));
+
+        gastosfab2.setText("0");
+        Panel.add(gastosfab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 350, 50, 20));
+
+        gananciasfab2.setText("0");
+        Panel.add(gananciasfab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 380, 50, 20));
+
+        Reiniciar.setText("Reiniciar");
+        Reiniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReiniciarActionPerformed(evt);
+            }
+        });
+        Panel.add(Reiniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
+
+        jToggleButton1.setText("Guardar Corrida");
+        Panel.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, -1, -1));
 
         getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 500));
 
@@ -882,15 +857,19 @@ public class VentanaFabrica extends javax.swing.JFrame {
     }//GEN-LAST:event_irSimulacionButtonActionPerformed
 
     private void iniciarFabricasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarFabricasActionPerformed
-        Countdown.setText("30");
+        Reiniciar.setEnabled(false);
         //        empleadosFab1 = archivo.leerPorDefecto2(dia,empleadosFab1,colaLibrePantallaFab2,ColaOcupadoPantallaFab2,colaLibreBotonesFab2,colaOcupadoBotonesFab2,colaLibrePinesCFab2,colaOcupadoPinesCFab2,colaLibreCamarasFab2,colaOcupadoCamarasFab2,productoresPFab2,productoresBFab2,productoresPCFab2,productoresCFab2,colaEnsambladoresLibresFab2,colaEnsambladoresOcupadosFab2,ensambladoresFab2,cantidadPFab2,cantidadBFab2,cantidadPCFab2,cantidadCFab2,telefonosProducidosFab2,sem1Fab2,sem2Fab2,sem3Fab2,sem4Fab2,almacenPantallasFab2,almacenBotonesFab2,almacenPinesCFab2,almacenCamarasFab2,pFab2,BFab2,PcFab2,CFab2,mutex4Fab2,mutex3Fab2,mutex2Fab2,mutex1Fab2,Countdown);
         empleadosFab2 = archivo.leerPorDefecto2(dia,empleadosFab2,colaLibrePantallaFab2,ColaOcupadoPantallaFab2,colaLibreBotonesFab2,colaOcupadoBotonesFab2,colaLibrePinesCFab2,colaOcupadoPinesCFab2,colaLibreCamarasFab2,colaOcupadoCamarasFab2,productoresPFab2,productoresBFab2,productoresPCFab2,productoresCFab2,colaEnsambladoresLibresFab2,colaEnsambladoresOcupadosFab2,ensambladoresFab2,cantidadPFab2,cantidadBFab2,cantidadPCFab2,cantidadCFab2,telefonosProducidosFab2,sem1Fab2,sem2Fab2,sem3Fab2,sem4Fab2,almacenPantallasFab2,almacenBotonesFab2,almacenPinesCFab2,almacenCamarasFab2,pFab2,BFab2,PcFab2,CFab2,mutex4Fab2,mutex3Fab2,mutex2Fab2,mutex1Fab2,Countdown);
+        dias=Integer.parseInt(Countdown.getText());
         Procesos pagos = new Procesos(productoresPFab2, productoresBFab2, productoresPCFab2, productoresCFab2, sueldoPFab2, sueldoBFab2, sueldoPCFab2, sueldoCFab2,ensambladoresFab2,sueldoEFab2,0,dia,sueldoJFab2,sueldoGFab2,Countdown);
         pagos.start();
         ProcesosJG jefe = new ProcesosJG(1,dia,modCountdown, Countdown, estadoJefeFab2);
         jefe.start();
         ProcesosJG gerente = new ProcesosJG(dia, 3, modCountdown, estadoGerenteFab2, Countdown,telefonosProducidosFab2,estadoJefeFab2,sueldoJFab2);
         gerente.start();
+        ProcesosJG total = new ProcesosJG(4,sueldoPFab2, sueldoBFab2, sueldoPCFab2, sueldoCFab2, sueldoJFab2, sueldoGFab2, telefonosProducidosFab2, gastosfab2, gananciasfab2, netofab2,Countdown,sueldoEFab2,Reiniciar);
+        total.start();
+        Total = total;
         ProcesosJG dias = new ProcesosJG(dia, Countdown, 2);
         dias.start();
     }//GEN-LAST:event_iniciarFabricasActionPerformed
@@ -996,6 +975,56 @@ public class VentanaFabrica extends javax.swing.JFrame {
         quitarFab1(ColaOcupadoPantallaFab1, colaLibrePantallaFab1, productoresPFab1, sem1Fab1, pFab1);
     }//GEN-LAST:event_eliminarPPF1ActionPerformed
 
+    private void dashboardButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardButton1ActionPerformed
+        this.dispose();
+        Parametros param = new Parametros();
+        param.setVisible(true);
+    }//GEN-LAST:event_dashboardButton1ActionPerformed
+
+    private void ReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReiniciarActionPerformed
+//        Countdown.setText(Integer.toString(dias));
+//        sueldoPFab2.setText("0");
+//        sueldoBFab2.setText("0");
+//        sueldoPCFab2.setText("0");
+//        sueldoCFab2.setText("0");
+//        sueldoJFab2.setText("0");
+//        sueldoGFab2.setText("0");
+//        cantidadPFab2.setText("0");
+//        cantidadBFab2.setText("0");
+//        cantidadPCFab2.setText("0");
+//        cantidadCFab2.setText("0");
+//        sueldoEFab2.setText("0");
+//        telefonosProducidosFab2.setText("0");
+//        for (int i = 0; i < ColaOcupadoPantallaFab2.getSize(); i++) {
+//            ColaOcupadoPantallaFab2.Desencolar();
+//        }
+//        for (int i = 0; i < colaOcupadoBotonesFab2.getSize(); i++) {
+//            colaOcupadoBotonesFab2.Desencolar();
+//        }
+//        for (int i = 0; i < colaOcupadoPinesCFab2.getSize(); i++) {
+//            colaOcupadoPinesCFab2.Desencolar();
+//        }
+//        for (int i = 0; i < colaOcupadoCamarasFab2.getSize(); i++) {
+//            colaOcupadoCamarasFab2.Desencolar();
+//        }
+//        for (int i = 0; i < colaEnsambladoresOcupadosFab2.getSize(); i++) {
+//            colaEnsambladoresOcupadosFab2.Desencolar();
+//        }
+//        int cant = almacenPantallasFab2.availablePermits();
+//        almacenPantallasFab2.release(cant);
+//        System.out.println(almacenPantallasFab2.availablePermits());
+//        cant = almacenBotonesFab2.availablePermits();
+//        almacenBotonesFab2.release(cant);
+//        cant = almacenPinesCFab2.availablePermits();
+//        almacenPinesCFab2.release(cant);
+//        cant = almacenPantallasFab2.availablePermits();
+//        almacenCamarasFab2.release(cant);
+        this.dispose();
+        VentanaFabrica ventananueva = new VentanaFabrica();
+        ventananueva.setVisible(true);
+        
+    }//GEN-LAST:event_ReiniciarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1034,6 +1063,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Countdown;
     private javax.swing.JPanel Panel;
+    private javax.swing.JButton Reiniciar;
     private javax.swing.JButton agregarEF1;
     private javax.swing.JButton agregarEF2;
     private javax.swing.JButton agregarPBF1;
@@ -1053,6 +1083,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
     private javax.swing.JLabel cantidadPFab1;
     private javax.swing.JLabel cantidadPFab2;
     private javax.swing.JButton dashboardButton;
+    private javax.swing.JButton dashboardButton1;
     private javax.swing.JButton eliminarEF1;
     private javax.swing.JButton eliminarEF2;
     private javax.swing.JButton eliminarPBF1;
@@ -1069,6 +1100,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
     private javax.swing.JLabel estadoGerenteFab2;
     private javax.swing.JLabel estadoJefeFab1;
     private javax.swing.JLabel estadoJefeFab2;
+    private javax.swing.JLabel gananciasfab2;
+    private javax.swing.JLabel gastosfab2;
     private javax.swing.JButton iniciarFabricas;
     private javax.swing.JButton irSimulacionButton;
     private javax.swing.JLabel jLabel1;
@@ -1080,10 +1113,17 @@ public class VentanaFabrica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel32;
@@ -1095,6 +1135,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel57;
@@ -1104,11 +1145,13 @@ public class VentanaFabrica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel69;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel maxBFab1;
     private javax.swing.JLabel maxBFab2;
     private javax.swing.JLabel maxCFab1;
@@ -1117,6 +1160,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
     private javax.swing.JLabel maxPCFab2;
     private javax.swing.JLabel maxPFab1;
     private javax.swing.JLabel maxPFab2;
+    private javax.swing.JLabel netofab2;
     private javax.swing.JLabel productoresBFab1;
     private javax.swing.JLabel productoresBFab2;
     private javax.swing.JLabel productoresCFab1;

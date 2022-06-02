@@ -14,13 +14,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
  * @author gabriel
  */
 public class archivoCsv {
-    public long leerPorDefecto(long dia,int dias,JLabel almap,JLabel almab,JLabel almapc,JLabel almac){
+    public long leerPorDefecto(long dia,JLabel count,JLabel almap,JLabel almab,JLabel almapc,JLabel almac){
         String aux="";   
         String texto="";
         try
@@ -45,7 +46,7 @@ public class archivoCsv {
                         if (i==1) {
                             dia = Long.parseLong(datos[1]);
                         }if (i==2) {
-                            dias=Integer.parseInt(datos[1]);
+                            count.setText(datos[1]);
                         }if (i==3) {
                             almap.setText(datos[1]);
                         }if (i==4) {
@@ -93,8 +94,9 @@ public class archivoCsv {
                     for (int j = 0; j < datos.length; j++) {
                         if (datos[j].charAt(0)==espacio) {
                             datos[j]=datos[j].replaceFirst(" ","");
-                        }
-                        if (i==7&&j==1) {
+                        }if (i==2) {
+                            countdown.setText(datos[1]);
+                        }if (i==7&&j==1) {
                             for (int k = 0; k < Integer.parseInt(datos[1]); k++) {
                                 Procesos hiloP = new Procesos(1, almap, sem, AP, dia, p,countdown);
                                 ocup.Encolar(hiloP);
@@ -150,6 +152,67 @@ public class archivoCsv {
                        "ADVERTENCIA!!!",JOptionPane.WARNING_MESSAGE);
           } 
         return empleados;
+}
+      public void leerPorDefectoParametros(JTextField T1,JTextField T2,JTextField T3,JTextField T4,JTextField T5,JTextField T6,JTextField T7,JTextField T8,JTextField T9,JTextField T10,JTextField T11){
+         String aux="";   
+        String texto="";
+        try
+        {  
+            FileReader archivos=new FileReader("test\\datosPorDefecto.csv");
+            BufferedReader lee=new BufferedReader(archivos);
+            while((aux=lee.readLine())!=null)
+            {
+               texto+= aux+ "\n";
+            }
+
+            if (!"".equals(texto) && !texto.isEmpty()){
+                String[] txt_split= texto.split("\n");
+                char espacio=' ';
+                for (int i = 1; i < txt_split.length; i++) {
+                    if (txt_split[0].contains(",")) {
+                    String[] datos = txt_split[i].split(",");
+                    for (int j = 0; j < datos.length; j++) {
+                        if (datos[j].charAt(0)==espacio) {
+                            datos[j]=datos[j].replaceFirst(" ","");
+                        }
+                        if (i==1) {
+                            T1.setText(datos[1]);
+                        }if (i==2) {
+                            T2.setText(datos[1]);
+                        }if (i==3) {
+                            T3.setText(datos[1]);
+                        }if (i==4) {
+                            T4.setText(datos[1]);
+                        }if (i==5) {
+                            T5.setText(datos[1]);
+                        }if (i==6) {
+                            T6.setText(datos[1]);
+                        }if (i==7) {
+                            T7.setText(datos[1]);
+                        }if (i==8) {
+                            T8.setText(datos[1]);
+                        }if (i==9) {
+                            T9.setText(datos[1]);
+                        }if (i==10) {
+                            T10.setText(datos[1]);
+                        }if (i==11) {
+                            T11.setText(datos[1]);
+                        }
+                        }
+                        
+                            
+                        }
+                    }
+                }
+            
+            lee.close();      
+     
+        }catch(IOException ex)
+         {
+           JOptionPane.showMessageDialog(null,ex+"" +
+                 "\nNo se ha encontrado el archivo",
+                       "ADVERTENCIA!!!",JOptionPane.WARNING_MESSAGE);
+          } 
 }
     public void escribirCvsPorDefecto(String cadena){
          try
