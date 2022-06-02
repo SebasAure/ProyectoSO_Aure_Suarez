@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  */
 public class archivoCsv {
     public long leerPorDefecto(long dia,int dias,JLabel almap,JLabel almab,JLabel almapc,JLabel almac){
-         String aux="";   
+        String aux="";   
         String texto="";
         try
         {  
