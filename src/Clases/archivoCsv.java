@@ -6,9 +6,11 @@
 package Clases;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,6 +23,64 @@ import javax.swing.JTextField;
  * @author gabriel
  */
 public class archivoCsv {
+    
+    public void escribirCsvHistorico(String [] despachos, String dias, String cantTlfFab1,String cantTlfFab2, String salariosFab1, String salariosFab2, String gastosFab1, String gastosFab2){
+        String historicoDespachos = "";
+        if (despachos.length != 0){
+            for (int i = 0; i < despachos.length; i++) {
+                historicoDespachos += despachos[0] + ","
+                                    + despachos[1] + "," + despachos[2] + ","
+                                    + despachos[3] + "," + despachos[4] + ","
+                                    + despachos[5] + "," + despachos[6] + ",";
+            }
+        }
+        try {
+            PrintWriter pw = new PrintWriter("test\\historicoDespachos.csv");
+            pw.print(historicoDespachos);
+            pw.append(dias + "," + cantTlfFab1 + "," + cantTlfFab2 + "," + salariosFab1 + "," + salariosFab2 + "," + gastosFab1 + "," + gastosFab2);
+            pw.append("\n");
+            pw.close();
+        } catch (Exception e) {
+        }
+    }
+    
+    public String[] leerCsvHistorico(){
+        String[] despachos = new String[7];
+        String line;
+        String despachosCsv = "";
+        String path = "test\\historicoDespachos.csv";
+        File file = new File(path);
+        try {
+            if(!file.exists()){
+                file.createNewFile();
+            }else{
+                FileReader fr = new FileReader(file);
+                BufferedReader br = new BufferedReader(fr);
+                while ((line = br.readLine()) != null){
+                    if (!line.isEmpty()){
+                        despachosCsv += line + "\n";
+                    }
+                }
+                
+                if (!"".equals(despachosCsv)){
+                    String[] despachos_split = despachosCsv.split("\n");
+                    for (int i = 0; i < despachos_split.length; i++) {
+                        String[] despacho = despachos_split[i].split(",");
+                        despachos[0] = despacho[0];
+                        despachos[1] = despacho[1];
+                        despachos[2] = despacho[2];
+                        despachos[3] = despacho[3];
+                        despachos[4] = despacho[4];
+                        despachos[5] = despacho[5];
+                        despachos[6] = despacho[6];
+                    }
+                }
+                br.close();
+            }
+        } catch (Exception e) {
+        }
+        return despachos;
+    }
     public long leerPorDefecto(long dia,JLabel count,JLabel almap,JLabel almab,JLabel almapc,JLabel almac){
         String aux="";   
         String texto="";

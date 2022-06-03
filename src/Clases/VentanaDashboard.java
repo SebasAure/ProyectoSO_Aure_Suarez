@@ -10,10 +10,7 @@ package Clases;
  * @author sebas
  */
 public class VentanaDashboard extends javax.swing.JFrame {
-
-    /**
-     * Creates new form VentanaDashboard
-     */
+    
     public VentanaDashboard() {
         initComponents();
         this.setLocationRelativeTo(null);
