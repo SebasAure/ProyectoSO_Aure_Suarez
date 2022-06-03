@@ -29,7 +29,7 @@ public class archivoCsv {
         String historicoDespachos = "";
         String line;
         try {
-            FileReader pw1=new FileReader("test\\historicoDespachos.csv");
+            FileReader pw1 =new FileReader("test\\historicoDespachos.csv");
             BufferedReader br = new BufferedReader(pw1);
                 while ((line = br.readLine()) != null){
                     if (!line.isEmpty()){
@@ -84,6 +84,14 @@ public class archivoCsv {
         } catch (Exception e) {
         }
         return despachos;
+    }
+    public void vaciarCsvHistorico(String cadena){
+        try {
+            FileWriter  save = new FileWriter("test\\historicoDespachos.csv");
+            save.write(cadena);
+            save.close();
+        } catch (Exception e) {
+        }
     }
     public long leerPorDefecto(long dia,JLabel count,JLabel almap,JLabel almab,JLabel almapc,JLabel almac){
         String aux="";   

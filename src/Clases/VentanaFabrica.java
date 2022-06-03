@@ -8,6 +8,8 @@ package Clases;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.concurrent.Semaphore;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -252,9 +254,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
         sueldoGFab1 = new javax.swing.JLabel();
         estadoGerenteFab2 = new javax.swing.JLabel();
         estadoJefeFab2 = new javax.swing.JLabel();
-        jLabel57 = new javax.swing.JLabel();
         iniciarFabricas = new javax.swing.JButton();
-        jLabel35 = new javax.swing.JLabel();
         Countdown = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jLabel58 = new javax.swing.JLabel();
@@ -313,7 +313,6 @@ public class VentanaFabrica extends javax.swing.JFrame {
         irSimulacionButton = new javax.swing.JButton();
         dashboardButton = new javax.swing.JButton();
         Parametros = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -328,6 +327,14 @@ public class VentanaFabrica extends javax.swing.JFrame {
         gananciasfab2 = new javax.swing.JLabel();
         Reiniciar = new javax.swing.JButton();
         aggDashboard = new javax.swing.JButton();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -337,30 +344,44 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Componente");
         Panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
 
         jLabel3.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel3.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Pantalla(s)");
         Panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, -1, -1));
 
         jLabel4.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel4.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Fabrica 1 ");
         Panel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, -1, -1));
 
         productoresPCFab1.setBackground(new java.awt.Color(153, 153, 153));
+        productoresPCFab1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        productoresPCFab1.setForeground(new java.awt.Color(0, 0, 0));
         productoresPCFab1.setText("0");
         Panel.add(productoresPCFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, 10, -1));
 
         ensambladoresFab2.setBackground(new java.awt.Color(153, 153, 153));
+        ensambladoresFab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        ensambladoresFab2.setForeground(new java.awt.Color(0, 0, 0));
         ensambladoresFab2.setText("0");
         Panel.add(ensambladoresFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 470, -1, -1));
 
         jLabel9.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel9.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Unidades ");
         Panel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, -1, -1));
 
         eliminarPPF1.setBackground(new java.awt.Color(153, 153, 153));
+        eliminarPPF1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        eliminarPPF1.setForeground(new java.awt.Color(0, 0, 0));
         eliminarPPF1.setText("-");
         eliminarPPF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -370,10 +391,14 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.add(eliminarPPF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, 40, 30));
 
         sueldoEFab2.setBackground(new java.awt.Color(153, 153, 153));
+        sueldoEFab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        sueldoEFab2.setForeground(new java.awt.Color(0, 0, 0));
         sueldoEFab2.setText("0");
         Panel.add(sueldoEFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 470, 30, -1));
 
         agregarPPF1.setBackground(new java.awt.Color(153, 153, 153));
+        agregarPPF1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        agregarPPF1.setForeground(new java.awt.Color(0, 0, 0));
         agregarPPF1.setText("+");
         agregarPPF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -383,6 +408,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.add(agregarPPF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 40, 30));
 
         eliminarPBF1.setBackground(new java.awt.Color(153, 153, 153));
+        eliminarPBF1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        eliminarPBF1.setForeground(new java.awt.Color(0, 0, 0));
         eliminarPBF1.setText("-");
         eliminarPBF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -392,6 +419,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.add(eliminarPBF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 320, 40, 30));
 
         agregarPBF1.setBackground(new java.awt.Color(153, 153, 153));
+        agregarPBF1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        agregarPBF1.setForeground(new java.awt.Color(0, 0, 0));
         agregarPBF1.setText("+");
         agregarPBF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -401,6 +430,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.add(agregarPBF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, 40, 30));
 
         eliminarPPCF1.setBackground(new java.awt.Color(153, 153, 153));
+        eliminarPPCF1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        eliminarPPCF1.setForeground(new java.awt.Color(0, 0, 0));
         eliminarPPCF1.setText("-");
         eliminarPPCF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -410,6 +441,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.add(eliminarPPCF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, 40, 30));
 
         agregarPPCF1.setBackground(new java.awt.Color(153, 153, 153));
+        agregarPPCF1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        agregarPPCF1.setForeground(new java.awt.Color(0, 0, 0));
         agregarPPCF1.setText("+");
         agregarPPCF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -419,6 +452,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.add(agregarPPCF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 360, 40, 30));
 
         eliminarPCF1.setBackground(new java.awt.Color(153, 153, 153));
+        eliminarPCF1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        eliminarPCF1.setForeground(new java.awt.Color(0, 0, 0));
         eliminarPCF1.setText("-");
         eliminarPCF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -428,6 +463,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.add(eliminarPCF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, 40, 30));
 
         agregarPCF1.setBackground(new java.awt.Color(153, 153, 153));
+        agregarPCF1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        agregarPCF1.setForeground(new java.awt.Color(0, 0, 0));
         agregarPCF1.setText("+");
         agregarPCF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -437,14 +474,20 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.add(agregarPCF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 400, 40, 30));
 
         maxBFab1.setBackground(new java.awt.Color(153, 153, 153));
+        maxBFab1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        maxBFab1.setForeground(new java.awt.Color(0, 0, 0));
         maxBFab1.setText("45");
         Panel.add(maxBFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, 20, -1));
 
         jLabel10.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel10.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Ensambladores");
         Panel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 440, -1, -1));
 
         agregarEF1.setBackground(new java.awt.Color(153, 153, 153));
+        agregarEF1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        agregarEF1.setForeground(new java.awt.Color(0, 0, 0));
         agregarEF1.setText("+");
         agregarEF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -454,6 +497,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.add(agregarEF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 460, 40, 30));
 
         eliminarEF1.setBackground(new java.awt.Color(153, 153, 153));
+        eliminarEF1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        eliminarEF1.setForeground(new java.awt.Color(0, 0, 0));
         eliminarEF1.setText("-");
         eliminarEF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -463,22 +508,35 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.add(eliminarEF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 460, 40, 30));
 
         telefonosProducidosFab1.setBackground(new java.awt.Color(153, 153, 153));
+        telefonosProducidosFab1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        telefonosProducidosFab1.setForeground(new java.awt.Color(0, 0, 0));
+        telefonosProducidosFab1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         telefonosProducidosFab1.setText("0");
-        Panel.add(telefonosProducidosFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 160, 20, -1));
+        Panel.add(telefonosProducidosFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 190, 50, -1));
 
         jLabel26.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel26.setText("Xperia 1 IV (Producidos)");
-        Panel.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 140, 140, -1));
+        jLabel26.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel26.setText("Xperia 1 IV ");
+        Panel.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 170, 160, -1));
 
         jLabel24.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel24.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(0, 0, 0));
         jLabel24.setText("Productores");
         Panel.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, -1, -1));
 
         jLabel32.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel32.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel32.setText("Sueldo");
-        Panel.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 40, -1));
+        Panel.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 60, -1));
 
         eliminarPPF2.setBackground(new java.awt.Color(153, 153, 153));
+        eliminarPPF2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        eliminarPPF2.setForeground(new java.awt.Color(0, 0, 0));
         eliminarPPF2.setText("-");
         eliminarPPF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -488,18 +546,26 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.add(eliminarPPF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 280, 40, 30));
 
         productoresBFab2.setBackground(new java.awt.Color(153, 153, 153));
+        productoresBFab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        productoresBFab2.setForeground(new java.awt.Color(0, 0, 0));
         productoresBFab2.setText("0");
         Panel.add(productoresBFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 330, 20, 20));
 
         productoresCFab2.setBackground(new java.awt.Color(153, 153, 153));
+        productoresCFab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        productoresCFab2.setForeground(new java.awt.Color(0, 0, 0));
         productoresCFab2.setText("0");
         Panel.add(productoresCFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 410, 20, -1));
 
         productoresPCFab2.setBackground(new java.awt.Color(153, 153, 153));
+        productoresPCFab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        productoresPCFab2.setForeground(new java.awt.Color(0, 0, 0));
         productoresPCFab2.setText("0");
         Panel.add(productoresPCFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 370, 20, -1));
 
         agregarPPF2.setBackground(new java.awt.Color(153, 153, 153));
+        agregarPPF2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        agregarPPF2.setForeground(new java.awt.Color(0, 0, 0));
         agregarPPF2.setText("+");
         agregarPPF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -509,6 +575,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.add(agregarPPF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 280, 40, 30));
 
         eliminarPBF2.setBackground(new java.awt.Color(153, 153, 153));
+        eliminarPBF2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        eliminarPBF2.setForeground(new java.awt.Color(0, 0, 0));
         eliminarPBF2.setText("-");
         eliminarPBF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -518,6 +586,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.add(eliminarPBF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 320, 40, 30));
 
         agregarPBF2.setBackground(new java.awt.Color(153, 153, 153));
+        agregarPBF2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        agregarPBF2.setForeground(new java.awt.Color(0, 0, 0));
         agregarPBF2.setText("+");
         agregarPBF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -527,6 +597,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.add(agregarPBF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 320, 40, 30));
 
         eliminarPPCF2.setBackground(new java.awt.Color(153, 153, 153));
+        eliminarPPCF2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        eliminarPPCF2.setForeground(new java.awt.Color(0, 0, 0));
         eliminarPPCF2.setText("-");
         eliminarPPCF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -536,6 +608,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.add(eliminarPPCF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 360, 40, 30));
 
         agregarPPCF2.setBackground(new java.awt.Color(153, 153, 153));
+        agregarPPCF2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        agregarPPCF2.setForeground(new java.awt.Color(0, 0, 0));
         agregarPPCF2.setText("+");
         agregarPPCF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -545,6 +619,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.add(agregarPPCF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 360, 40, 30));
 
         eliminarPCF2.setBackground(new java.awt.Color(153, 153, 153));
+        eliminarPCF2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        eliminarPCF2.setForeground(new java.awt.Color(0, 0, 0));
         eliminarPCF2.setText("-");
         eliminarPCF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -554,6 +630,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.add(eliminarPCF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 400, 40, 30));
 
         agregarPCF2.setBackground(new java.awt.Color(153, 153, 153));
+        agregarPCF2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        agregarPCF2.setForeground(new java.awt.Color(0, 0, 0));
         agregarPCF2.setText("+");
         agregarPCF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -563,11 +641,15 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.add(agregarPCF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 400, 40, 30));
 
         productoresPFab2.setBackground(new java.awt.Color(153, 153, 153));
+        productoresPFab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        productoresPFab2.setForeground(new java.awt.Color(0, 0, 0));
         productoresPFab2.setText("0");
         Panel.add(productoresPFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 290, 20, -1));
         Panel.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 310, 20, -1));
 
         agregarEF2.setBackground(new java.awt.Color(153, 153, 153));
+        agregarEF2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        agregarEF2.setForeground(new java.awt.Color(0, 0, 0));
         agregarEF2.setText("+");
         agregarEF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -577,6 +659,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.add(agregarEF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 460, 40, 30));
 
         eliminarEF2.setBackground(new java.awt.Color(153, 153, 153));
+        eliminarEF2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        eliminarEF2.setForeground(new java.awt.Color(0, 0, 0));
         eliminarEF2.setText("-");
         eliminarEF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -586,265 +670,389 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Panel.add(eliminarEF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 460, 40, 30));
 
         telefonosProducidosFab2.setBackground(new java.awt.Color(153, 153, 153));
+        telefonosProducidosFab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        telefonosProducidosFab2.setForeground(new java.awt.Color(0, 0, 0));
+        telefonosProducidosFab2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         telefonosProducidosFab2.setText("0");
-        Panel.add(telefonosProducidosFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 320, 40, 20));
+        Panel.add(telefonosProducidosFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 360, 50, 20));
 
         jLabel48.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel48.setText("Xperia 10 IV (Producidos)");
-        Panel.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 300, -1, -1));
+        jLabel48.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel48.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel48.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel48.setText("Xperia 10 IV");
+        Panel.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 340, 160, -1));
 
         jLabel49.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel49.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel49.setForeground(new java.awt.Color(0, 0, 0));
         jLabel49.setText("Gerente esta...");
         Panel.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
 
         jLabel50.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel50.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel50.setForeground(new java.awt.Color(0, 0, 0));
         jLabel50.setText("Jefe esta... ");
         Panel.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, -1, -1));
 
         jLabel51.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel51.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel51.setForeground(new java.awt.Color(0, 0, 0));
         jLabel51.setText("Fabrica 2");
-        Panel.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, -1, -1));
+        Panel.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, -1, -1));
 
         estadoGerenteFab1.setBackground(new java.awt.Color(153, 153, 153));
+        estadoGerenteFab1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        estadoGerenteFab1.setForeground(new java.awt.Color(0, 0, 0));
         estadoGerenteFab1.setText("null");
         Panel.add(estadoGerenteFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, -1, -1));
 
         sueldoGFab1.setBackground(new java.awt.Color(153, 153, 153));
+        sueldoGFab1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        sueldoGFab1.setForeground(new java.awt.Color(0, 0, 0));
+        sueldoGFab1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         sueldoGFab1.setText("0");
-        Panel.add(sueldoGFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 203, 40, 20));
+        Panel.add(sueldoGFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 40, 20));
 
         estadoGerenteFab2.setBackground(new java.awt.Color(153, 153, 153));
+        estadoGerenteFab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        estadoGerenteFab2.setForeground(new java.awt.Color(0, 0, 0));
         estadoGerenteFab2.setText("null");
-        Panel.add(estadoGerenteFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 203, 160, 20));
+        Panel.add(estadoGerenteFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, 160, 20));
 
         estadoJefeFab2.setBackground(new java.awt.Color(153, 153, 153));
+        estadoJefeFab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        estadoJefeFab2.setForeground(new java.awt.Color(0, 0, 0));
         estadoJefeFab2.setText("null");
-        Panel.add(estadoJefeFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 173, 160, 20));
-
-        jLabel57.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel57.setText("HORA");
-        Panel.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, -1, -1));
+        Panel.add(estadoJefeFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, 160, 20));
 
         iniciarFabricas.setBackground(new java.awt.Color(153, 153, 153));
+        iniciarFabricas.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
         iniciarFabricas.setText("Iniciar Fabricas");
         iniciarFabricas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 iniciarFabricasActionPerformed(evt);
             }
         });
-        Panel.add(iniciarFabricas, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
-
-        jLabel35.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel35.setText("Dias:");
-        Panel.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, -1, -1));
+        Panel.add(iniciarFabricas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
 
         Countdown.setBackground(new java.awt.Color(153, 153, 153));
+        Countdown.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        Countdown.setForeground(new java.awt.Color(0, 0, 0));
+        Countdown.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Countdown.setText("0");
-        Panel.add(Countdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 50, -1));
+        Panel.add(Countdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 76, 50, 40));
 
         jLabel38.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel38.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel38.setForeground(new java.awt.Color(0, 0, 0));
         jLabel38.setText("Productores");
         Panel.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, -1, -1));
 
         jLabel58.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel58.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel58.setForeground(new java.awt.Color(0, 0, 0));
         jLabel58.setText("Botones");
         Panel.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, -1, -1));
 
         productoresBFab1.setBackground(new java.awt.Color(153, 153, 153));
+        productoresBFab1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        productoresBFab1.setForeground(new java.awt.Color(0, 0, 0));
         productoresBFab1.setText("0");
         Panel.add(productoresBFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, -1, -1));
 
         jLabel8.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel8.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Pin(es) de carga");
         Panel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 100, -1));
 
         jLabel11.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel11.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Pin(es) de carga");
         Panel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 100, -1));
 
         jLabel14.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel14.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Pin(es) de carga");
         Panel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 100, -1));
 
         jLabel15.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel15.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Camara(s)");
         Panel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, -1, -1));
 
         productoresPFab1.setBackground(new java.awt.Color(153, 153, 153));
+        productoresPFab1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        productoresPFab1.setForeground(new java.awt.Color(0, 0, 0));
         productoresPFab1.setText("0");
         Panel.add(productoresPFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 20, -1));
 
         cantidadBFab1.setBackground(new java.awt.Color(153, 153, 153));
+        cantidadBFab1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        cantidadBFab1.setForeground(new java.awt.Color(0, 0, 0));
         cantidadBFab1.setText("0");
         Panel.add(cantidadBFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 20, -1));
 
         jLabel22.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel22.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(0, 0, 0));
         jLabel22.setText("/");
         Panel.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 20, -1));
 
         ensambladoresFab1.setBackground(new java.awt.Color(153, 153, 153));
+        ensambladoresFab1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        ensambladoresFab1.setForeground(new java.awt.Color(0, 0, 0));
         ensambladoresFab1.setText("0");
         Panel.add(ensambladoresFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 470, 20, -1));
 
         cantidadPFab1.setBackground(new java.awt.Color(153, 153, 153));
+        cantidadPFab1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        cantidadPFab1.setForeground(new java.awt.Color(0, 0, 0));
         cantidadPFab1.setText("0");
         Panel.add(cantidadPFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 20, -1));
 
         jLabel29.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel29.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(0, 0, 0));
         jLabel29.setText("/");
         Panel.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 20, -1));
 
         maxPCFab1.setBackground(new java.awt.Color(153, 153, 153));
+        maxPCFab1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        maxPCFab1.setForeground(new java.awt.Color(0, 0, 0));
         maxPCFab1.setText("15");
         Panel.add(maxPCFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, 20, -1));
 
         cantidadPCFab1.setBackground(new java.awt.Color(153, 153, 153));
+        cantidadPCFab1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        cantidadPCFab1.setForeground(new java.awt.Color(0, 0, 0));
         cantidadPCFab1.setText("0");
         Panel.add(cantidadPCFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 20, -1));
 
         jLabel40.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel40.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(0, 0, 0));
         jLabel40.setText("/");
         Panel.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 20, -1));
 
         maxCFab1.setBackground(new java.awt.Color(153, 153, 153));
+        maxCFab1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        maxCFab1.setForeground(new java.awt.Color(0, 0, 0));
         maxCFab1.setText("20");
         Panel.add(maxCFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, 20, -1));
 
         cantidadCFab1.setBackground(new java.awt.Color(153, 153, 153));
+        cantidadCFab1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        cantidadCFab1.setForeground(new java.awt.Color(0, 0, 0));
         cantidadCFab1.setText("0");
         Panel.add(cantidadCFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, 20, -1));
 
         jLabel43.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel43.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel43.setForeground(new java.awt.Color(0, 0, 0));
         jLabel43.setText("/");
         Panel.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, 20, -1));
 
         estadoJefeFab1.setBackground(new java.awt.Color(153, 153, 153));
+        estadoJefeFab1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        estadoJefeFab1.setForeground(new java.awt.Color(0, 0, 0));
         estadoJefeFab1.setText("null");
         Panel.add(estadoJefeFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, -1, -1));
 
         sueldoJFab2.setBackground(new java.awt.Color(153, 153, 153));
+        sueldoJFab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        sueldoJFab2.setForeground(new java.awt.Color(0, 0, 0));
+        sueldoJFab2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         sueldoJFab2.setText("0");
         Panel.add(sueldoJFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 170, 50, 20));
 
         maxPFab1.setBackground(new java.awt.Color(153, 153, 153));
+        maxPFab1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        maxPFab1.setForeground(new java.awt.Color(0, 0, 0));
         maxPFab1.setText("40");
         Panel.add(maxPFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 20, -1));
 
         sueldoPFab1.setBackground(new java.awt.Color(153, 153, 153));
+        sueldoPFab1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        sueldoPFab1.setForeground(new java.awt.Color(0, 0, 0));
         sueldoPFab1.setText("0");
         Panel.add(sueldoPFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, 20, -1));
 
         sueldoBFab1.setBackground(new java.awt.Color(153, 153, 153));
+        sueldoBFab1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        sueldoBFab1.setForeground(new java.awt.Color(0, 0, 0));
         sueldoBFab1.setText("0");
         Panel.add(sueldoBFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, 20, -1));
 
         sueldoPCFab1.setBackground(new java.awt.Color(153, 153, 153));
+        sueldoPCFab1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        sueldoPCFab1.setForeground(new java.awt.Color(0, 0, 0));
         sueldoPCFab1.setText("0");
         Panel.add(sueldoPCFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 370, 20, -1));
 
         jLabel12.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel12.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Unidades ");
         Panel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, -1));
 
         maxBFab2.setBackground(new java.awt.Color(153, 153, 153));
+        maxBFab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        maxBFab2.setForeground(new java.awt.Color(0, 0, 0));
         maxBFab2.setText("45");
         Panel.add(maxBFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 330, 20, -1));
 
         jLabel60.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel60.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel60.setForeground(new java.awt.Color(0, 0, 0));
         jLabel60.setText("Sueldo");
-        Panel.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 140, 40, -1));
+        Panel.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 140, 80, -1));
 
         sueldoGFab2.setBackground(new java.awt.Color(153, 153, 153));
+        sueldoGFab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        sueldoGFab2.setForeground(new java.awt.Color(0, 0, 0));
+        sueldoGFab2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         sueldoGFab2.setText("0");
         Panel.add(sueldoGFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 200, 50, 20));
 
         cantidadBFab2.setBackground(new java.awt.Color(153, 153, 153));
+        cantidadBFab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        cantidadBFab2.setForeground(new java.awt.Color(0, 0, 0));
         cantidadBFab2.setText("0");
         Panel.add(cantidadBFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 330, 20, -1));
 
         jLabel63.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel63.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel63.setForeground(new java.awt.Color(0, 0, 0));
         jLabel63.setText("/");
         Panel.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 330, 20, -1));
 
         sueldoCFab2.setBackground(new java.awt.Color(153, 153, 153));
+        sueldoCFab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        sueldoCFab2.setForeground(new java.awt.Color(0, 0, 0));
         sueldoCFab2.setText("0");
         Panel.add(sueldoCFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 410, 30, -1));
 
         cantidadPFab2.setBackground(new java.awt.Color(153, 153, 153));
+        cantidadPFab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        cantidadPFab2.setForeground(new java.awt.Color(0, 0, 0));
         cantidadPFab2.setText("0");
         Panel.add(cantidadPFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 20, -1));
 
         jLabel66.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel66.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel66.setForeground(new java.awt.Color(0, 0, 0));
         jLabel66.setText("/");
         Panel.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 290, 20, -1));
 
         maxPCFab2.setBackground(new java.awt.Color(153, 153, 153));
+        maxPCFab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        maxPCFab2.setForeground(new java.awt.Color(0, 0, 0));
         maxPCFab2.setText("15");
         Panel.add(maxPCFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 370, 20, -1));
 
         cantidadPCFab2.setBackground(new java.awt.Color(153, 153, 153));
+        cantidadPCFab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        cantidadPCFab2.setForeground(new java.awt.Color(0, 0, 0));
         cantidadPCFab2.setText("0");
         Panel.add(cantidadPCFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, 20, -1));
 
         jLabel69.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel69.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel69.setForeground(new java.awt.Color(0, 0, 0));
         jLabel69.setText("/");
         Panel.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 370, 20, -1));
 
         maxCFab2.setBackground(new java.awt.Color(153, 153, 153));
+        maxCFab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        maxCFab2.setForeground(new java.awt.Color(0, 0, 0));
         maxCFab2.setText("20");
         Panel.add(maxCFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 410, 20, -1));
 
         cantidadCFab2.setBackground(new java.awt.Color(153, 153, 153));
+        cantidadCFab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        cantidadCFab2.setForeground(new java.awt.Color(0, 0, 0));
         cantidadCFab2.setText("0");
         Panel.add(cantidadCFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 410, 20, -1));
 
         jLabel72.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel72.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel72.setForeground(new java.awt.Color(0, 0, 0));
         jLabel72.setText("/");
         Panel.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 410, 20, -1));
 
         sueldoJFab1.setBackground(new java.awt.Color(153, 153, 153));
+        sueldoJFab1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        sueldoJFab1.setForeground(new java.awt.Color(0, 0, 0));
+        sueldoJFab1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         sueldoJFab1.setText("0");
-        Panel.add(sueldoJFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 173, 40, 20));
+        Panel.add(sueldoJFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 40, 20));
 
         maxPFab2.setBackground(new java.awt.Color(153, 153, 153));
+        maxPFab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        maxPFab2.setForeground(new java.awt.Color(0, 0, 0));
         maxPFab2.setText("40");
         Panel.add(maxPFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 20, -1));
 
         sueldoPFab2.setBackground(new java.awt.Color(153, 153, 153));
+        sueldoPFab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        sueldoPFab2.setForeground(new java.awt.Color(0, 0, 0));
         sueldoPFab2.setText("0");
         Panel.add(sueldoPFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 290, 30, -1));
 
         sueldoBFab2.setBackground(new java.awt.Color(153, 153, 153));
+        sueldoBFab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        sueldoBFab2.setForeground(new java.awt.Color(0, 0, 0));
         sueldoBFab2.setText("0");
         Panel.add(sueldoBFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 330, 30, -1));
 
         sueldoPCFab2.setBackground(new java.awt.Color(153, 153, 153));
+        sueldoPCFab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        sueldoPCFab2.setForeground(new java.awt.Color(0, 0, 0));
         sueldoPCFab2.setText("0");
         Panel.add(sueldoPCFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 370, 30, -1));
 
         jLabel16.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel16.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Ensambladores");
         Panel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 440, -1, -1));
 
         productoresCFab1.setBackground(new java.awt.Color(153, 153, 153));
+        productoresCFab1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        productoresCFab1.setForeground(new java.awt.Color(0, 0, 0));
         productoresCFab1.setText("0");
         Panel.add(productoresCFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, -1, -1));
 
         sueldoCFab1.setBackground(new java.awt.Color(153, 153, 153));
+        sueldoCFab1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        sueldoCFab1.setForeground(new java.awt.Color(0, 0, 0));
         sueldoCFab1.setText("0");
         Panel.add(sueldoCFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 410, 20, -1));
 
         sueldoEFab1.setBackground(new java.awt.Color(153, 153, 153));
+        sueldoEFab1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        sueldoEFab1.setForeground(new java.awt.Color(0, 0, 0));
         sueldoEFab1.setText("0");
         Panel.add(sueldoEFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 470, 20, -1));
 
         jLabel6.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel6.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Fabrica 2");
-        Panel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 280, -1, -1));
+        Panel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 320, 160, -1));
 
         jLabel13.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel13.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("Fabrica 1");
-        Panel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 110, -1, -1));
+        Panel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(733, 146, 160, 20));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -852,7 +1060,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText("SONY");
+        jLabel17.setText("SONYC");
         jLabel17.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 40));
 
@@ -862,6 +1070,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         irSimulacionButton.setBackground(new java.awt.Color(0, 0, 0));
+        irSimulacionButton.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
         irSimulacionButton.setForeground(new java.awt.Color(204, 204, 204));
         irSimulacionButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Clases/baseline_class_black_24dp.png"))); // NOI18N
         irSimulacionButton.setText("Simulacion");
@@ -875,6 +1084,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
         jPanel3.add(irSimulacionButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 40, 130, 40));
 
         dashboardButton.setBackground(new java.awt.Color(0, 0, 0));
+        dashboardButton.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
         dashboardButton.setForeground(new java.awt.Color(204, 204, 204));
         dashboardButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Clases/baseline_class_black_24dp.png"))); // NOI18N
         dashboardButton.setText("Dashboard");
@@ -888,6 +1098,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
         jPanel3.add(dashboardButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 90, 130, 40));
 
         Parametros.setBackground(new java.awt.Color(0, 0, 0));
+        Parametros.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
         Parametros.setForeground(new java.awt.Color(204, 204, 204));
         Parametros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Clases/baseline_class_black_24dp.png"))); // NOI18N
         Parametros.setText("Parametros");
@@ -902,74 +1113,142 @@ public class VentanaFabrica extends javax.swing.JFrame {
 
         Panel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 110, 500));
 
-        jLabel1.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel1.setText("SIMULACION");
-        Panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, -1, -1));
-
         jLabel5.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel5.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Neto");
-        Panel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 240, 50, 20));
+        Panel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 280, 50, 20));
 
         jLabel7.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel7.setText("Gastos");
-        Panel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 180, 50, 20));
+        jLabel7.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("Producidos");
+        Panel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 360, 80, 20));
 
         jLabel18.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel18.setText("Ganacias");
-        Panel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 210, 50, 20));
+        jLabel18.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel18.setText("Costo Total");
+        Panel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 250, 80, 20));
 
         jLabel19.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel19.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("0");
-        Panel.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 240, 50, 20));
+        Panel.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 280, 50, 20));
 
         gastosfab1.setBackground(new java.awt.Color(153, 153, 153));
+        gastosfab1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        gastosfab1.setForeground(new java.awt.Color(0, 0, 0));
+        gastosfab1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         gastosfab1.setText("0");
-        Panel.add(gastosfab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 180, 50, 20));
+        Panel.add(gastosfab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 220, 50, 20));
 
         gananciasfab1.setBackground(new java.awt.Color(153, 153, 153));
+        gananciasfab1.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        gananciasfab1.setForeground(new java.awt.Color(0, 0, 0));
+        gananciasfab1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         gananciasfab1.setText("0");
-        Panel.add(gananciasfab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 210, 50, 20));
+        Panel.add(gananciasfab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 250, 50, 20));
 
         jLabel23.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel23.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(0, 0, 0));
         jLabel23.setText("Neto");
-        Panel.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 410, 50, 20));
+        Panel.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 450, 50, 20));
 
         jLabel25.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel25.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(0, 0, 0));
         jLabel25.setText("Gastos");
-        Panel.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 350, 50, 20));
+        Panel.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 390, 50, 20));
 
         jLabel27.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel27.setText("Gastos tlf");
-        Panel.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 380, 50, 20));
+        jLabel27.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel27.setText("Costo Total");
+        Panel.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 420, 80, 20));
 
         netofab2.setBackground(new java.awt.Color(153, 153, 153));
+        netofab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        netofab2.setForeground(new java.awt.Color(0, 0, 0));
+        netofab2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         netofab2.setText("0");
-        Panel.add(netofab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 410, 50, 20));
+        Panel.add(netofab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 450, 50, 20));
 
         gastosfab2.setBackground(new java.awt.Color(153, 153, 153));
+        gastosfab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        gastosfab2.setForeground(new java.awt.Color(0, 0, 0));
+        gastosfab2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         gastosfab2.setText("0");
-        Panel.add(gastosfab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 350, 50, 20));
+        Panel.add(gastosfab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 390, 50, 20));
 
         gananciasfab2.setBackground(new java.awt.Color(153, 153, 153));
+        gananciasfab2.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        gananciasfab2.setForeground(new java.awt.Color(0, 0, 0));
+        gananciasfab2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         gananciasfab2.setText("0");
-        Panel.add(gananciasfab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 380, 50, 20));
+        Panel.add(gananciasfab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 420, 50, 20));
 
         Reiniciar.setBackground(new java.awt.Color(153, 153, 153));
+        Reiniciar.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
         Reiniciar.setText("Reiniciar");
         Reiniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ReiniciarActionPerformed(evt);
             }
         });
-        Panel.add(Reiniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
+        Panel.add(Reiniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, -1, -1));
 
-        aggDashboard.setText("Guardar dashboard");
+        aggDashboard.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        aggDashboard.setText("Guardar Corrida");
         aggDashboard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aggDashboardActionPerformed(evt);
             }
         });
-        Panel.add(aggDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, -1, -1));
+        Panel.add(aggDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, -1));
+
+        jLabel36.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel36.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel36.setText("Dias restantes para despacho:");
+        Panel.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 76, 230, 40));
+
+        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel1.setFont(new java.awt.Font("Poor Richard", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel1.setText("SIMULACION");
+        Panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 770, 20));
+        Panel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 770, 10));
+
+        jLabel20.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel20.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel20.setText("Gastos");
+        Panel.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 220, 50, 20));
+
+        jLabel21.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel21.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel21.setText("Producidos");
+        Panel.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 190, 80, 20));
+
+        jLabel28.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel28.setToolTipText("");
+        jLabel28.setOpaque(true);
+        Panel.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 590, 370));
+
+        jLabel30.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel30.setToolTipText("");
+        jLabel30.setOpaque(true);
+        Panel.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 320, 170, 180));
+
+        jLabel31.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel31.setToolTipText("");
+        jLabel31.setOpaque(true);
+        Panel.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 130, 170, 180));
 
         getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 500));
 
@@ -977,9 +1256,14 @@ public class VentanaFabrica extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void dashboardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardButtonActionPerformed
-        this.dispose();
-        VentanaDashboard dashboard = new VentanaDashboard();
-        dashboard.setVisible(true);
+
+                    
+            this.dispose();
+            VentanaDashboard dashboard = new VentanaDashboard();
+            dashboard.setVisible(true);
+            
+        
+        
     }//GEN-LAST:event_dashboardButtonActionPerformed
 
     private void irSimulacionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_irSimulacionButtonActionPerformed
@@ -987,6 +1271,10 @@ public class VentanaFabrica extends javax.swing.JFrame {
     }//GEN-LAST:event_irSimulacionButtonActionPerformed
 
     private void iniciarFabricasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarFabricasActionPerformed
+//        int counter = 30;
+//        int diasTotales = Integer.parseInt(Countdown.getText());
+//        int operacion = counter + diasTotales;
+//        Countdown.setText(Integer.toString(operacion));
         Reiniciar.setEnabled(false);
         dashboardButton.setEnabled(false);
         Parametros.setEnabled(false);
@@ -1009,9 +1297,8 @@ public class VentanaFabrica extends javax.swing.JFrame {
         Total = total;
         ProcesosJG dias = new ProcesosJG(dia, Countdown, 2);
         dias.start();
-//        if ((Integer.parseInt(Countdown.getText())) == 0) {
-//            archivo.escribirCsvHistorico(historicoDespachos,"21",telefonosProducidosFab1.getText() , telefonosProducidosFab2.getText(),gastosfab1.getText() , gastosfab2.getText(), gananciasfab1.getText(), gananciasfab2.getText());
-//        }
+        
+        
     }//GEN-LAST:event_iniciarFabricasActionPerformed
 
     private void eliminarEF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEF2ActionPerformed
@@ -1166,11 +1453,13 @@ public class VentanaFabrica extends javax.swing.JFrame {
         this.dispose();
         VentanaFabrica ventananueva = new VentanaFabrica();
         ventananueva.setVisible(true);
+        archivo.vaciarCsvHistorico("");
         
     }//GEN-LAST:event_ReiniciarActionPerformed
 
     private void aggDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aggDashboardActionPerformed
-        archivo.escribirCsvHistorico("30",telefonosProducidosFab1.getText() , telefonosProducidosFab2.getText(),gastosfab1.getText() , gastosfab2.getText(), gananciasfab1.getText(), gananciasfab2.getText());
+        
+        archivo.escribirCsvHistorico(Countdown.getText(),telefonosProducidosFab1.getText() , telefonosProducidosFab2.getText(),gastosfab1.getText() , gastosfab2.getText(), gananciasfab1.getText(), gananciasfab2.getText());
     }//GEN-LAST:event_aggDashboardActionPerformed
 
     /**
@@ -1267,16 +1556,21 @@ public class VentanaFabrica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
@@ -1287,7 +1581,6 @@ public class VentanaFabrica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
@@ -1300,6 +1593,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel maxBFab1;
     private javax.swing.JLabel maxBFab2;
     private javax.swing.JLabel maxCFab1;

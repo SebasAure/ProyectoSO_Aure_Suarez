@@ -1,7 +1,7 @@
 Dato,Valor
 Durancion-Dia(mili-segundos),500
-Dias-entre-despachos,30
-almacen-pantalla,50,999
+Dias-entre-despachos,5
+almacen-pantalla,40,999
 almacen-botones,45,999
 almacen-pin-carga,15,999
 almacen-camara,20,999
