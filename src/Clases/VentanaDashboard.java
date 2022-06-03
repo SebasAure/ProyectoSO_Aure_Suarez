@@ -34,8 +34,8 @@ public class VentanaDashboard extends javax.swing.JFrame {
             int tlfProducidosFab2  = Integer.parseInt(despacho[2]);
             int gastosSalariosFab1 = Integer.parseInt(despacho[3]);
             int gastosSalariosFab2 = Integer.parseInt(despacho[4]);
-            int costosTlfFab1      = Integer.parseInt(despacho[5]);
-            int costosTlffab2      = Integer.parseInt(despacho[6]);
+            int gananciasTlfFab1      = Integer.parseInt(despacho[5]);
+            int gananciasTlffab2      = Integer.parseInt(despacho[6]);
         
             //Grafica 1
             DefaultCategoryDataset datosGrafica1 = new DefaultCategoryDataset();
@@ -55,7 +55,7 @@ public class VentanaDashboard extends javax.swing.JFrame {
 
             ChartPanel panelGrafica1 = new ChartPanel(graficoBarrasGrafica1);
             panelGrafica1.setMouseWheelEnabled(true);
-            panelGrafica1.setPreferredSize(new Dimension(360, 380));
+            panelGrafica1.setPreferredSize(new Dimension(230, 380));
 
 
             grafica1.setLayout(new BorderLayout());
@@ -81,17 +81,46 @@ public class VentanaDashboard extends javax.swing.JFrame {
 
             ChartPanel panelGrafica2 = new ChartPanel(graficoBarrasGrafica2);
             panelGrafica2.setMouseWheelEnabled(true);
-            panelGrafica2.setPreferredSize(new Dimension(360, 380));
+            panelGrafica2.setPreferredSize(new Dimension(230, 380));
 
 
             grafica2.setLayout(new BorderLayout());
             grafica2.add(panelGrafica2, BorderLayout.NORTH);
             pack();
             repaint();
+            
+            //Grafica 3
+            DefaultCategoryDataset datosGrafica3 = new DefaultCategoryDataset();
+            datosGrafica3.setValue(gananciasTlfFab1, "Fabrica 1", "");
+            datosGrafica3.setValue(gananciasTlffab2, "Fabrica 2", "");
+
+            JFreeChart graficoBarrasGrafica3 = ChartFactory.createBarChart3D(
+                    "Ganancias en " + diasTotales + " dias",                      //nombre grafico
+                    "",        //nombre barras 
+                    "Cantidad($)",            //nombre numeracion
+                    datosGrafica3,                      //datos graficos
+                    PlotOrientation.VERTICAL,   //orientacion
+                    true,          //leyenda de barras individuales por columna 
+                    true,             // herramientas
+                    false                      // url del grafico
+            );
+
+            ChartPanel panelGrafica3 = new ChartPanel(graficoBarrasGrafica3);
+            panelGrafica3.setMouseWheelEnabled(true);
+            panelGrafica3.setPreferredSize(new Dimension(230, 380));
+
+
+            grafica3.setLayout(new BorderLayout());
+            grafica3.add(panelGrafica3, BorderLayout.NORTH);
+            pack();
+            repaint();
         } else {
             mensajeG1.setText("No hay graficas disponibles");
             mensajeG2.setText("No hay graficas disponibles");
+            mensajeG3.setText("No hay graficas disponibles");
+
         }
+        
     }
 
     /**
@@ -112,11 +141,13 @@ public class VentanaDashboard extends javax.swing.JFrame {
         Parametros = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         grafica2 = new javax.swing.JPanel();
-        mensajeG2 = new javax.swing.JLabel();
         grafica1 = new javax.swing.JPanel();
         mensajeG1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
+        mensajeG2 = new javax.swing.JLabel();
+        grafica3 = new javax.swing.JPanel();
+        mensajeG3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -185,21 +216,27 @@ public class VentanaDashboard extends javax.swing.JFrame {
 
         grafica2.setPreferredSize(new java.awt.Dimension(400, 200));
         grafica2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        mensajeG2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        grafica2.add(mensajeG2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 380));
-
-        jPanel1.add(grafica2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, 360, 380));
+        jPanel1.add(grafica2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, 230, 380));
 
         grafica1.setPreferredSize(new java.awt.Dimension(400, 200));
         grafica1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         mensajeG1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        grafica1.add(mensajeG1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 380));
+        grafica1.add(mensajeG1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 380));
 
-        jPanel1.add(grafica1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 360, 380));
+        jPanel1.add(grafica1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 230, 380));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, -1, -1));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 770, 10));
+
+        mensajeG2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(mensajeG2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, 220, 380));
+
+        grafica3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        mensajeG3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        grafica3.add(mensajeG3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 380));
+
+        jPanel1.add(grafica3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 90, 230, 380));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -258,6 +295,7 @@ public class VentanaDashboard extends javax.swing.JFrame {
     private javax.swing.JButton dashboardButton;
     private javax.swing.JPanel grafica1;
     private javax.swing.JPanel grafica2;
+    private javax.swing.JPanel grafica3;
     private javax.swing.JButton irSimulacionButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -268,5 +306,6 @@ public class VentanaDashboard extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel mensajeG1;
     private javax.swing.JLabel mensajeG2;
+    private javax.swing.JLabel mensajeG3;
     // End of variables declaration//GEN-END:variables
 }

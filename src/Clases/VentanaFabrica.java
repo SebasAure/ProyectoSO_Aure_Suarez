@@ -21,22 +21,21 @@ public class VentanaFabrica extends javax.swing.JFrame {
     archivoCsv archivo = new archivoCsv();
     
     
-    
     //Fabrica 1
     String cadenaFab1 = "";
     int diasFab1;
     long diaFab1=0;
     int empleadosFab1 = 19;
-    Cola colaLibrePantallaFab1 = new Cola();
-    Cola ColaOcupadoPantallaFab1 = new Cola();
-    Cola colaLibreBotonesFab1 = new Cola();
-    Cola colaOcupadoBotonesFab1 = new Cola();
-    Cola colaLibrePinesCFab1 = new Cola();
-    Cola colaOcupadoPinesCFab1 = new Cola();
-    Cola colaLibreCamarasFab1 = new Cola();
-    Cola colaOcupadoCamarasFab1 = new Cola();
-    Cola colaEnsambladoresLibresFab1 = new Cola(); 
-    Cola colaEnsambladoresOcupadosFab1 = new Cola();
+    cola2 colaLibrePantallaFab1 = new cola2();
+    cola2 ColaOcupadoPantallaFab1 = new cola2();
+    cola2 colaLibreBotonesFab1 = new cola2();
+    cola2 colaOcupadoBotonesFab1 = new cola2();
+    cola2 colaLibrePinesCFab1 = new cola2();
+    cola2 colaOcupadoPinesCFab1 = new cola2();
+    cola2 colaLibreCamarasFab1 = new cola2();
+    cola2 colaOcupadoCamarasFab1 = new cola2();
+    cola2 colaEnsambladoresLibresFab1 = new cola2(); 
+    cola2 colaEnsambladoresOcupadosFab1 = new cola2();
     Semaphore sem1Fab1 = new Semaphore(1);
     Semaphore sem2Fab1 = new Semaphore(1);
     Semaphore sem3Fab1 = new Semaphore(1);
@@ -92,27 +91,27 @@ public class VentanaFabrica extends javax.swing.JFrame {
      
     
 
-    public void agregarFab1(int tipo,Cola libre,Cola ocupada,JLabel trabajador){
+    public void agregarFab1(int tipo,cola2 libre,cola2 ocupada,JLabel trabajador){
         if (empleadosFab1!=0) {
             if (tipo==1) {
            
-                Procesos hiloP = new Procesos(tipo, cantidadPFab1, sem1Fab1, almacenPantallasFab1, diaFab2, pFab1,CountdownFab2);
+                ProcesosFab1 hiloP = new ProcesosFab1(tipo, cantidadPFab1, sem1Fab1, almacenPantallasFab1, diaFab2, pFab1,CountdownFab2);
                 ocupada.Encolar(hiloP);
                 hiloP.start();
             }if (tipo==2) {
-                Procesos hiloB = new Procesos(tipo, sem2Fab1, almacenBotonesFab1, cantidadBFab1, diaFab2, BFab1,CountdownFab2);
+                ProcesosFab1 hiloB = new ProcesosFab1(tipo, sem2Fab1, almacenBotonesFab1, cantidadBFab1, diaFab2, BFab1,CountdownFab2);
                 ocupada.Encolar(hiloB);
                 hiloB.start();
             }if (tipo==3) {
-                Procesos hiloPc = new Procesos(tipo, sem3Fab1, cantidadPCFab1, almacenPinesCFab1, diaFab2, PcFab1,CountdownFab2);
+                ProcesosFab1 hiloPc = new ProcesosFab1(tipo, sem3Fab1, cantidadPCFab1, almacenPinesCFab1, diaFab2, PcFab1,CountdownFab2);
                 ocupada.Encolar(hiloPc);
                 hiloPc.start();
             }if (tipo==4) {
-                Procesos hiloC = new Procesos(cantidadCFab1, tipo, sem4Fab1, almacenCamarasFab1, diaFab2, CFab1,CountdownFab2);
+                ProcesosFab1 hiloC = new ProcesosFab1(cantidadCFab1, tipo, sem4Fab1, almacenCamarasFab1, diaFab2, CFab1,CountdownFab2);
                 ocupada.Encolar(hiloC);
                 hiloC.start();
             }if (tipo==5) {
-                Procesos hiloE = new Procesos(mutex4Fab1, mutex3Fab1, mutex2Fab1, mutex1Fab1, diaFab2, tipo, sem1Fab1, sem2Fab1, sem3Fab1, sem4Fab1, cantidadPFab1, cantidadBFab1, cantidadPCFab1, cantidadCFab1, ensambladoresFab1, telefonosProducidosFab1, almacenPantallasFab1, almacenBotonesFab1, almacenPinesCFab1, almacenCamarasFab1,CountdownFab2);
+                ProcesosFab1 hiloE = new ProcesosFab1(mutex4Fab1, mutex3Fab1, mutex2Fab1, mutex1Fab1, diaFab2, tipo, sem1Fab1, sem2Fab1, sem3Fab1, sem4Fab1, cantidadPFab1, cantidadBFab1, cantidadPCFab1, cantidadCFab1, ensambladoresFab1, telefonosProducidosFab1, almacenPantallasFab1, almacenBotonesFab1, almacenPinesCFab1, almacenCamarasFab1,CountdownFab2);
                 ocupada.Encolar(hiloE);
                 hiloE.start();
             }
@@ -147,10 +146,10 @@ public class VentanaFabrica extends javax.swing.JFrame {
         empleadosFab2--;
         }
     }
-    public void quitarFab1(Cola ocupado,Cola libre,JLabel trabajadores,Semaphore mutexq,Semaphore semq){
+    public void quitarFab1(cola2 ocupado,cola2 libre,JLabel trabajadores,Semaphore mutexq,Semaphore semq){
         if (ocupado.getSize() > 1) {
         if ( !ocupado.esta_vacia()) {
-        Procesos siguiente = ocupado.getPfirst().getproceso();
+        ProcesosFab1 siguiente = ocupado.getPfirst().getproceso();
         ocupado.Desencolar();
         libre.Encolar(siguiente);
         mutexq.release();
@@ -185,7 +184,18 @@ public class VentanaFabrica extends javax.swing.JFrame {
      */
     public VentanaFabrica() {
         initComponents();
-//        archivo.escribirCvsPorDefecto(cadena);
+        agregarPPF1.setEnabled(false);
+        agregarPBF1.setEnabled(false);
+        agregarPPCF1.setEnabled(false);
+        agregarPCF1.setEnabled(false);
+        agregarEF1.setEnabled(false);
+
+        agregarPPF2.setEnabled(false);
+        agregarPBF2.setEnabled(false);
+        agregarPPCF2.setEnabled(false);
+        agregarPCF2.setEnabled(false);
+        agregarEF2.setEnabled(false);
+        
         
         // Fabrica 1
         diaFab1 = archivo.leerPorDefectoFab1(diaFab1, CountdownFab1, maxPFab1, maxBFab1, maxPCFab1, maxCFab1);
@@ -1134,7 +1144,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
         jLabel18.setBackground(new java.awt.Color(153, 153, 153));
         jLabel18.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel18.setText("Costo Total");
+        jLabel18.setText("Ganancia");
         Panel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 250, 80, 20));
 
         netofab1.setBackground(new java.awt.Color(153, 153, 153));
@@ -1173,7 +1183,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
         jLabel27.setBackground(new java.awt.Color(153, 153, 153));
         jLabel27.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel27.setText("Costo Total");
+        jLabel27.setText("Ganancia");
         Panel.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 420, 80, 20));
 
         netofab2.setBackground(new java.awt.Color(153, 153, 153));
@@ -1293,7 +1303,18 @@ public class VentanaFabrica extends javax.swing.JFrame {
     }//GEN-LAST:event_irSimulacionButtonActionPerformed
 
     private void iniciarFabricasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarFabricasActionPerformed
+        agregarPPF1.setEnabled(true);
+        agregarPBF1.setEnabled(true);
+        agregarPPCF1.setEnabled(true);
+        agregarPCF1.setEnabled(true);
+        agregarEF1.setEnabled(true);
 
+        agregarPPF2.setEnabled(true);
+        agregarPBF2.setEnabled(true);
+        agregarPPCF2.setEnabled(true);
+        agregarPCF2.setEnabled(true);
+        agregarEF2.setEnabled(true);
+        
         Reiniciar.setEnabled(false);
         dashboardButton.setEnabled(false);
         Parametros.setEnabled(false);
@@ -1305,16 +1326,16 @@ public class VentanaFabrica extends javax.swing.JFrame {
             diaFab1=archivo.leerPorDefectoFab1(diaFab1, CountdownFab1, maxPFab1, maxBFab1, maxPCFab1, maxCFab1);
         }
         diasFab1=Integer.parseInt(CountdownFab1.getText());
-        Procesos pagosFab1 = new Procesos(productoresPFab1, productoresBFab1, productoresPCFab1, productoresCFab1, sueldoPFab1, sueldoBFab1, sueldoPCFab1, sueldoCFab1,ensambladoresFab1,sueldoEFab1,0,diaFab1,sueldoJFab1,sueldoGFab1,CountdownFab1);
+        ProcesosFab1 pagosFab1 = new ProcesosFab1(productoresPFab1, productoresBFab1, productoresPCFab1, productoresCFab1, sueldoPFab1, sueldoBFab1, sueldoPCFab1, sueldoCFab1,ensambladoresFab1,sueldoEFab1,0,diaFab1,sueldoJFab1,sueldoGFab1,CountdownFab1);
         pagosFab1.start();
-        ProcesosJG jefeFab1 = new ProcesosJG(1,diaFab1,modCountdown, CountdownFab1, estadoJefeFab1);
+        ProcesosJGFab1 jefeFab1 = new ProcesosJGFab1(1,diaFab1,modCountdown, CountdownFab1, estadoJefeFab1);
         jefeFab1.start();
-        ProcesosJG gerenteFab1 = new ProcesosJG(diaFab1, 3, modCountdown, estadoGerenteFab1, CountdownFab1,telefonosProducidosFab1,estadoJefeFab1,sueldoJFab1);
+        ProcesosJGFab1 gerenteFab1 = new ProcesosJGFab1(diaFab1, 3, modCountdown, estadoGerenteFab1, CountdownFab1,telefonosProducidosFab1,estadoJefeFab1,sueldoJFab1);
         gerenteFab1.start();
-        ProcesosJG totalFab1 = new ProcesosJG(4,sueldoPFab1, sueldoBFab1, sueldoPCFab1, sueldoCFab1, sueldoJFab1, sueldoGFab1, telefonosProducidosFab1, gastosfab1, gananciasfab1, netofab1,CountdownFab1,sueldoEFab1,Reiniciar,aggDashboard,dashboardButton,Parametros,iniciarFabricas);
+        ProcesosJGFab1 totalFab1 = new ProcesosJGFab1(4,sueldoPFab1, sueldoBFab1, sueldoPCFab1, sueldoCFab1, sueldoJFab1, sueldoGFab1, telefonosProducidosFab1, gastosfab1, gananciasfab1, netofab1,CountdownFab1,sueldoEFab1,Reiniciar,aggDashboard,dashboardButton,Parametros,iniciarFabricas);
         totalFab1.start();
         Total = totalFab1;
-        ProcesosJG diasRestantesFab1 = new ProcesosJG(diaFab1, CountdownFab1, 2);
+        ProcesosJGFab1 diasRestantesFab1 = new ProcesosJGFab1(diaFab1, CountdownFab1, 2);
         diasRestantesFab1.start();
         //Fabrica 2
         if (colaEnsambladoresOcupadosFab2.esta_vacia()) {
@@ -1396,7 +1417,7 @@ public class VentanaFabrica extends javax.swing.JFrame {
 
     private void eliminarEF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEF1ActionPerformed
         if ( !colaEnsambladoresOcupadosFab1.esta_vacia()) {
-            Procesos siguiente = colaEnsambladoresOcupadosFab1.getPfirst().getproceso();
+            ProcesosFab1 siguiente = colaEnsambladoresOcupadosFab1.getPfirst().getproceso();
             colaEnsambladoresOcupadosFab1.Desencolar();
             siguiente.suspend();
             siguiente.sem1.release();

@@ -118,6 +118,263 @@ public class archivoCsv {
         }
         return diasDespacho;
     }
+    public String leerCsvParametrosPorDefectoAlmacenPantallas(){
+        String capacidadTotal = "";
+        String line;
+        String despachosCsv = "";
+        String path = "test\\datosPorDefecto.csv";
+        File file = new File(path);
+        try {
+            if(!file.exists()){
+                file.createNewFile();
+            }else{
+                FileReader fr = new FileReader(file);
+                BufferedReader br = new BufferedReader(fr);
+                while ((line = br.readLine()) != null){
+                    if (!line.isEmpty()){
+                        despachosCsv += line + "\n";
+                    }
+                }
+                
+                if (!"".equals(despachosCsv)){
+                    String[] despachos_split = despachosCsv.split("\n");
+                    for (int i = 0; i < 4; i++) {
+                        String[] capacidad = despachos_split[i].split(",");
+                        capacidadTotal = capacidad[1];
+                        
+                    }
+                }
+                br.close();
+            }
+        } catch (Exception e) {
+        }
+        return capacidadTotal;
+    }
+    public String leerCsvParametrosPorDefectoAlmacenBotones(){
+        String capacidadTotal = "";
+        String line;
+        String despachosCsv = "";
+        String path = "test\\datosPorDefecto.csv";
+        File file = new File(path);
+        try {
+            if(!file.exists()){
+                file.createNewFile();
+            }else{
+                FileReader fr = new FileReader(file);
+                BufferedReader br = new BufferedReader(fr);
+                while ((line = br.readLine()) != null){
+                    if (!line.isEmpty()){
+                        despachosCsv += line + "\n";
+                    }
+                }
+                
+                if (!"".equals(despachosCsv)){
+                    String[] despachos_split = despachosCsv.split("\n");
+                    for (int i = 0; i < 5; i++) {
+                        String[] capacidad = despachos_split[i].split(",");
+                        capacidadTotal = capacidad[1];
+                        
+                    }
+                }
+                br.close();
+            }
+        } catch (Exception e) {
+        }
+        return capacidadTotal;
+    }
+    public String leerCsvParametrosPorDefectoAlmacenPinCarga(){
+        String capacidadTotal = "";
+        String line;
+        String despachosCsv = "";
+        String path = "test\\datosPorDefecto.csv";
+        File file = new File(path);
+        try {
+            if(!file.exists()){
+                file.createNewFile();
+            }else{
+                FileReader fr = new FileReader(file);
+                BufferedReader br = new BufferedReader(fr);
+                while ((line = br.readLine()) != null){
+                    if (!line.isEmpty()){
+                        despachosCsv += line + "\n";
+                    }
+                }
+                
+                if (!"".equals(despachosCsv)){
+                    String[] despachos_split = despachosCsv.split("\n");
+                    for (int i = 0; i < 6; i++) {
+                        String[] capacidad = despachos_split[i].split(",");
+                        capacidadTotal = capacidad[1];
+                        
+                    }
+                }
+                br.close();
+            }
+        } catch (Exception e) {
+        }
+        return capacidadTotal;
+    }
+    public String leerCsvParametrosPorDefectoAlmacenCamaras(){
+        String capacidadTotal = "";
+        String line;
+        String despachosCsv = "";
+        String path = "test\\datosPorDefecto.csv";
+        File file = new File(path);
+        try {
+            if(!file.exists()){
+                file.createNewFile();
+            }else{
+                FileReader fr = new FileReader(file);
+                BufferedReader br = new BufferedReader(fr);
+                while ((line = br.readLine()) != null){
+                    if (!line.isEmpty()){
+                        despachosCsv += line + "\n";
+                    }
+                }
+                
+                if (!"".equals(despachosCsv)){
+                    String[] despachos_split = despachosCsv.split("\n");
+                    for (int i = 0; i < 7; i++) {
+                        String[] capacidad = despachos_split[i].split(",");
+                        capacidadTotal = capacidad[1];
+                        
+                    }
+                }
+                br.close();
+            }
+        } catch (Exception e) {
+        }
+        return capacidadTotal;
+    }
+    
+    public String leerCsvParametrosPorDefectoAlmacenPantallasFab1(){
+        String capacidadTotal = "";
+        String line;
+        String despachosCsv = "";
+        String path = "test\\parametrosPorDefectoFab1.csv";
+        File file = new File(path);
+        try {
+            if(!file.exists()){
+                file.createNewFile();
+            }else{
+                FileReader fr = new FileReader(file);
+                BufferedReader br = new BufferedReader(fr);
+                while ((line = br.readLine()) != null){
+                    if (!line.isEmpty()){
+                        despachosCsv += line + "\n";
+                    }
+                }
+                
+                if (!"".equals(despachosCsv)){
+                    String[] despachos_split = despachosCsv.split("\n");
+                    for (int i = 0; i < 4; i++) {
+                        String[] capacidad = despachos_split[i].split(",");
+                        capacidadTotal = capacidad[1];
+                        
+                    }
+                }
+                br.close();
+            }
+        } catch (Exception e) {
+        }
+        return capacidadTotal;
+    }
+    public String leerCsvParametrosPorDefectoAlmacenBotonesFab1(){
+        String capacidadTotal = "";
+        String line;
+        String despachosCsv = "";
+        String path = "test\\parametrosPorDefectoFab1.csv";
+        File file = new File(path);
+        try {
+            if(!file.exists()){
+                file.createNewFile();
+            }else{
+                FileReader fr = new FileReader(file);
+                BufferedReader br = new BufferedReader(fr);
+                while ((line = br.readLine()) != null){
+                    if (!line.isEmpty()){
+                        despachosCsv += line + "\n";
+                    }
+                }
+                
+                if (!"".equals(despachosCsv)){
+                    String[] despachos_split = despachosCsv.split("\n");
+                    for (int i = 0; i < 5; i++) {
+                        String[] capacidad = despachos_split[i].split(",");
+                        capacidadTotal = capacidad[1];
+                        
+                    }
+                }
+                br.close();
+            }
+        } catch (Exception e) {
+        }
+        return capacidadTotal;
+    }
+    public String leerCsvParametrosPorDefectoAlmacenPinCargaFab1(){
+        String capacidadTotal = "";
+        String line;
+        String despachosCsv = "";
+        String path = "test\\parametrosPorDefectoFab1.csv";
+        File file = new File(path);
+        try {
+            if(!file.exists()){
+                file.createNewFile();
+            }else{
+                FileReader fr = new FileReader(file);
+                BufferedReader br = new BufferedReader(fr);
+                while ((line = br.readLine()) != null){
+                    if (!line.isEmpty()){
+                        despachosCsv += line + "\n";
+                    }
+                }
+                
+                if (!"".equals(despachosCsv)){
+                    String[] despachos_split = despachosCsv.split("\n");
+                    for (int i = 0; i < 6; i++) {
+                        String[] capacidad = despachos_split[i].split(",");
+                        capacidadTotal = capacidad[1];
+                        
+                    }
+                }
+                br.close();
+            }
+        } catch (Exception e) {
+        }
+        return capacidadTotal;
+    }
+    public String leerCsvParametrosPorDefectoAlmacenCamarasFab1(){
+        String capacidadTotal = "";
+        String line;
+        String despachosCsv = "";
+        String path = "test\\parametrosPorDefectoFab1.csv";
+        File file = new File(path);
+        try {
+            if(!file.exists()){
+                file.createNewFile();
+            }else{
+                FileReader fr = new FileReader(file);
+                BufferedReader br = new BufferedReader(fr);
+                while ((line = br.readLine()) != null){
+                    if (!line.isEmpty()){
+                        despachosCsv += line + "\n";
+                    }
+                }
+                
+                if (!"".equals(despachosCsv)){
+                    String[] despachos_split = despachosCsv.split("\n");
+                    for (int i = 0; i < 7; i++) {
+                        String[] capacidad = despachos_split[i].split(",");
+                        capacidadTotal = capacidad[1];
+                        
+                    }
+                }
+                br.close();
+            }
+        } catch (Exception e) {
+        }
+        return capacidadTotal;
+    }
     
     public void vaciarCsvHistorico(String cadena){
         try {
@@ -231,7 +488,7 @@ public class archivoCsv {
           } 
         return dia;
 }
-    public int leerPorDefecto2Fab1(long dia,int empleados,Cola librep,Cola ocup, Cola libreb,Cola ocub,Cola librepc,Cola ocupc,Cola librec,Cola ocuc,JLabel produP,JLabel produB,JLabel produPc,JLabel produC,Cola libreE,Cola ocuE,JLabel ensam,JLabel almap,JLabel almab,JLabel almapc,JLabel almac,JLabel telef,Semaphore sem,Semaphore sem2,Semaphore sem3,Semaphore sem4,Semaphore AP,Semaphore AB,Semaphore APC,Semaphore AC,Semaphore p,Semaphore b,Semaphore pc,Semaphore c,Semaphore mutex4,Semaphore mutex3,Semaphore mutex2,Semaphore mutex,JLabel countdown){
+    public int leerPorDefecto2Fab1(long dia,int empleados,cola2 librep,cola2 ocup, cola2 libreb,cola2 ocub,cola2 librepc,cola2 ocupc,cola2 librec,cola2 ocuc,JLabel produP,JLabel produB,JLabel produPc,JLabel produC,cola2 libreE,cola2 ocuE,JLabel ensam,JLabel almap,JLabel almab,JLabel almapc,JLabel almac,JLabel telef,Semaphore sem,Semaphore sem2,Semaphore sem3,Semaphore sem4,Semaphore AP,Semaphore AB,Semaphore APC,Semaphore AC,Semaphore p,Semaphore b,Semaphore pc,Semaphore c,Semaphore mutex4,Semaphore mutex3,Semaphore mutex2,Semaphore mutex,JLabel countdown){
          String aux="";   
         String texto="";
         try
@@ -256,15 +513,15 @@ public class archivoCsv {
                             countdown.setText(datos[1]);
                         }if (i==7&&j==1) {
                             for (int k = 0; k < Integer.parseInt(datos[1]); k++) {
-                                Procesos hiloP = new Procesos(1, almap, sem, AP, dia, p,countdown);
-                                ocup.Encolar(hiloP);
-                                hiloP.start();
+                                ProcesosFab1 hilop = new ProcesosFab1(1, almap, sem, AP, dia, p,countdown);
+                                ocup.Encolar(hilop);
+                                hilop.start();
                                 produP.setText(Integer.toString(Integer.parseInt(produP.getText())+1));
                                 empleados--;
                             }
                         }if (i==8&&j==1) {
                            for (int k = 0; k < Integer.parseInt(datos[1]); k++) {
-                               Procesos hiloB = new Procesos(2, sem2, AB, almab, dia, b,countdown);
+                               ProcesosFab1 hiloB = new ProcesosFab1(2, sem2, AB, almab, dia, b,countdown);
                                 hiloB.start();
                                 ocub.Encolar(hiloB);
                                 produB.setText(Integer.toString(Integer.parseInt(produB.getText())+1));
@@ -272,7 +529,7 @@ public class archivoCsv {
                             }
                         }if (i==9&&j==1) {
                             for (int k = 0; k < Integer.parseInt(datos[1]); k++) {
-                                Procesos hiloPc = new Procesos(3, sem3, almapc, APC, dia, pc,countdown);
+                                ProcesosFab1 hiloPc = new ProcesosFab1(3, sem3, almapc, APC, dia, pc,countdown);
                                 hiloPc.start();
                                 ocupc.Encolar(hiloPc);
                                 produPc.setText(Integer.toString(Integer.parseInt(produPc.getText())+1));
@@ -281,7 +538,7 @@ public class archivoCsv {
                            
                         }if (i==10&&j==1) {
                            for (int k = 0; k < Integer.parseInt(datos[1]); k++) {
-                               Procesos hiloC = new Procesos(almac, 4, sem4, AC, dia, c,countdown);
+                               ProcesosFab1 hiloC = new ProcesosFab1(almac, 4, sem4, AC, dia, c,countdown);
                                 hiloC.start();
                                 ocuc.Encolar(hiloC);
                                 produC.setText(Integer.toString(Integer.parseInt(produC.getText())+1));
@@ -289,7 +546,7 @@ public class archivoCsv {
                             }
                         }if (i==11&&j==1) {
                            for (int k = 0; k < Integer.parseInt(datos[1]); k++) {
-                               Procesos hiloE = new Procesos(mutex4, mutex3, mutex2, mutex, dia, 5, sem, sem2, sem3, sem4, almap, almab, almapc, almac, ensam, telef, AP, AB, APC, AC,countdown);
+                               ProcesosFab1 hiloE = new ProcesosFab1(mutex4, mutex3, mutex2, mutex, dia, 5, sem, sem2, sem3, sem4, almap, almab, almapc, almac, ensam, telef, AP, AB, APC, AC,countdown);
                                 hiloE.start();
                                 ocuE.Encolar(hiloE);
                                 ensam.setText(Integer.toString(Integer.parseInt(ensam.getText())+1));
@@ -536,4 +793,6 @@ public class archivoCsv {
          }
 }
     
+
+
 }

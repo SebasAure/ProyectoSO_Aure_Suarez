@@ -7,31 +7,31 @@ package Clases;
 
 /**
  *
- * @author gabriel
+ * @author sebas
  */
-public class Nodo<T> {
-    Procesos proceso;
-    Nodo<T> siguiente;
+public class Nodo2<T> {
+    ProcesosFab1 proceso;
+    Nodo2<T> siguiente;
 
-    public Nodo() {
-        this.proceso = proceso;
+    public Nodo2() {
+        this.proceso=proceso;
         this.siguiente = siguiente;
     }
 
 
-    public Procesos getproceso() {
+    public ProcesosFab1 getproceso() {
         return proceso;
     }
 
-    public void setproceso(Procesos proceso) {
+    public void setproceso(ProcesosFab1 proceso) {
         this.proceso = proceso;
     }
 
-    public Nodo<T> getSiguiente() {
+    public Nodo2<T> getSiguiente() {
         return siguiente;
     }
 
-    public void setSiguiente(Nodo<T> siguiente) {
+    public void setSiguiente(Nodo2<T> siguiente) {
         this.siguiente = siguiente;
     }
 
@@ -40,3 +40,4 @@ public class Nodo<T> {
     
     
 }
+

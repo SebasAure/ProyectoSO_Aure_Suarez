@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package Clases;
-
 import java.awt.Button;
 import java.util.Random;
 import java.util.concurrent.Semaphore;
@@ -12,12 +11,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-
 /**
  *
- * @author gabriel
+ * @author sebas
  */
-public class ProcesosJG extends Thread{
+public class ProcesosJGFab1 extends Thread{
     public boolean stop;
     JLabel countdown;
     Semaphore modCountdown;
@@ -49,7 +47,7 @@ public class ProcesosJG extends Thread{
     JButton boton4;
     JButton boton5;
     
-    public ProcesosJG(int tipo,long dia,Semaphore mod,JLabel countdown,JLabel accion){
+    public ProcesosJGFab1(int tipo,long dia,Semaphore mod,JLabel countdown,JLabel accion){
         this.stop=true;
         this.modCountdown = mod;
         this.countdown = countdown;
@@ -60,7 +58,7 @@ public class ProcesosJG extends Thread{
         this.tipo=tipo;
         
     }
-    public ProcesosJG(long dia,int tipo,Semaphore mod,JLabel accion,JLabel countdown,JLabel tlf,JLabel accionjefe,JLabel saldojefe){
+    public ProcesosJGFab1(long dia,int tipo,Semaphore mod,JLabel accion,JLabel countdown,JLabel tlf,JLabel accionjefe,JLabel saldojefe){
         this.stop=true;
         this.modCountdown = mod;
         this.countdown = countdown;
@@ -74,13 +72,13 @@ public class ProcesosJG extends Thread{
         this.$jefe = saldojefe;
         
     }
-    public ProcesosJG(long dia,JLabel count,int tipo){
+    public ProcesosJGFab1(long dia,JLabel count,int tipo){
         this.stop=true;
         this.tipo=tipo;
         this.countdown=count;
         this.dia=dia;
     }
-    public ProcesosJG(int tipo,JLabel gastoP,JLabel gastoB,JLabel gastoPC,JLabel gastoC,JLabel sueldoJ,JLabel sueldoG,JLabel tlf,JLabel gastos,JLabel ganacias,JLabel neto,JLabel countdown,JLabel sueldoe,JButton boton,JButton boton2,JButton boton3,JButton boton4,JButton boton5){
+    public ProcesosJGFab1(int tipo,JLabel gastoP,JLabel gastoB,JLabel gastoPC,JLabel gastoC,JLabel sueldoJ,JLabel sueldoG,JLabel tlf,JLabel gastos,JLabel ganacias,JLabel neto,JLabel countdown,JLabel sueldoe,JButton boton,JButton boton2,JButton boton3,JButton boton4,JButton boton5){
       this.stop=true;
        this.tipo=tipo;
       this.sueldop = gastoP;
@@ -112,7 +110,7 @@ public class ProcesosJG extends Thread{
                 if (Integer.parseInt(countdown.getText())!=actual) {       
                 modCountdown.acquire();
                 accion.setText(modC);
-                sleep(dia/4);
+                sleep(dia/(dia/10));
                 modCountdown.release();
                     if (Integer.parseInt(countdown.getText())==0) {
                         this.StopToggle();
@@ -120,9 +118,9 @@ public class ProcesosJG extends Thread{
                 actual--;
                 }
                 accion.setText(CR);
-                sleep(dia/72);
+                sleep(dia/60);
                 accion.setText(trabajo);
-                sleep(dia/72);
+                sleep(dia/60);
                 
             }
         } catch (InterruptedException ex) {
@@ -201,7 +199,7 @@ public class ProcesosJG extends Thread{
                         Logger.getLogger(ProcesosJG.class.getName()).log(Level.SEVERE, null, ex);
                     }
                         gastos.setText(Integer.toString(Integer.parseInt(sueldop.getText())+Integer.parseInt(sueldob.getText())+Integer.parseInt(sueldopc.getText())+Integer.parseInt(sueldoc.getText())+Integer.parseInt(sueldoe.getText())+Integer.parseInt($jefe.getText())+Integer.parseInt(sueldog.getText())));
-                        ganacias.setText(Integer.toString(Integer.parseInt(tlfs.getText())*900));
+                        ganacias.setText(Integer.toString(Integer.parseInt(tlfs.getText())*1199));
                         neto.setText(Integer.toString(Integer.parseInt(ganacias.getText())-Integer.parseInt(gastos.getText())));
                         boton.setEnabled(true);
                         boton2.setEnabled(true);
@@ -211,7 +209,7 @@ public class ProcesosJG extends Thread{
 
                     }
                     gastos.setText(Integer.toString(Integer.parseInt(sueldop.getText())+Integer.parseInt(sueldob.getText())+Integer.parseInt(sueldopc.getText())+Integer.parseInt(sueldoc.getText())+Integer.parseInt(sueldoe.getText())+Integer.parseInt($jefe.getText())+Integer.parseInt(sueldog.getText())));
-                    ganacias.setText(Integer.toString(Integer.parseInt(tlfs.getText())*900));
+                    ganacias.setText(Integer.toString(Integer.parseInt(tlfs.getText())*1199));
                     neto.setText(Integer.toString(Integer.parseInt(ganacias.getText())-Integer.parseInt(gastos.getText())));
                 
                 

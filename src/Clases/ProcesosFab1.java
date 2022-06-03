@@ -4,18 +4,16 @@
  * and open the template in the editor.
  */
 package Clases;
-
 import static java.lang.Thread.sleep;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
-
 /**
  *
- * @author gabriel
+ * @author sebas
  */
-public class Procesos extends Thread{
+public class ProcesosFab1 extends Thread {
     public boolean stop;
     String Treadname;
     int tipo;
@@ -52,7 +50,7 @@ public class Procesos extends Thread{
     JLabel area13;
     
     // Produccion Pantallas
-    public Procesos(int tipo,JLabel Area,Semaphore sem, Semaphore pantallas,long dia,Semaphore p,JLabel tiempo ){
+    public ProcesosFab1(int tipo,JLabel Area,Semaphore sem, Semaphore pantallas,long dia,Semaphore p,JLabel tiempo ){
         this.stop = true;
         this.Area = Area;
         this.tipo=tipo;
@@ -64,7 +62,7 @@ public class Procesos extends Thread{
         
     }
     // // Produccion Botones
-    public Procesos(int tipo,Semaphore sem2,Semaphore botones,JLabel Area2,long dia,Semaphore B,JLabel tiempo ){
+    public ProcesosFab1(int tipo,Semaphore sem2,Semaphore botones,JLabel Area2,long dia,Semaphore B,JLabel tiempo ){
         this.stop = true;
         this.Area2 = Area2;
         this.tipo=tipo;
@@ -75,7 +73,7 @@ public class Procesos extends Thread{
         this.area13=tiempo;
     }
     // Produccion Pines de Carga
-     public Procesos(int tipo,Semaphore sem3,JLabel Area3,Semaphore pinCarga,long dia,Semaphore Pc,JLabel tiempo ){
+     public ProcesosFab1(int tipo,Semaphore sem3,JLabel Area3,Semaphore pinCarga,long dia,Semaphore Pc,JLabel tiempo ){
         this.stop = true;
         this.Area3 = Area3;
         this.tipo=tipo;
@@ -86,7 +84,7 @@ public class Procesos extends Thread{
         this.area13=tiempo;
      }
      // Produccion Camaras
-     public Procesos(JLabel Area4,int tipo,Semaphore sem4,Semaphore camara,long dia,Semaphore C,JLabel tiempo ){
+     public ProcesosFab1(JLabel Area4,int tipo,Semaphore sem4,Semaphore camara,long dia,Semaphore C,JLabel tiempo ){
         this.stop = true;
         this.Area4 = Area4;
         this.tipo=tipo;
@@ -97,7 +95,7 @@ public class Procesos extends Thread{
         this.area13=tiempo;
      }
      
-     public Procesos(JLabel p,JLabel b,JLabel pc,JLabel c,JLabel p1,JLabel b2,JLabel pc3,JLabel c4,JLabel E5,JLabel t6,int tipo,long dia,JLabel J7,JLabel G8,JLabel tiempo ){
+     public ProcesosFab1(JLabel p,JLabel b,JLabel pc,JLabel c,JLabel p1,JLabel b2,JLabel pc3,JLabel c4,JLabel E5,JLabel t6,int tipo,long dia,JLabel J7,JLabel G8,JLabel tiempo ){
          this.stop = true;
          this.Area = p;
          this.Area2 = b;
@@ -115,7 +113,7 @@ public class Procesos extends Thread{
          this.area12=G8;
          this.area13=tiempo;
      }
-     public Procesos(Semaphore mutex4,Semaphore mutex3,Semaphore mutex2,Semaphore mutex,long dia,int tipo,Semaphore sem,Semaphore sem2,Semaphore sem3,Semaphore sem4,JLabel pantallas,JLabel botones,JLabel pinesc,JLabel camaras,JLabel AreaE,JLabel AreaT,Semaphore pantalla,Semaphore boton,Semaphore pinc,Semaphore camara,JLabel tiempo ){
+     public ProcesosFab1(Semaphore mutex4,Semaphore mutex3,Semaphore mutex2,Semaphore mutex,long dia,int tipo,Semaphore sem,Semaphore sem2,Semaphore sem3,Semaphore sem4,JLabel pantallas,JLabel botones,JLabel pinesc,JLabel camaras,JLabel AreaE,JLabel AreaT,Semaphore pantalla,Semaphore boton,Semaphore pinc,Semaphore camara,JLabel tiempo ){
          this.stop = true;
          this.dia = dia;
          this.tipo =tipo;
@@ -168,7 +166,7 @@ public class Procesos extends Thread{
             }
         try{
             if (procesado != true) {
-            sleep(dia/2);
+            sleep(dia/3);
             if (Integer.parseInt(area13.getText())==0) {
                 this.StopToggle();
             }
@@ -189,7 +187,7 @@ public class Procesos extends Thread{
             }
         try{
             if (procesado != true) {
-            sleep(dia/2);
+            sleep(dia/3);
             if (Integer.parseInt(area13.getText())==0) {
                 this.StopToggle();
             }
@@ -210,7 +208,7 @@ public class Procesos extends Thread{
             }
         try{
             if (procesado!=true) {
-            sleep(dia*3);
+            sleep(dia);
             if (Integer.parseInt(area13.getText())==0) {
                 this.StopToggle();
             }
@@ -231,7 +229,7 @@ public class Procesos extends Thread{
             }
         try{
             if (procesado!=true) {
-            sleep(dia*2);
+            sleep(dia*3);
             if (Integer.parseInt(area13.getText())==0) {
                 this.StopToggle();
             }
@@ -356,7 +354,7 @@ public class Procesos extends Thread{
         if (tipo==5) {
             try {
                 archivoCsv archiCsv = new archivoCsv();
-                String capacidadP = archiCsv.leerCsvParametrosPorDefectoAlmacenPantallas();
+                String capacidadP = archiCsv.leerCsvParametrosPorDefectoAlmacenPantallasFab1();
                 colitaE.acquire();
                 while (pantallas.availablePermits() > Integer.parseInt(capacidadP)-1) {                     
                 }
@@ -366,16 +364,16 @@ public class Procesos extends Thread{
                 sem1.release();
                 colitaE.release();
                 colitaE2.acquire();
-                String capacidadB = archiCsv.leerCsvParametrosPorDefectoAlmacenBotones();
-                while (botones.availablePermits()>Integer.parseInt(capacidadB)-4) {                        
+                String capacidadB = archiCsv.leerCsvParametrosPorDefectoAlmacenBotonesFab1();
+                while (botones.availablePermits()>Integer.parseInt(capacidadB)-3) {                        
                 }
                 sem2.acquire();
-                botones.release(4);
-                Area2.setText(Integer.toString(Integer.parseInt(Area2.getText())-4));
+                botones.release(3);
+                Area2.setText(Integer.toString(Integer.parseInt(Area2.getText())-3));
                 sem2.release();
                 colitaE2.release();
                 colitaE3.acquire();
-                 String capacidadPc = archiCsv.leerCsvParametrosPorDefectoAlmacenPinCarga();
+                String capacidadPc = archiCsv.leerCsvParametrosPorDefectoAlmacenPinCargaFab1();
                 while (pinCarga.availablePermits()>Integer.parseInt(capacidadPc)-1) {  
                 }
                 sem3.acquire();
@@ -384,12 +382,12 @@ public class Procesos extends Thread{
                 sem3.release();
                 colitaE3.release();
                 colitaE4.acquire();
-                String capacidadC = archiCsv.leerCsvParametrosPorDefectoAlmacenCamaras();
-                while (camara.availablePermits()>Integer.parseInt(capacidadC)-3) {                        
+                String capacidadC = archiCsv.leerCsvParametrosPorDefectoAlmacenCamarasFab1();
+                while (camara.availablePermits()>Integer.parseInt(capacidadC)-4) {                        
                 }
                 sem4.acquire();
-                camara.release(3);
-                Area4.setText(Integer.toString(Integer.parseInt(Area4.getText())-3));
+                camara.release(4);
+                Area4.setText(Integer.toString(Integer.parseInt(Area4.getText())-4));
                 sem4.release();
                 colitaE4.release();
                 Area6.setText(Integer.toString(Integer.parseInt(Area6.getText())+1));
@@ -405,7 +403,4 @@ public class Procesos extends Thread{
 
     }
 }
-
-    
-
 
