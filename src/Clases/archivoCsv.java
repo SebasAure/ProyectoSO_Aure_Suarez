@@ -296,6 +296,17 @@ public class archivoCsv {
      }catch(IOException ex)
          {
          }
+    }
+    public void escribirCvsPorDefectoFab1(String cadena){
+         try
+        {
+        FileWriter  save = new FileWriter("test\\parametrosPorDefectoFab1.csv");
+        save.write(cadena);
+        save.close();
+
+     }catch(IOException ex)
+         {
+         }
 }
     
 }

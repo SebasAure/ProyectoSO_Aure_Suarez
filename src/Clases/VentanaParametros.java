@@ -17,7 +17,7 @@ public class VentanaParametros extends javax.swing.JFrame {
     public VentanaParametros() {
         initComponents();
         this.setLocationRelativeTo(null);
-        arch.leerPorDefectoParametros(duracionDia,diasDespachados,almacenPantallas,almacenBotones,almacenPinCarga,almacenCamaras,productoresPantalla,productoresBotones,productoresPinesCarga,productoresCamara,ensambladores);
+        arch.leerPorDefectoParametros(duracionDia,diasDespachados,almacenPantallasFab2,almacenBotonesFab2,almacenPinCargaFab2,almacenCamarasFab2,productoresPantallaFab2,productoresBotonesFab2,productoresPinesCargaFab2,productoresCamaraFab2,ensambladoresFab2);
 
     }
 
@@ -31,27 +31,27 @@ public class VentanaParametros extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        productoresPinesCarga = new javax.swing.JTextField();
-        almacenBotones = new javax.swing.JTextField();
+        productoresPinesCargaFab2 = new javax.swing.JTextField();
+        almacenBotonesFab2 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        productoresCamara = new javax.swing.JTextField();
-        almacenPinCarga = new javax.swing.JTextField();
+        productoresCamaraFab2 = new javax.swing.JTextField();
+        almacenPinCargaFab2 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        ensambladores = new javax.swing.JTextField();
-        almacenCamaras = new javax.swing.JTextField();
+        ensambladoresFab2 = new javax.swing.JTextField();
+        almacenCamarasFab2 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         cambiarParam = new javax.swing.JToggleButton();
         duracionDia = new javax.swing.JTextField();
-        productoresPantalla = new javax.swing.JTextField();
+        productoresPantallaFab2 = new javax.swing.JTextField();
         diasDespachados = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        productoresBotones = new javax.swing.JTextField();
-        almacenPantallas = new javax.swing.JTextField();
+        productoresBotonesFab2 = new javax.swing.JTextField();
+        almacenPantallasFab2 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -62,6 +62,19 @@ public class VentanaParametros extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
+        almacenPantallasFab1 = new javax.swing.JTextField();
+        almacenBotonesFab1 = new javax.swing.JTextField();
+        almacenPinCargaFab1 = new javax.swing.JTextField();
+        almacenCamarasFab1 = new javax.swing.JTextField();
+        ensambladoresFab1 = new javax.swing.JTextField();
+        productoresPantallaFab1 = new javax.swing.JTextField();
+        productoresBotonesFab1 = new javax.swing.JTextField();
+        productoresPinesCargaFab1 = new javax.swing.JTextField();
+        productoresCamaraFab1 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -70,19 +83,19 @@ public class VentanaParametros extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 500));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        productoresPinesCarga.setBackground(new java.awt.Color(204, 204, 204));
-        productoresPinesCarga.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
-        productoresPinesCarga.setForeground(new java.awt.Color(0, 0, 0));
-        productoresPinesCarga.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        productoresPinesCarga.setText("0");
-        jPanel1.add(productoresPinesCarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 370, 80, 50));
+        productoresPinesCargaFab2.setBackground(new java.awt.Color(204, 204, 204));
+        productoresPinesCargaFab2.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
+        productoresPinesCargaFab2.setForeground(new java.awt.Color(0, 0, 0));
+        productoresPinesCargaFab2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        productoresPinesCargaFab2.setText("0");
+        jPanel1.add(productoresPinesCargaFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 370, 40, 50));
 
-        almacenBotones.setBackground(new java.awt.Color(204, 204, 204));
-        almacenBotones.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
-        almacenBotones.setForeground(new java.awt.Color(0, 0, 0));
-        almacenBotones.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        almacenBotones.setText("0");
-        jPanel1.add(almacenBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 80, 50));
+        almacenBotonesFab2.setBackground(new java.awt.Color(204, 204, 204));
+        almacenBotonesFab2.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
+        almacenBotonesFab2.setForeground(new java.awt.Color(0, 0, 0));
+        almacenBotonesFab2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        almacenBotonesFab2.setText("0");
+        jPanel1.add(almacenBotonesFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 40, 50));
 
         jLabel9.setBackground(new java.awt.Color(204, 204, 204));
         jLabel9.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
@@ -96,19 +109,19 @@ public class VentanaParametros extends javax.swing.JFrame {
         jLabel4.setText("Almacen botones");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 160, 50));
 
-        productoresCamara.setBackground(new java.awt.Color(204, 204, 204));
-        productoresCamara.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
-        productoresCamara.setForeground(new java.awt.Color(0, 0, 0));
-        productoresCamara.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        productoresCamara.setText("0");
-        jPanel1.add(productoresCamara, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 440, 80, 50));
+        productoresCamaraFab2.setBackground(new java.awt.Color(204, 204, 204));
+        productoresCamaraFab2.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
+        productoresCamaraFab2.setForeground(new java.awt.Color(0, 0, 0));
+        productoresCamaraFab2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        productoresCamaraFab2.setText("0");
+        jPanel1.add(productoresCamaraFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 440, 40, 50));
 
-        almacenPinCarga.setBackground(new java.awt.Color(204, 204, 204));
-        almacenPinCarga.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
-        almacenPinCarga.setForeground(new java.awt.Color(0, 0, 0));
-        almacenPinCarga.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        almacenPinCarga.setText("0");
-        jPanel1.add(almacenPinCarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, 80, 50));
+        almacenPinCargaFab2.setBackground(new java.awt.Color(204, 204, 204));
+        almacenPinCargaFab2.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
+        almacenPinCargaFab2.setForeground(new java.awt.Color(0, 0, 0));
+        almacenPinCargaFab2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        almacenPinCargaFab2.setText("0");
+        jPanel1.add(almacenPinCargaFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, 40, 50));
 
         jLabel10.setBackground(new java.awt.Color(204, 204, 204));
         jLabel10.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
@@ -122,31 +135,31 @@ public class VentanaParametros extends javax.swing.JFrame {
         jLabel5.setText("Almacen Pines");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 150, 50));
 
-        ensambladores.setBackground(new java.awt.Color(204, 204, 204));
-        ensambladores.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
-        ensambladores.setForeground(new java.awt.Color(0, 0, 0));
-        ensambladores.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        ensambladores.setText("0");
-        jPanel1.add(ensambladores, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 160, 80, 50));
+        ensambladoresFab2.setBackground(new java.awt.Color(204, 204, 204));
+        ensambladoresFab2.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
+        ensambladoresFab2.setForeground(new java.awt.Color(0, 0, 0));
+        ensambladoresFab2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ensambladoresFab2.setText("0");
+        jPanel1.add(ensambladoresFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 160, 40, 50));
 
-        almacenCamaras.setBackground(new java.awt.Color(204, 204, 204));
-        almacenCamaras.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
-        almacenCamaras.setForeground(new java.awt.Color(0, 0, 0));
-        almacenCamaras.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        almacenCamaras.setText("0");
-        jPanel1.add(almacenCamaras, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 440, 80, 50));
+        almacenCamarasFab2.setBackground(new java.awt.Color(204, 204, 204));
+        almacenCamarasFab2.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
+        almacenCamarasFab2.setForeground(new java.awt.Color(0, 0, 0));
+        almacenCamarasFab2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        almacenCamarasFab2.setText("0");
+        jPanel1.add(almacenCamarasFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 440, 40, 50));
 
         jLabel11.setBackground(new java.awt.Color(204, 204, 204));
         jLabel11.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel11.setText("Ensambladores");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 150, 50));
+        jLabel11.setText("Fab 2");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 40, 40));
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
         jLabel1.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Duracion dia (ms)");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 140, 50));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 140, 50));
 
         jLabel6.setBackground(new java.awt.Color(204, 204, 204));
         jLabel6.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
@@ -154,37 +167,37 @@ public class VentanaParametros extends javax.swing.JFrame {
         jLabel6.setText("Almacen Camaras");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, 180, 50));
 
-        cambiarParam.setBackground(new java.awt.Color(204, 204, 204));
+        cambiarParam.setBackground(new java.awt.Color(51, 51, 51));
         cambiarParam.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
-        cambiarParam.setForeground(new java.awt.Color(0, 0, 0));
+        cambiarParam.setForeground(new java.awt.Color(255, 255, 255));
         cambiarParam.setText("Cambiar parametros");
         cambiarParam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cambiarParamActionPerformed(evt);
             }
         });
-        jPanel1.add(cambiarParam, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, 300, 60));
+        jPanel1.add(cambiarParam, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 300, 50));
 
         duracionDia.setBackground(new java.awt.Color(204, 204, 204));
         duracionDia.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
         duracionDia.setForeground(new java.awt.Color(0, 0, 0));
         duracionDia.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         duracionDia.setText("0");
-        jPanel1.add(duracionDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 80, 50));
+        jPanel1.add(duracionDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 90, 50));
 
-        productoresPantalla.setBackground(new java.awt.Color(204, 204, 204));
-        productoresPantalla.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
-        productoresPantalla.setForeground(new java.awt.Color(0, 0, 0));
-        productoresPantalla.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        productoresPantalla.setText("0");
-        jPanel1.add(productoresPantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 230, 80, 50));
+        productoresPantallaFab2.setBackground(new java.awt.Color(204, 204, 204));
+        productoresPantallaFab2.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
+        productoresPantallaFab2.setForeground(new java.awt.Color(0, 0, 0));
+        productoresPantallaFab2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        productoresPantallaFab2.setText("0");
+        jPanel1.add(productoresPantallaFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 230, 40, 50));
 
         diasDespachados.setBackground(new java.awt.Color(204, 204, 204));
         diasDespachados.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
         diasDespachados.setForeground(new java.awt.Color(0, 0, 0));
         diasDespachados.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         diasDespachados.setText("0");
-        jPanel1.add(diasDespachados, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 80, 50));
+        jPanel1.add(diasDespachados, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 90, 50));
 
         jLabel7.setBackground(new java.awt.Color(204, 204, 204));
         jLabel7.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
@@ -196,21 +209,21 @@ public class VentanaParametros extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Dias despacho");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 150, 50));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 150, 50));
 
-        productoresBotones.setBackground(new java.awt.Color(204, 204, 204));
-        productoresBotones.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
-        productoresBotones.setForeground(new java.awt.Color(0, 0, 0));
-        productoresBotones.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        productoresBotones.setText("0");
-        jPanel1.add(productoresBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 300, 80, 50));
+        productoresBotonesFab2.setBackground(new java.awt.Color(204, 204, 204));
+        productoresBotonesFab2.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
+        productoresBotonesFab2.setForeground(new java.awt.Color(0, 0, 0));
+        productoresBotonesFab2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        productoresBotonesFab2.setText("0");
+        jPanel1.add(productoresBotonesFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 300, 40, 50));
 
-        almacenPantallas.setBackground(new java.awt.Color(204, 204, 204));
-        almacenPantallas.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
-        almacenPantallas.setForeground(new java.awt.Color(0, 0, 0));
-        almacenPantallas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        almacenPantallas.setText("0");
-        jPanel1.add(almacenPantallas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 80, 50));
+        almacenPantallasFab2.setBackground(new java.awt.Color(204, 204, 204));
+        almacenPantallasFab2.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
+        almacenPantallasFab2.setForeground(new java.awt.Color(0, 0, 0));
+        almacenPantallasFab2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        almacenPantallasFab2.setText("0");
+        jPanel1.add(almacenPantallasFab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 40, 50));
 
         jLabel8.setBackground(new java.awt.Color(204, 204, 204));
         jLabel8.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
@@ -284,25 +297,131 @@ public class VentanaParametros extends javax.swing.JFrame {
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 770, 20));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 770, 10));
 
+        almacenPantallasFab1.setBackground(new java.awt.Color(204, 204, 204));
+        almacenPantallasFab1.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
+        almacenPantallasFab1.setForeground(new java.awt.Color(0, 0, 0));
+        almacenPantallasFab1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        almacenPantallasFab1.setText("0");
+        jPanel1.add(almacenPantallasFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 40, 50));
+
+        almacenBotonesFab1.setBackground(new java.awt.Color(204, 204, 204));
+        almacenBotonesFab1.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
+        almacenBotonesFab1.setForeground(new java.awt.Color(0, 0, 0));
+        almacenBotonesFab1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        almacenBotonesFab1.setText("0");
+        jPanel1.add(almacenBotonesFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 40, 50));
+
+        almacenPinCargaFab1.setBackground(new java.awt.Color(204, 204, 204));
+        almacenPinCargaFab1.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
+        almacenPinCargaFab1.setForeground(new java.awt.Color(0, 0, 0));
+        almacenPinCargaFab1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        almacenPinCargaFab1.setText("0");
+        jPanel1.add(almacenPinCargaFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, 40, 50));
+
+        almacenCamarasFab1.setBackground(new java.awt.Color(204, 204, 204));
+        almacenCamarasFab1.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
+        almacenCamarasFab1.setForeground(new java.awt.Color(0, 0, 0));
+        almacenCamarasFab1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        almacenCamarasFab1.setText("0");
+        jPanel1.add(almacenCamarasFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 440, 40, 50));
+
+        ensambladoresFab1.setBackground(new java.awt.Color(204, 204, 204));
+        ensambladoresFab1.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
+        ensambladoresFab1.setForeground(new java.awt.Color(0, 0, 0));
+        ensambladoresFab1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ensambladoresFab1.setText("0");
+        jPanel1.add(ensambladoresFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 160, 40, 50));
+
+        productoresPantallaFab1.setBackground(new java.awt.Color(204, 204, 204));
+        productoresPantallaFab1.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
+        productoresPantallaFab1.setForeground(new java.awt.Color(0, 0, 0));
+        productoresPantallaFab1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        productoresPantallaFab1.setText("0");
+        jPanel1.add(productoresPantallaFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 230, 40, 50));
+
+        productoresBotonesFab1.setBackground(new java.awt.Color(204, 204, 204));
+        productoresBotonesFab1.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
+        productoresBotonesFab1.setForeground(new java.awt.Color(0, 0, 0));
+        productoresBotonesFab1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        productoresBotonesFab1.setText("0");
+        jPanel1.add(productoresBotonesFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 300, 40, 50));
+
+        productoresPinesCargaFab1.setBackground(new java.awt.Color(204, 204, 204));
+        productoresPinesCargaFab1.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
+        productoresPinesCargaFab1.setForeground(new java.awt.Color(0, 0, 0));
+        productoresPinesCargaFab1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        productoresPinesCargaFab1.setText("0");
+        jPanel1.add(productoresPinesCargaFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 370, 40, 50));
+
+        productoresCamaraFab1.setBackground(new java.awt.Color(204, 204, 204));
+        productoresCamaraFab1.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
+        productoresCamaraFab1.setForeground(new java.awt.Color(0, 0, 0));
+        productoresCamaraFab1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        productoresCamaraFab1.setText("0");
+        jPanel1.add(productoresCamaraFab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 440, 40, 50));
+
+        jLabel14.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel14.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel14.setText("Ensambladores");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 150, 50));
+
+        jLabel15.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel15.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel15.setText("Fab 1");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 40, 40));
+
+        jLabel16.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel16.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel16.setText("Fab 1");
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 120, 40, 40));
+
+        jLabel17.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel17.setFont(new java.awt.Font("NSimSun", 0, 16)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel17.setText("Fab 2");
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 120, 40, 40));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void cambiarParamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarParamActionPerformed
+        
+        //Fab 1
+        String cadena1 = "Dato,Valor\n" +
+        "Durancion-Dia(mili-segundos),"+duracionDia.getText()+"\n" +
+        "Dias-entre-despachos,"+diasDespachados.getText()+"\n" +
+        "almacen-pantalla,"+almacenPantallasFab1.getText()+",999\n" +
+        "almacen-botones,"+almacenBotonesFab1.getText()+",999\n" +
+        "almacen-pin-carga,"+almacenPinCargaFab1.getText()+",999\n" +
+        "almacen-camara,"+almacenCamarasFab1.getText()+",999\n" +
+        "productores-pantalla,"+productoresPantallaFab1.getText()+"\n" +
+        "productores-botones,"+productoresBotonesFab1.getText()+"\n" +
+        "prodcutores-pin-carga,"+productoresPinesCargaFab1.getText()+"\n" +
+        "productores-camara,"+productoresCamaraFab1.getText()+"\n" +
+        "ensambladores,"+ensambladoresFab1.getText()+"\n";
+        arch.escribirCvsPorDefectoFab1(cadena1);
+        
+        //Fab 2
         String cadena = "Dato,Valor\n" +
         "Durancion-Dia(mili-segundos),"+duracionDia.getText()+"\n" +
         "Dias-entre-despachos,"+diasDespachados.getText()+"\n" +
-        "almacen-pantalla,"+almacenPantallas.getText()+",999\n" +
-        "almacen-botones,"+almacenBotones.getText()+",999\n" +
-        "almacen-pin-carga,"+almacenPinCarga.getText()+",999\n" +
-        "almacen-camara,"+almacenCamaras.getText()+",999\n" +
-        "productores-pantalla,"+productoresPantalla.getText()+"\n" +
-        "productores-botones,"+productoresBotones.getText()+"\n" +
-        "prodcutores-pin-carga,"+productoresPinesCarga.getText()+"\n" +
-        "productores-camara,"+productoresCamara.getText()+"\n" +
-        "ensambladores,"+ensambladores.getText()+"\n";
+        "almacen-pantalla,"+almacenPantallasFab2.getText()+",999\n" +
+        "almacen-botones,"+almacenBotonesFab2.getText()+",999\n" +
+        "almacen-pin-carga,"+almacenPinCargaFab2.getText()+",999\n" +
+        "almacen-camara,"+almacenCamarasFab2.getText()+",999\n" +
+        "productores-pantalla,"+productoresPantallaFab2.getText()+"\n" +
+        "productores-botones,"+productoresBotonesFab2.getText()+"\n" +
+        "prodcutores-pin-carga,"+productoresPinesCargaFab2.getText()+"\n" +
+        "productores-camara,"+productoresCamaraFab2.getText()+"\n" +
+        "ensambladores,"+ensambladoresFab2.getText()+"\n";
         arch.escribirCvsPorDefecto(cadena);
+        
+        
         this.dispose();
         VentanaFabrica fabrica = new VentanaFabrica();
         fabrica.setVisible(true);
@@ -358,21 +477,30 @@ public class VentanaParametros extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Parametros;
-    private javax.swing.JTextField almacenBotones;
-    private javax.swing.JTextField almacenCamaras;
-    private javax.swing.JTextField almacenPantallas;
-    private javax.swing.JTextField almacenPinCarga;
+    private javax.swing.JTextField almacenBotonesFab1;
+    private javax.swing.JTextField almacenBotonesFab2;
+    private javax.swing.JTextField almacenCamarasFab1;
+    private javax.swing.JTextField almacenCamarasFab2;
+    private javax.swing.JTextField almacenPantallasFab1;
+    private javax.swing.JTextField almacenPantallasFab2;
+    private javax.swing.JTextField almacenPinCargaFab1;
+    private javax.swing.JTextField almacenPinCargaFab2;
     private javax.swing.JToggleButton cambiarParam;
     private javax.swing.JButton dashboardButton;
     private javax.swing.JTextField diasDespachados;
     private javax.swing.JTextField duracionDia;
-    private javax.swing.JTextField ensambladores;
+    private javax.swing.JTextField ensambladoresFab1;
+    private javax.swing.JTextField ensambladoresFab2;
     private javax.swing.JButton irSimulacionButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -385,9 +513,13 @@ public class VentanaParametros extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField productoresBotones;
-    private javax.swing.JTextField productoresCamara;
-    private javax.swing.JTextField productoresPantalla;
-    private javax.swing.JTextField productoresPinesCarga;
+    private javax.swing.JTextField productoresBotonesFab1;
+    private javax.swing.JTextField productoresBotonesFab2;
+    private javax.swing.JTextField productoresCamaraFab1;
+    private javax.swing.JTextField productoresCamaraFab2;
+    private javax.swing.JTextField productoresPantallaFab1;
+    private javax.swing.JTextField productoresPantallaFab2;
+    private javax.swing.JTextField productoresPinesCargaFab1;
+    private javax.swing.JTextField productoresPinesCargaFab2;
     // End of variables declaration//GEN-END:variables
 }
