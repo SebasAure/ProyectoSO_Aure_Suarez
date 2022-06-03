@@ -17,8 +17,8 @@ public class VentanaParametros extends javax.swing.JFrame {
     public VentanaParametros() {
         initComponents();
         this.setLocationRelativeTo(null);
-        arch.leerPorDefectoParametros(duracionDia,diasDespachados,almacenPantallasFab2,almacenBotonesFab2,almacenPinCargaFab2,almacenCamarasFab2,productoresPantallaFab2,productoresBotonesFab2,productoresPinesCargaFab2,productoresCamaraFab2,ensambladoresFab2);
-
+        arch.leerPorDefectoParametrosFab2(duracionDia,diasDespachados,almacenPantallasFab2,almacenBotonesFab2,almacenPinCargaFab2,almacenCamarasFab2,productoresPantallaFab2,productoresBotonesFab2,productoresPinesCargaFab2,productoresCamaraFab2,ensambladoresFab2);
+        arch.leerPorDefectoParametrosFab1(duracionDia,diasDespachados,almacenPantallasFab1,almacenBotonesFab1,almacenPinCargaFab1,almacenCamarasFab1,productoresPantallaFab1,productoresBotonesFab1,productoresPinesCargaFab1,productoresCamaraFab1,ensambladoresFab1);
     }
 
     /**
