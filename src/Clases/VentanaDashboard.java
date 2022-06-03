@@ -10,8 +10,11 @@ package Clases;
  * @author sebas
  */
 public class VentanaDashboard extends javax.swing.JFrame {
+    String[] datos;
     
     public VentanaDashboard() {
+        archivoCsv archivodash= new archivoCsv();
+        datos=archivodash.leerCsvHistorico();
         initComponents();
         this.setLocationRelativeTo(null);
     }

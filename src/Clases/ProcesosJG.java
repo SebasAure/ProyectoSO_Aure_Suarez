@@ -44,6 +44,10 @@ public class ProcesosJG extends Thread{
     JLabel ganacias;
     JLabel neto;
     JButton boton;
+    JButton boton2;
+    JButton boton3;
+    JButton boton4;
+    JButton boton5;
     
     public ProcesosJG(int tipo,long dia,Semaphore mod,JLabel countdown,JLabel accion){
         this.stop=true;
@@ -76,7 +80,7 @@ public class ProcesosJG extends Thread{
         this.countdown=count;
         this.dia=dia;
     }
-    public ProcesosJG(int tipo,JLabel gastoP,JLabel gastoB,JLabel gastoPC,JLabel gastoC,JLabel sueldoJ,JLabel sueldoG,JLabel tlf,JLabel gastos,JLabel ganacias,JLabel neto,JLabel countdown,JLabel sueldoe,JButton boton){
+    public ProcesosJG(int tipo,JLabel gastoP,JLabel gastoB,JLabel gastoPC,JLabel gastoC,JLabel sueldoJ,JLabel sueldoG,JLabel tlf,JLabel gastos,JLabel ganacias,JLabel neto,JLabel countdown,JLabel sueldoe,JButton boton,JButton boton2,JButton boton3,JButton boton4,JButton boton5){
       this.stop=true;
        this.tipo=tipo;
       this.sueldop = gastoP;
@@ -93,6 +97,10 @@ public class ProcesosJG extends Thread{
       this.actual = Integer.parseInt(countdown.getText())+1;
       this.sueldoe = sueldoe;
       this.boton=boton;
+      this.boton2=boton2;
+      this.boton3=boton3;
+      this.boton4=boton4;
+      this.boton5=boton5;
     }
     public void StopToggle(){
         this.stop=!this.stop;
@@ -187,20 +195,24 @@ public class ProcesosJG extends Thread{
             if (tipo==4) {
             while (this.stop) {  
                 if (Integer.parseInt(countdown.getText())==0) {
-//                    try {
-//                        sleep(dia*3);
+                    try {
+                        sleep(dia*2);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(ProcesosJG.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                         gastos.setText(Integer.toString(Integer.parseInt(sueldop.getText())+Integer.parseInt(sueldob.getText())+Integer.parseInt(sueldopc.getText())+Integer.parseInt(sueldoc.getText())+Integer.parseInt(sueldoe.getText())+Integer.parseInt($jefe.getText())+Integer.parseInt(sueldog.getText())));
                         ganacias.setText(Integer.toString(Integer.parseInt(tlfs.getText())*900));
-                        neto.setText(Integer.toString(Integer.parseInt(ganacias.getText())-Integer.parseInt(gastos.getText())));
+                        neto.setText(Integer.toString(Integer.parseInt(ganacias.getText())+Integer.parseInt(gastos.getText())));
                         boton.setEnabled(true);
-//                        this.StopToggle();
-//                    } catch (InterruptedException ex) {
-//                        Logger.getLogger(ProcesosJG.class.getName()).log(Level.SEVERE, null, ex);
-//                    }
+                        boton2.setEnabled(true);
+                        boton3.setEnabled(true);
+                        boton4.setEnabled(true);
+                        boton5.setEnabled(true);
+
                     }
                     gastos.setText(Integer.toString(Integer.parseInt(sueldop.getText())+Integer.parseInt(sueldob.getText())+Integer.parseInt(sueldopc.getText())+Integer.parseInt(sueldoc.getText())+Integer.parseInt(sueldoe.getText())+Integer.parseInt($jefe.getText())+Integer.parseInt(sueldog.getText())));
                     ganacias.setText(Integer.toString(Integer.parseInt(tlfs.getText())*900));
-                    neto.setText(Integer.toString(Integer.parseInt(ganacias.getText())-Integer.parseInt(gastos.getText())));
+                    neto.setText(Integer.toString(Integer.parseInt(ganacias.getText())+Integer.parseInt(gastos.getText())));
                 
                 
 

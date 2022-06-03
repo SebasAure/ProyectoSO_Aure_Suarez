@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.FilterWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.concurrent.Semaphore;
@@ -24,21 +25,24 @@ import javax.swing.JTextField;
  */
 public class archivoCsv {
     
-    public void escribirCsvHistorico(String [] despachos, String dias, String cantTlfFab1,String cantTlfFab2, String salariosFab1, String salariosFab2, String gastosFab1, String gastosFab2){
+    public void escribirCsvHistorico(String dias, String cantTlfFab1,String cantTlfFab2, String salariosFab1, String salariosFab2, String gastosFab1, String gastosFab2){
         String historicoDespachos = "";
-        if (despachos.length != 0){
-            for (int i = 0; i < despachos.length; i++) {
-                historicoDespachos += despachos[0] + ","
-                                    + despachos[1] + "," + despachos[2] + ","
-                                    + despachos[3] + "," + despachos[4] + ","
-                                    + despachos[5] + "," + despachos[6] + ",";
-            }
-        }
+        String line;
         try {
-            PrintWriter pw = new PrintWriter("test\\historicoDespachos.csv");
-            pw.print(historicoDespachos);
-            pw.append(dias + "," + cantTlfFab1 + "," + cantTlfFab2 + "," + salariosFab1 + "," + salariosFab2 + "," + gastosFab1 + "," + gastosFab2);
-            pw.append("\n");
+            FileReader pw1=new FileReader("test\\historicoDespachos.csv");
+            BufferedReader br = new BufferedReader(pw1);
+                while ((line = br.readLine()) != null){
+                    if (!line.isEmpty()){
+                        historicoDespachos += line + "\n";
+                    }
+                }
+
+        
+            FileWriter pw = new FileWriter("test\\historicoDespachos.csv");
+            pw.append(historicoDespachos+dias + ","
+                        + cantTlfFab1 + "," + cantTlfFab2 + ","
+                        + salariosFab1 + "," + salariosFab2 + ","
+                        + gastosFab1 + "," + gastosFab2+"\n" );
             pw.close();
         } catch (Exception e) {
         }
